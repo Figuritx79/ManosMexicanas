@@ -12,20 +12,51 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">\
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Login </title>
     <script src="../static/js/tailwind.min.js"></script>
     <script src="../static/js/tailwind.config.js"></script>
 </head>
 <body>
-<div class="grid grid">
-    <div>
-        <img src="" alt="">
-    </div>
-    <div>
-        <form action="" method="post">
+<main class="lg:grid lg:grid-cols-2 lg:h-full">
+    <section class="lg:flex lg:justify-center lg:items-center mt-52">
+        <div class=" lg:flex-col lg:justify-start ml-10 lg:w-72 lg:h-72">
+            <img src="../static/img/Jira.png" alt="Logo" class="lg:w-72 lg:w-72  lg:border-2 lg:border-primary lg:rounded-full lg:border-dashed">
+        </div>
+    </section>
 
-        </form>
-    </div>
-</div>
+    <section class="lg:flex lg:justify-center lg:items-center">
+        <div>
+            <img src="../static/img/admin.svg" alt="admin">
+        </div>
+        <div>
+            <form action="" method="post">
+                <div>
+                    <h1 class="lg:text-3xl">Admin Login</h1>
+                    <div>
+                        <p>Ingresa tus crendenciales para acceder al panel del admin</p>
+                    </div>
+                </div>
+                <div>
+                    <label for="email">
+                        <input type="email" name="email" id="email">
+                    </label>
+                </div>
+                <div>
+                    <label for="password">
+                        <input type="password" name="pass" id="password">
+                    </label>
+                </div>
+                <div>
+                    <div>
+                        <button></button>
+                    </div>
+                    <div>
+                        <button></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
 </body>

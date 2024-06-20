@@ -28,8 +28,8 @@
                 Descubre nuestra colección de peluches de crochet únicos y encantadores, creados con amor por artesanos mexicanos.
             </p>
             <div class="flex pt-4 gap-x-12 mt-4 items-center justify-center lg:grid grid-cols-2 lg:text-center">
-                <a href="" class="border-0 bg-primary px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 ">Ver Catalogo</a>
-                <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400">Conoce mas</a>
+                <a href="./goo.jsp" class="border-0 bg-primary px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link">Ver Catalogo</a>
+                <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link">Conoce mas</a>
             </div>
         </div>
     </section>
