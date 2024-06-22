@@ -5,15 +5,15 @@ public class Usuario {
     private String correo;
     private String password;
     private String apellido;
-    private String role;
+    private Role role;
     private int telefono ;
-    private Direccion direccion;
+    private Domicilio direccion;
     private boolean status;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String correo, String password, String apellido, int telefono, Direccion direccion) {
+    public Usuario(String nombre, String correo, String password, String apellido, int telefono, Domicilio direccion) {
         this.nombre = nombre;
         this.correo = correo;
         this.password = password;
@@ -54,11 +54,11 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -70,11 +70,11 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    public Direccion getDireccion() {
+    public Domicilio getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(Direccion direccion) {
+    public void setDireccion(Domicilio direccion) {
         this.direccion = direccion;
     }
 
