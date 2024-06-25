@@ -1,4 +1,5 @@
 package mx.edu.utez.manosmexicanas.utils;
+import com.mysql.cj.jdbc.Driver;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -13,12 +14,16 @@ public class DbConnectionManager {
     private  static final HikariConfig config = new HikariConfig();
     private static final HikariDataSource source;
 
+    private DbConnectionManager() {
+    }
 
     static {
-        try(Connection conn = DriverManager.getConnection(url,user,password)){
-        } catch (SQLException e) {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
         config.setJdbcUrl(url);
         config.setUsername(user);
         config.setPassword(password);

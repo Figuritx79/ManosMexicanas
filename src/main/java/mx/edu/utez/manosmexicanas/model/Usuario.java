@@ -6,20 +6,22 @@ public class Usuario {
     private String password;
     private String apellido;
     private Role role;
-    private int telefono ;
+    private String telefono;
     private Domicilio direccion;
     private boolean status;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String correo, String password, String apellido, int telefono, Domicilio direccion) {
+    public Usuario(String nombre, String correo, String password, Role role, String apellido, String telefono, Domicilio direccion, boolean status) {
         this.nombre = nombre;
         this.correo = correo;
         this.password = password;
+        this.role = role;
         this.apellido = apellido;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.status = status;
     }
 
     public String getNombre() {
@@ -38,20 +40,20 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getApellido() {
         return apellido;
     }
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Role getRole() {
@@ -62,20 +64,20 @@ public class Usuario {
         this.role = role;
     }
 
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
     public Domicilio getDireccion() {
         return direccion;
     }
 
     public void setDireccion(Domicilio direccion) {
         this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public boolean isStatus() {
