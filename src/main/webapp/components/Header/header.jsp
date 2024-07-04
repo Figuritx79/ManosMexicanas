@@ -10,7 +10,7 @@
 <header class="flex bg-bg400 shadow-md lg:bg-bg100 lg:justify-center lg:items-center md:shadow-md lg:shadow-md">
 
     <div class=" flex justify-start basis-1/2  lg:basis-1/2">
-        <img src="static/img/Logo.svg" alt="logo Marca" class="h-16 w-16">
+        <img src="static/img/Logo.svg"  alt="logo Marca" class="h-16 w-16">
     </div>
 
      <div class="hidden md:basis-1/2 md:gap-x-6 lg:basis-1/2 lg:gap-x-6 md:flex lg:flex md:hidden">
@@ -46,7 +46,11 @@
             </svg>
         </a>
         <button class="lg:hidden">
-                <img src="static/img/align-right.svg" alt="">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 6H3" stroke="#30A380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12H9" stroke="#30A380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 18H7" stroke="#30A380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
         </button>
     </nav>
 </header>
