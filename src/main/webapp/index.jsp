@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./components/Header/header.css">
     <script
             src="./static/js/tailwind.min.js">
     </script>
@@ -13,10 +12,11 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
     <title>Mano Mexicanas</title>
+    <script src="./Header/header.js" defer></script>
 </head>
 <body class="bg-bg400  md:bg-bg400  lg:bg-b100 xl:bg-bg100 ">
 
-<%@include file="./components/Header/header.jsp"%>
+<%@include file="./Header/header.jsp"%>
 <main >
     <section class="flex flex-col p-4 bg-bg100 lg:flex lg:flex-row lg:items-center lg:justify-between lg:bg-bg400">
         <figure class="flex flex-col items-center lg:items-start lg:w-1/2 ml-10">
@@ -88,18 +88,26 @@
         </section>
 
         <section>
-            <div>
-                <h2>¿Qué opinan nuestros clientes?</h2>
-                <div>
-                    <p>
-                        Escucha a nuestro clientes satisfechos sobre sus experiencias
-                        con nuestros muñecos de crochet
+            <div class="flex justify-center items-center flex-col">
+                <h2 class="lg:text-3xl">¿Qué opinan nuestros clientes?</h2>
+                <div class="mt-6">
+
+                    <p class=" lg:tex-sm lg:leading-relaxed">
+                        Escucha a nuestros clientes satisfechos sobre sus experiencias con nuestros muñecos de
+                    </p>
+                    <p class="lg:text-sm leading-relaxed lg:text-center">
+                        crochet hechos a mano.
                     </p>
                 </div>
             </div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="flex lg:flex-row flex-col lg:gap-x-4 justify-center items-center mt-4">
+                <div class="border-secondary ">
+a
+                </div>
+                <div class="bg-primary">i</div>
+                <div class="bg-secondary">a
+                </div>
+            </div>
         </section>
 </main>
 </body>

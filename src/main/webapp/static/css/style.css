@@ -118,3 +118,19 @@
 .link{
     view-transition-name:link;
 }
+.nav__link{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 80px;
+    right: 0;
+    background: var(--bg-400);
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    clip-path: circle(0% at top left);
+    transition: clip-path .4s;
+}
+.nav__link:target{
+    clip-path: circle(150% at top left);
+}
