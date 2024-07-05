@@ -27,8 +27,8 @@ public class DbConnectionManager {
         config.setJdbcUrl(url);
         config.setUsername(user);
         config.setPassword(password);
-        config.setMinimumIdle(5);
-        config.setMaximumPoolSize(10);
+        config.setMinimumIdle(100);
+        config.setMaximumPoolSize(1000);
         config.setConnectionTimeout(3000);
 
         source = new HikariDataSource(config);
