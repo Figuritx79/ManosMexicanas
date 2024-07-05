@@ -14,6 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="./static/css/loginAdmin.css">
+    <script src="./static/js/adminForm.js" ></script>
+    <link rel="stylesheet" href="./static/css/toastify.min.css">
+    <script src="./static/js/toastify.min.js"></script>
 </head>
 <body>
 <main class="main-container">
@@ -21,17 +24,17 @@
         <img src="./static/img/LogoWithBorder.svg" alt="Logo">
     </section>
 
-    <section class="login-container">
+    <section class="login-container form">
         <h1>Admin Login</h1>
         <p>Ingresa tus credenciales para acceder al panel del admin</p>
-        <form>
+        <form action="login" method="post" id="loginAdmin">
             <div class="input-group">
-                <input type="email" id="email" placeholder="Correo">
+                <input type="email" id="email" placeholder="Correo" name="correo">
             </div>
             <div class="input-group">
-                <input type="password" id="password" placeholder="Contraseña">
+                <input type="password" id="password" placeholder="Contraseña" name="pass">
             </div>
-            <button type="submit">Iniciar Sesión</button>
+            <button type="submit" id="btn">Iniciar Sesión</button>
         </form>
     </section>
 </main>

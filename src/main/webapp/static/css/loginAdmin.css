@@ -90,7 +90,15 @@ body {
 .login-container button:hover {
     background-color: #50B794;
 }
-
+.form{
+    border-radius: 8px;
+    border: none;
+    background: #F8F7F3;
+    -webkit-box-shadow: 8px 8px 13px 0px rgba(48, 163, 128, 1);
+    -moz-box-shadow: 8px 8px 13px 0px rgba(48, 163, 128, 1);
+    box-shadow: 8px 8px 13px 0px rgba(48, 163, 128, 1);
+    padding: 15px;
+}
 @media (max-width: 768px) {
     .main-container {
         padding: 10px;
