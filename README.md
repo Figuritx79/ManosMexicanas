@@ -47,8 +47,8 @@ Este proyecto es ecommerce de peluches de crochet para nuestra integradora. Nues
 
 - static: Dentro de esta carpeta van los recursos estaticos como css,js,img,fonts,etc. **Consultar cualquier duda**
 
-  > [!NOTE]
-  > La carpeta HEADER HACE REFERENCIA A UN COMPONENTE REUTILIZBLE, FAVOR DE HACER LO MISMO SI HACEN OTROS COMPONENTES
+> [!NOTE]
+> La carpeta HEADER HACE REFERENCIA A UN COMPONENTE REUTILIZBLE, FAVOR DE HACER LO MISMO SI HACEN OTROS COMPONENTES
 
-  > [!NOTE]
-  > La carpeta DASHBOARD es para el panel administrador, asi dividimos las vistas
+> [!NOTE]
+> La carpeta DASHBOARD es para el panel administrador, asi dividimos las vistas
