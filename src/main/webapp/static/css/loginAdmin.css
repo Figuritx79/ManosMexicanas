@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -16,7 +16,6 @@ body {
     font-family: 'Inter', Arial, sans-serif;
     background-color: #F8F7F3;
 }
-
 
 .main-container {
     display: flex;
@@ -43,9 +42,8 @@ body {
     flex: 1;
     max-width: 400px;
     text-align: center;
-
+    margin-left: 20px; /* Añadido espacio entre imagen y formulario */
 }
-
 
 .login-container h1 {
     font-size: 24px;
@@ -59,8 +57,35 @@ body {
     margin-bottom: 20px;
 }
 
+.divSpecific {
+    border: 1px solid #30A380;
+    border-radius: 8px;
+    width: 100%;
+    height: 50px;
+    padding: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+label {
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    outline: none;
+
+}
+
+input {
+    border: none;
+    background-color: #F8F7F3;
+    width: 100%;
+}
+
 .input-group {
     margin-bottom: 20px;
+    outline: none;
 }
 
 .login-container button {
@@ -72,21 +97,7 @@ body {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color ease-in-out 1s;
-}
-
-
-.icon{
-    width: min-content;
-    display: flex;
     flex-direction: column;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -103,34 +114,13 @@ body {
     .login-container {
         flex: 1 100%;
         max-width: 100%;
+        margin-left: 0;
     }
-}
 
-.divSpecific{
-    border: 1px solid #0f9;
-    border-radius: 8px;
-    width: 200px;
-    padding: 2px;
-    transition: all 1s ease-in-out;
-    margin-bottom: 20px;
-}
-divSpecific:hover{
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-
-}
-label{
-    display: flex;
-    flex-direction: column;
-
-}
-
-input{
-    border: none;
-    background-color: #F8F7F3;
-}
-
-input:focus{
-    outline: none;
+    .divSpecific,
+    label,
+    input,
+    .login-container button {
+        width: 100%;
+    }
 }

@@ -7,13 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="./static/css/loginAdmin.css">
-    <script src="./static/js/adminForm.js" ></script>
+    <script src="./static/js/adminForm.js"></script>
     <link rel="stylesheet" href="./static/css/toastify.min.css">
     <script src="./static/js/toastify.min.js"></script>
 </head>
@@ -33,16 +33,18 @@
             <div class="divSpecific">
                 <label for="email">
                     Correo:
-                <input type="email" id="email" name="correo" class="input-group">
+                    <input type="email" id="email" name="correo" class="input-group">
                 </label>
             </div>
             <div class="divSpecific">
                 <label for="password">
                     Contraseña:
-                <input type="password" id="password" name="pass" class="input-group">
+                    <input type="password" id="password" name="pass" class="input-group">
                 </label>
             </div>
-            <button type="submit" id="btn">Iniciar Sesión</button>
+            <div>
+                <button type="submit" id="btn" class="login-container button ">Iniciar Sesión</button>
+            </div>
         </form>
     </section>
 </main>
