@@ -2,15 +2,21 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Inter Semi Bold';
+    src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     background-color: #F8F7F3;
 }
+
 
 .main-container {
     display: flex;
@@ -37,7 +43,9 @@ body {
     flex: 1;
     max-width: 400px;
     text-align: center;
+
 }
+
 
 .login-container h1 {
     font-size: 24px;
@@ -55,26 +63,6 @@ body {
     margin-bottom: 20px;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #30A380;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 16px;
-    background-color: #F8F7F3;
-    box-shadow: 0 4px 4px rgba(180, 115, 65);
-}
-
-/* Asegurar que los inputs no se vuelvan azules en foco o hover */
-.input-group input:focus,
-.input-group input:hover {
-    border-color: #30A380;
-    background-color: #F8F7F3;
-    outline: none;
-
-}
-
 .login-container button {
     width: 100%;
     padding: 10px;
@@ -87,18 +75,20 @@ body {
     transition: background-color ease-in-out 1s;
 }
 
-.login-container button:hover {
-    background-color: #50B794;
+
+.icon{
+    width: min-content;
+    display: flex;
+    flex-direction: column;
 }
+
 .form{
-    border-radius: 8px;
-    border: none;
-    background: #F8F7F3;
-    -webkit-box-shadow: 8px 8px 13px 0px rgba(48, 163, 128, 1);
-    -moz-box-shadow: 8px 8px 13px 0px rgba(48, 163, 128, 1);
-    box-shadow: 8px 8px 13px 0px rgba(48, 163, 128, 1);
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 @media (max-width: 768px) {
     .main-container {
         padding: 10px;
@@ -114,4 +104,33 @@ body {
         flex: 1 100%;
         max-width: 100%;
     }
+}
+
+.divSpecific{
+    border: 1px solid #0f9;
+    border-radius: 8px;
+    width: 200px;
+    padding: 2px;
+    transition: all 1s ease-in-out;
+    margin-bottom: 20px;
+}
+divSpecific:hover{
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+}
+label{
+    display: flex;
+    flex-direction: column;
+
+}
+
+input{
+    border: none;
+    background-color: #F8F7F3;
+}
+
+input:focus{
+    outline: none;
 }

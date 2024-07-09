@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!doctype html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +24,23 @@
     </section>
 
     <section class="login-container form">
+        <div>
+            <img src="./static/img/admin.svg" alt="icon">
+        </div>
         <h1>Admin Login</h1>
         <p>Ingresa tus credenciales para acceder al panel del admin</p>
         <form action="login" method="post" id="loginAdmin">
-            <div class="input-group">
-                <input type="email" id="email" placeholder="Correo" name="correo">
+            <div class="divSpecific">
+                <label for="email">
+                    Correo:
+                <input type="email" id="email" name="correo" class="input-group">
+                </label>
             </div>
-            <div class="input-group">
-                <input type="password" id="password" placeholder="Contraseña" name="pass">
+            <div class="divSpecific">
+                <label for="password">
+                    Contraseña:
+                <input type="password" id="password" name="pass" class="input-group">
+                </label>
             </div>
             <button type="submit" id="btn">Iniciar Sesión</button>
         </form>
@@ -40,4 +48,3 @@
 </main>
 </body>
 </html>
-p
