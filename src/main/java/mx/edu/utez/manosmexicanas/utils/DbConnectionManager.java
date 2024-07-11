@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class DbConnectionManager {
     private static final String  url = "jdbc:mysql://localhost:3306/ManosMexicanas";
     private static final String user = "root";
-    private static final String password = "";
+    private static final String password = "eve123";
     private  static final HikariConfig config = new HikariConfig();
     private static final HikariDataSource source;
 
