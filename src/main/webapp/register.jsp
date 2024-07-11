@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!doctype html>
 <html>
 <head>
     <title>Registro</title>
@@ -18,12 +19,15 @@
   </script>
   <script src="./static/js/tailwind.config.js"></script>
   <link rel="stylesheet" href="./static/css/style.css">
+  <script src="./static/js/registerValidate.js" defer></script>
+  <script src="./static/js/toastify.min.js" defer></script>
+  <link rel="stylesheet" href="./static/css/toastify.min.css">
   <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
 
 </head>
 <body>
 <div>
-  <form action="registro" method="post">
+  <form action="registro" method="post" id="registerForm">
     <div>
       <label for="nombre">
         Nombre:

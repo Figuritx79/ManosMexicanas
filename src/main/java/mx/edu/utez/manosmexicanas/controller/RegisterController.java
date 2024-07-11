@@ -12,19 +12,23 @@ import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
+
 
 @WebServlet(name = "RegisterController",value = "/registro")
 public class RegisterController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String nombre = req.getParameter("nombre");
+        String apellido = req.getParameter("correo");
+        String telefono = req.getParameter("tel");
+        String password = req.getParameter("pass");
+
         Usuario user = new Usuario();
-        user.setNombre(req.getParameter("nombre"));
-        user.setApellido(req.getParameter("apellido"));
-        user.setCorreo(req.getParameter("correo"));
-        user.setTelefono(req.getParameter("tel"));
-        user.setPassword(req.getParameter("pass"));
+        user.setNombre(nombre);
+        user.setApellido(apellido);
+        user.setTelefono(telefono);
+        user.setPassword(password);
         try(Connection conn = DbConnectionManager.getConnection()){
             UserDao userDao = new UserDao();
             Boolean  result =  userDao.insert(user);
