@@ -74,6 +74,10 @@ body {
     position: relative; /* Necesario para posicionar el icono */
     margin-left: auto; /* Centrar horizontalmente */
     margin-right: auto; /* Centrar horizontalmente */
+    box-shadow: 0px 4px 6px rgba(180, 115, 65, 0.3);
+}
+.divSpecific:hover{
+    box-shadow: 0px 4px 6px rgba(180, 115, 65, 0.3);
 }
 
 label {
@@ -90,6 +94,8 @@ input {
     background-color: #F8F7F3;
     width: 100%;
 }
+
+
 
 .input-group {
     margin-bottom: 20px;

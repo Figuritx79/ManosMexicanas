@@ -9,6 +9,7 @@ tailwind.config = {
                     primary:'#30A380',
                     secondary:'#B47341',
                     extra:'#61371A',
+                    text100:'#000000',
                     text200:'#5C5C5C'
             }
         }
