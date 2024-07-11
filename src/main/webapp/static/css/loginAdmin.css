@@ -1,3 +1,4 @@
+/* loginAdmin.css */
 * {
     box-sizing: border-box;
 }
@@ -57,14 +58,26 @@ body {
     margin-bottom: 20px;
 }
 
+.styleFont{
+    font-size: 14px;
+    color: #30A380;
+}
+
 .divSpecific {
     border: 1px solid #30A380;
     border-radius: 8px;
-    width: 100%;
+    width: calc(100% - 12px); /* Ajustar el ancho para coincidir con el input */
     height: 50px;
     padding: 6px;
     margin-bottom: 20px;
     font-size: 14px;
+    position: relative; /* Necesario para posicionar el icono */
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto; /* Centrar horizontalmente */
+    box-shadow: 0px 4px 6px rgba(180, 115, 65, 0.3);
+}
+.divSpecific:hover{
+    box-shadow: 0px 4px 6px rgba(180, 115, 65, 0.3);
 }
 
 label {
@@ -74,7 +87,6 @@ label {
     width: 100%;
     text-align: left;
     outline: none;
-
 }
 
 input {
@@ -83,13 +95,28 @@ input {
     width: 100%;
 }
 
+
+
 .input-group {
     margin-bottom: 20px;
     outline: none;
 }
 
+.check-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #30A380;
+    width: 24px;
+    height: 24px;
+    display: none; /* Cambiado a display: none por defecto */
+    background-image: url("../img/check-circle.svg");
+    background-size: cover;
+}
+
 .login-container button {
-    width: 100%;
+    width: calc(100% - 12px); /* Ajustar el ancho para coincidir con los inputs */
     padding: 10px;
     background-color: #30A380;
     border: none;
@@ -97,7 +124,9 @@ input {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    flex-direction: column;
+    margin-top: 20px;
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto; /* Centrar horizontalmente */
 }
 
 @media (max-width: 768px) {

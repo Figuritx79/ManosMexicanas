@@ -13,14 +13,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="./static/css/loginAdmin.css">
-    <script src="./static/js/adminForm.js"></script>
+    <script src="./static/js/adminForm.js" defer></script>
     <link rel="stylesheet" href="./static/css/toastify.min.css">
-    <script src="./static/js/toastify.min.js"></script>
+    <script src="./static/js/toastify.min.js" defer></script>
 </head>
 <body>
 <main class="main-container">
     <section class="image-container">
-        <img src="./static/img/LogoWithBorder.svg" alt="Logo">
+        <img src="./static/img/LogoWithBorder.svg" alt="Logo" class="">
     </section>
 
     <section class="login-container form">
@@ -31,20 +31,19 @@
         <p>Ingresa tus credenciales para acceder al panel del admin</p>
         <form action="login" method="post" id="loginAdmin">
             <div class="divSpecific">
-                <label for="email">
+                <label for="email" class="styleFont">
                     Correo:
-                    <input type="email" id="email" name="correo" class="input-group">
+                    <input type="email" id="email" name="correo" class="input-group" oninput="checkEmail()">
+                    <span class="check-icon" id="check-icon"></span>
                 </label>
             </div>
             <div class="divSpecific">
-                <label for="password">
+                <label for="password" class="styleFont">
                     Contraseña:
                     <input type="password" id="password" name="pass" class="input-group">
                 </label>
             </div>
-            <div>
-                <button type="submit" id="btn" class="login-container button ">Iniciar Sesión</button>
-            </div>
+            <button type="submit" id="btn" class="login-container button">Iniciar Sesión</button>
         </form>
     </section>
 </main>

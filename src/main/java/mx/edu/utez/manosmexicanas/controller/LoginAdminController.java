@@ -26,7 +26,7 @@ public class LoginAdminController extends HttpServlet {
                 res.setStatus(200);
                 req.getSession().setAttribute("mensaje","Bienvenido de vuelta Erick");
                 res.sendRedirect("./dashboard/dashboard.jsp");
-
+               ;
             }
             if (!result){
                 res.setStatus(401);
