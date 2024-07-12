@@ -43,7 +43,7 @@ body {
     flex: 1;
     max-width: 400px;
     text-align: center;
-    margin-left: 20px; /* Añadido espacio entre imagen y formulario */
+    margin-left: 20px;
 }
 
 .login-container h1 {
@@ -66,14 +66,14 @@ body {
 .divSpecific {
     border: 1px solid #30A380;
     border-radius: 8px;
-    width: calc(100% - 12px); /* Ajustar el ancho para coincidir con el input */
+    width: calc(100% - 12px);
     height: 50px;
     padding: 6px;
     margin-bottom: 20px;
     font-size: 14px;
-    position: relative; /* Necesario para posicionar el icono */
-    margin-left: auto; /* Centrar horizontalmente */
-    margin-right: auto; /* Centrar horizontalmente */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0px 4px 6px rgba(180, 115, 65, 0.3);
 }
 .divSpecific:hover{
