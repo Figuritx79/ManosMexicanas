@@ -6,7 +6,7 @@ tailwind.config = {
                     bg200:'#DBBA91',
                     bg300:'#E5C69A',
                     bg400:'#F5EDDF',
-                    primary:'#30A380',
+                    primary100:'#30A380',
                     secondary:'#B47341',
                     extra:'#61371A',
                     text100:'#000000',
