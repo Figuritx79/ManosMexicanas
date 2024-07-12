@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const emailInput = document.getElementById("email");
+    const emailInput = document.getElementById("mail");
     const checkIcon = document.getElementById("check-icon");
 
     function checkEmail() {
