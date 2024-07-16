@@ -30,7 +30,7 @@
         </div>
         <h1>Admin Login</h1>
         <p>Ingresa tus credenciales para acceder al panel del admin</p>
-        <form action="login" method="post" id="login-form">
+        <form action="loginAdmin" method="post" id="login-form">
             <div class="divSpecific">
                 <label for="mail" class="styleFont">
                     Correo:

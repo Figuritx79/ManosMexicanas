@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="./static/css/daisy.min.css">
 </head>
-<body class="  bg-b100 bg-bg100 ">
+<body class="  bg-b100 bg-bg100 text-stone-950 ">
 
 <%@include file="./Header/header.jsp"%>
 
@@ -32,7 +32,7 @@
                 mexicanos.
             </p>
             <div class="flex pt-4 gap-x-12 mt-4 items-center justify-center lg:grid grid-cols-2 lg:text-center">
-                <a href="#" class="border-0 bg-primary px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline">Ver
+                <a href="#" class="border-0 bg-[#30A380] px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline">Ver
                     Catalogo</a>
                 <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline">Conoce mas</a>
             </div>
