@@ -44,8 +44,6 @@
         </div>
     </section>
 </main>
-<!-- aqui va el footer solo falta terminarlo-->
-<%@include file="./Footer/footer.jsp"%>
 </body>
 </html>
 
