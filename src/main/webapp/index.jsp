@@ -21,6 +21,7 @@
 <%@include file="./Header/header.jsp"%>
 
 <main >
+    <br>
     <section class="flex flex-col p-4 lg:flex lg:flex-row lg:items-center lg:justify-between bg-bg400">
         <figure class="flex flex-col items-center lg:items-start lg:w-1/2 ml-10">
             <img src="static/img/bienvenida.png" alt="Bienvenido" class="w-full lg:w-auto lg:h-auto">
@@ -32,9 +33,9 @@
                 mexicanos.
             </p>
             <div class="flex pt-4 gap-x-12 mt-4 items-center justify-center lg:grid grid-cols-2 lg:text-center">
-                <a href="#" class="border-0 bg-[#30A380] px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline">Ver
-                    Catalogo</a>
-                <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline">Conoce mas</a>
+                <a href="#" class="border-0 bg-primary px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline" id="btnCatalogo">Ver
+
+                <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline" id="">Conoce mas</a>
             </div>
         </div>
     </section>
@@ -50,7 +51,7 @@
         <div class="grid grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-none place-content-center mt-10 text-center place-items-center">
 
             <div class="lg:w-64 lg:h-64 md:w-44 md:h-44 w-36 h-36 lg:mt-2 shadow-md background categoria rounded-md  flex justify-center items-center">
-                <div class="text-base font-semibold text-center leading-loose px-2 bg-primary bg-opacity-50 rounded-md text-bg400 ">
+                <div id="divAnimados" class="text-base font-semibold text-center leading-loose px-2 bg-primary bg-opacity-50 rounded-md text-bg400 ">
                     Animados
                 </div>
             </div>
@@ -83,7 +84,7 @@
         </div>
         <div class="container mx-auto ">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 border-2 border-bg100 rounded-lg">
-                <div class="card bg-[#FFFFFF] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 1" class="w-full h-48 object-cover rounded-lg">
                     </figure>
@@ -94,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="card bg-[#FFFFFF] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 2" class="w-full h-48 object-cover rounded-lg">
                     </figure>
@@ -105,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="card bg-[#FFFFFF] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 3" class="w-full h-48 object-cover rounded-lg">
                     </figure>
@@ -115,7 +116,7 @@
                         <button id="plus-btn2" class="btn text-white btn-hover relative mt-4">+</button>
                     </div>
                 </div>
-                <div class="card bg-[#FFFFFF] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 4" class="w-full h-48 object-cover rounded-lg">
                     </figure>
