@@ -1,5 +1,6 @@
 package mx.edu.utez.manosmexicanas.dao;
 
+import mx.edu.utez.manosmexicanas.model.Role;
 import mx.edu.utez.manosmexicanas.model.Usuario;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
@@ -28,7 +29,9 @@ public class UserDao {
         return flag;
     }
 
-    public boolean loginAdmin(String correo, String password){
+    public Usuario loginAdmin(String correo, String password){
+        Usuario user = new Usuario();
+        Role roleUser = new Role();
         boolean flag = false;
         String query = "CALL loginAdmin(?, ?)";
         try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);){
@@ -36,14 +39,24 @@ public class UserDao {
             ps.setString(2,password);
            ResultSet rs  = ps.executeQuery();
             if(rs.next()){
-                flag = true;
-                rs.close();
+               var role = rs.getInt("role");
+               roleUser.setId(role);
+               var id = rs.getInt("id");
+               var nombre = rs.getString("nombre");
+               var apellido = rs.getString("apellido");
+               var mail = rs.getString("correo");
+               user.setNombre(nombre);
+               user.setId(id);
+               user.setApellido(apellido);
+               user.setCorreo(mail);
+               user.setRole(roleUser);
+               rs.close();
+               return user;
             }
         }catch (SQLException e){
             e.getMessage();
         }
 
-
-        return flag;
+        return null;
     }
 }

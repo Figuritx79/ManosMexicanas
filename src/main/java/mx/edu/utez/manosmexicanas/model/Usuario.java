@@ -1,6 +1,7 @@
 package mx.edu.utez.manosmexicanas.model;
 
 public class Usuario {
+    private int id;
     private String nombre;
     private String correo;
     private String password;
@@ -87,4 +88,12 @@ public class Usuario {
     public void setStatus(boolean status) {
         this.status = status;
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
