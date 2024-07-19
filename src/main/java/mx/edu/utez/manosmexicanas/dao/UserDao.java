@@ -4,10 +4,7 @@ import mx.edu.utez.manosmexicanas.model.Role;
 import mx.edu.utez.manosmexicanas.model.Usuario;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDao {
     public  boolean insert(Usuario user){
@@ -59,4 +56,29 @@ public class UserDao {
 
         return null;
     }
+
+    public Usuario login(String correo, String password){
+        Usuario user  = new Usuario();
+        String query = "CALL login(?, ?)";
+        Role role = new Role();
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps =  conn.prepareStatement(query); ){
+          ps.setString(1,correo);
+          ps.setString(2,password);
+          ResultSet rs = ps.executeQuery();
+          if(rs.next()){
+              user.setId(rs.getInt("id"));
+              user.setNombre(rs.getString("nombre"));
+              user.setApellido(rs.getString("apellido"));
+              user.setCorreo(rs.getString("correo"));
+              role.setId(rs.getInt("role"));
+              user.setRole(role);
+              return user;
+          }
+          rs.close();
+        }catch (SQLException e){
+            e.getErrorCode();
+        }
+        return null;
+    }
+
 }
