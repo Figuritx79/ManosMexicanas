@@ -13,14 +13,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="./static/css/loginAdmin.css">
-    <script src="./static/js/adminForm.js" defer></script>
+    <script src="static/js/check.js" defer></script>
     <link rel="stylesheet" href="./static/css/toastify.min.css">
     <script src="./static/js/toastify.min.js" defer></script>
+    <script src="./static/js/loginValidate.js" defer></script>
 </head>
 <body>
 <main class="main-container">
     <section class="image-container">
-        <img src="./static/img/LogoWithBorder.svg" alt="Logo" class="">
+        <img src="./static/img/LogoWithBorder.svg" alt="Logo" >
     </section>
 
     <section class="login-container form">
@@ -29,11 +30,11 @@
         </div>
         <h1>Admin Login</h1>
         <p>Ingresa tus credenciales para acceder al panel del admin</p>
-        <form action="login" method="post" id="loginAdmin">
+        <form action="loginAdmin" method="post" id="login-form">
             <div class="divSpecific">
-                <label for="email" class="styleFont">
+                <label for="mail" class="styleFont">
                     Correo:
-                    <input type="email" id="email" name="correo" class="input-group" oninput="checkEmail()">
+                    <input type="email" id="mail" name="correo" class="input-group" oninput="checkEmail()">
                     <span class="check-icon" id="check-icon"></span>
                 </label>
             </div>

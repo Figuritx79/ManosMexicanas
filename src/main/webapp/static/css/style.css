@@ -134,3 +134,124 @@
 .nav__link:target{
     clip-path: circle(150% at top left);
 }
+.footer {
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+.card{
+    color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+/* Estilos para el botón */
+#plus-btn {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+    width: 60px; /* Ajusta el tamaño según sea necesario */
+    height: 45px; /* Ajusta el tamaño según sea necesario */
+    border-radius: 8px; /* Hace que el botón sea redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Elimina cualquier borde por defecto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    margin-left: auto;
+}
+
+/* Estilos para el botón al pasar el ratón */
+#plus-btn:hover {
+    background-color: #279670; /* Un tono ligeramente más oscuro */
+}
+
+#plus-btn2 {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+    width: 60px; /* Ajusta el tamaño según sea necesario */
+    height: 45px; /* Ajusta el tamaño según sea necesario */
+    border-radius: 8px; /* Hace que el botón sea redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Elimina cualquier borde por defecto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    margin-left: auto;
+}
+
+/* Estilos para el botón al pasar el ratón */
+#plus-btn2:hover {
+    background-color: #279670; /* Un tono ligeramente más oscuro */
+}
+
+
+
+#plus-btn3 {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+    width: 60px; /* Ajusta el tamaño según sea necesario */
+    height: 45px; /* Ajusta el tamaño según sea necesario */
+    border-radius: 8px; /* Hace que el botón sea redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Elimina cualquier borde por defecto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    margin-left: auto;
+}
+
+/* Estilos para el botón al pasar el ratón */
+#plus-btn3:hover {
+    background-color: #279670; /* Un tono ligeramente más oscuro */
+}
+#plus-btn4 {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+    width: 60px; /* Ajusta el tamaño según sea necesario */
+    height: 45px; /* Ajusta el tamaño según sea necesario */
+    border-radius: 8px; /* Hace que el botón sea redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Elimina cualquier borde por defecto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    margin-left: auto;
+}
+
+/* Estilos para el botón al pasar el ratón */
+#plus-btn4:hover {
+    background-color: #279670; /* Un tono ligeramente más oscuro */
+}
+
+
+
+
+
+#btnCatalogo {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+
+}
+
+#btnConoce {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+
+}
+
+
+#divAnimados {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+
+}
+
+

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class DbConnectionManager {
     private static final String  url = "jdbc:mysql://localhost:3306/ManosMexicanas";
     private static final String user = "root";
-    private static final String password = "root";
+    private static final String password = "";
     private  static final HikariConfig config = new HikariConfig();
     private static final HikariDataSource source;
 
@@ -21,7 +21,7 @@ public class DbConnectionManager {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            e.getMessage();
         }
 
         config.setJdbcUrl(url);

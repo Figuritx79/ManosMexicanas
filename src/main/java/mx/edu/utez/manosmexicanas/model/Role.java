@@ -1,14 +1,17 @@
 package mx.edu.utez.manosmexicanas.model;
 
 public class Role {
+    private int id;
+
 
     private String nombre;
 
     public Role() {
     }
 
-    public Role(String nombre) {
+    public Role(String nombre, int id) {
         this.nombre = nombre;
+        this.id = id;
     }
 
     public String getNombre() {
@@ -18,4 +21,13 @@ public class Role {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

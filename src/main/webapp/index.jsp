@@ -11,15 +11,18 @@
     <script src="./static/js/tailwind.config.js"></script>
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
-    <title>Mano Mexicanas</title>
+    <title>Manos Mexicanas</title>
     <script src="./Header/header.js" defer></script>
+
     <link rel="stylesheet" href="./static/css/daisy.min.css">
 </head>
-<body class="bg-bg400  md:bg-bg400  lg:bg-b100 xl:bg-bg100 ">
+<body class="  bg-b100 bg-bg100 text-stone-950 ">
 
-<%@include file="./Header/header.jsp" %>
-<main>
-    <section class="flex flex-col p-4 bg-bg100 lg:flex lg:flex-row lg:items-center lg:justify-between lg:bg-bg400">
+<%@include file="./Header/header.jsp"%>
+
+<main >
+    <br>
+    <section class="flex flex-col p-4 lg:flex lg:flex-row lg:items-center lg:justify-between bg-bg400">
         <figure class="flex flex-col items-center lg:items-start lg:w-1/2 ml-10">
             <img src="static/img/bienvenida.png" alt="Bienvenido" class="w-full lg:w-auto lg:h-auto">
         </figure>
@@ -30,9 +33,9 @@
                 mexicanos.
             </p>
             <div class="flex pt-4 gap-x-12 mt-4 items-center justify-center lg:grid grid-cols-2 lg:text-center">
-                <a href="#" class="border-0 bg-primary px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link">Ver
-                    Catalogo</a>
-                <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link">Conoce mas</a>
+                <a href="#" class="border-0 bg-primary px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline" id="btnCatalogo">Ver
+
+                <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline" id="">Conoce mas</a>
             </div>
         </div>
     </section>
@@ -48,7 +51,7 @@
         <div class="grid grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-none place-content-center mt-10 text-center place-items-center">
 
             <div class="lg:w-64 lg:h-64 md:w-44 md:h-44 w-36 h-36 lg:mt-2 shadow-md background categoria rounded-md  flex justify-center items-center">
-                <div class="text-base font-semibold text-center leading-loose px-2 bg-primary bg-opacity-50 rounded-md text-bg400 ">
+                <div id="divAnimados" class="text-base font-semibold text-center leading-loose px-2 bg-primary bg-opacity-50 rounded-md text-bg400 ">
                     Animados
                 </div>
             </div>
@@ -81,46 +84,46 @@
         </div>
         <div class="container mx-auto ">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 border-2 border-bg100 rounded-lg">
-                <div class="card bg-[#DBBA91] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 1" class="w-full h-48 object-cover rounded-lg">
                     </figure>
                     <div class="card-body mt-4">
                         <h2 class="card-title text-[#000000]">Producto 1</h2>
                         <p class="text-[#333333]">$10.00</p>
-                        <button class="btn bg-[#B47341] text-white btn-hover relative mt-4">+</button>
+                        <button id="plus-btn4" class="btn text-white btn-hover relative mt-4">+</button>
                     </div>
                 </div>
 
-                <div class="card bg-[#DBBA91] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 2" class="w-full h-48 object-cover rounded-lg">
                     </figure>
                     <div class="card-body mt-4">
                         <h2 class="card-title text-[#000000]">Producto 2</h2>
                         <p class="text-[#333333]">$20.00</p>
-                        <button class="btn bg-[#B47341] text-white btn-hover relative mt-4">+</button>
+                        <button id="plus-btn3" class="btn text-white btn-hover relative mt-4">+</button>
                     </div>
                 </div>
 
-                <div class="card bg-[#DBBA91] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 3" class="w-full h-48 object-cover rounded-lg">
                     </figure>
                     <div class="card-body mt-4">
                         <h2 class="card-title text-[#000000]">Producto 3</h2>
                         <p class="text-[#333333]">$30.00</p>
-                        <button class="btn bg-[#B47341] text-white btn-hover relative mt-4">+</button>
+                        <button id="plus-btn2" class="btn text-white btn-hover relative mt-4">+</button>
                     </div>
                 </div>
-                <div class="card bg-[#DBBA91] rounded-lg p-4">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
                     <figure>
                         <img src="https://via.placeholder.com/150" alt="Producto 4" class="w-full h-48 object-cover rounded-lg">
                     </figure>
                     <div class="card-body mt-4">
                         <h2 class="card-title text-[#000000]">Producto 4</h2>
                         <p class="text-[#333333]">$40.00</p>
-                        <button class="btn bg-[#B47341] text-white btn-hover relative mt-4">+</button>
+                        <button id="plus-btn" class="btn text-white btn-hover relative mt-4">+</button>
                     </div>
                 </div>
 
@@ -153,84 +156,7 @@
         </div>
     </section>
 
-
-
-
-    <section class="mt-16">
-        <div class="flex flex-col lg:flex-row justify-center items-center mt-8 gap-4">
-            <!-- Comentario 1 -->
-            <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
-                <div class="flex items-center">
-                    <img src="https://myinstagirls.com/wp-content/gallery/abella-danger/51803969_1345038555637577_8879501457919695908_n.jpg" alt="Cliente 1" class="w-12 h-12 rounded-full">
-                    <div class="ml-4">
-                        <h3 class="text-lg font-semibold">Dewey Wilkerson</h3>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049.57c.3-.921 1.603-.921 1.902 0l1.263 3.925c.27.842 1.036 1.426 1.915 1.425h4.097c.977 0 1.381 1.249.588 1.81l-3.316 2.409c-.705.512-1.02 1.392-.803 2.204l1.263 3.924c.3.921-.755 1.688-1.538 1.125l-3.316-2.41c-.705-.513-1.685-.513-2.39 0l-3.316 2.41c-.783.563-1.838-.204-1.538-1.125l1.263-3.924c.217-.812-.098-1.692-.803-2.204L.833 7.729c-.793-.561-.389-1.81.588-1.81h4.097c.879.001 1.644-.584 1.915-1.425L9.049.57z"/></svg>
-                            <span class="ml-2 text-gray-700">4.8</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-4 text-gray-600">"¡Excelente servicio y productos de alta calidad! Estoy muy satisfecho con mi compra."</p>
-            </div>
-
-            <!-- Comentario 2 -->
-            <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
-                <div class="flex items-center">
-                    <img src="https://www.semana.com/resizer/bEc8uL0AYVEc8Wlqc7q4OrzIb44=/1280x720/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/D7E4JH23VRAMXIYQG2WP2EDIW4.jpg" alt="Cliente 2" class="w-12 h-12 rounded-full">
-                    <div class="ml-4">
-                        <h3 class="text-lg font-semibold">Emily Jackson</h3>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049.57c.3-.921 1.603-.921 1.902 0l1.263 3.925c.27.842 1.036 1.426 1.915 1.425h4.097c.977 0 1.381 1.249.588 1.81l-3.316 2.409c-.705.512-1.02 1.392-.803 2.204l1.263 3.924c.3.921-.755 1.688-1.538 1.125l-3.316-2.41c-.705-.513-1.685-.513-2.39 0l-3.316 2.41c-.783.563-1.838-.204-1.538-1.125l1.263-3.924c.217-.812-.098-1.692-.803-2.204L.833 7.729c-.793-.561-.389-1.81.588-1.81h4.097c.879.001 1.644-.584 1.915-1.425L9.049.57z"/></svg>
-                            <span class="ml-2 text-gray-700">4.8</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-4 text-gray-600">"¡Me encantaron los productos! La entrega fue rápida y el empaque era muy cuidadoso."</p>
-            </div>
-
-
-            <!-- Comentario 3 -->
-            <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
-                <div class="flex items-center">
-                    <img src="https://1.bp.blogspot.com/-S8Mbzln8bSU/XtDpVYQlcqI/AAAAAAAADVc/9P533rNP7O0R7ME9tVLJxtkdzydS4frAACPcBGAYYCw/s1600/lanarhoades_20200529_86.png" alt="Cliente 2" class="w-12 h-12 rounded-full">
-                    <div class="ml-4">
-                        <h3 class="text-lg font-semibold">Emily Jackson</h3>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049.57c.3-.921 1.603-.921 1.902 0l1.263 3.925c.27.842 1.036 1.426 1.915 1.425h4.097c.977 0 1.381 1.249.588 1.81l-3.316 2.409c-.705.512-1.02 1.392-.803 2.204l1.263 3.924c.3.921-.755 1.688-1.538 1.125l-3.316-2.41c-.705-.513-1.685-.513-2.39 0l-3.316 2.41c-.783.563-1.838-.204-1.538-1.125l1.263-3.924c.217-.812-.098-1.692-.803-2.204L.833 7.729c-.793-.561-.389-1.81.588-1.81h4.097c.879.001 1.644-.584 1.915-1.425L9.049.57z"/></svg>
-                            <span class="ml-2 text-gray-700">4.8</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-4 text-gray-600">"¡Me encantaron los productos! La entrega fue rápida y el empaque era muy cuidadoso."</p>
-            </div>
-
-
-
-
-
-
-            <!-- Comentario 4x -->
-            <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
-                <div class="flex items-center">
-                    <img src="http://media3.s-nbcnews.com/i/newscms/2015_02/835681/150106-mia-khalifa-830a_bcc977bc287eeeb9c3148b332b0e1a7b.jpg" alt="Cliente 3" class="w-12 h-12 rounded-full">
-                    <div class="ml-4">
-                        <h3 class="text-lg font-semibold">MCLovinn</h3>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049.57c.3-.921 1.603-.921 1.902 0l1.263 3.925c.27.842 1.036 1.426 1.915 1.425h4.097c.977 0 1.381 1.249.588 1.81l-3.316 2.409c-.705.512-1.02 1.392-.803 2.204l1.263 3.924c.3.921-.755 1.688-1.538 1.125l-3.316-2.41c-.705-.513-1.685-.513-2.39 0l-3.316 2.41c-.783.563-1.838-.204-1.538-1.125l1.263-3.924c.217-.812-.098-1.692-.803-2.204L.833 7.729c-.793-.561-.389-1.81.588-1.81h4.097c.879.001 1.644-.584 1.915-1.425L9.049.57z"/></svg>
-                            <span class="ml-2 text-gray-700">4.8</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-4 text-gray-600">"Buen producto, pero el tiempo de entrega podría ser más rápido."</p>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
 </main>
+<%@include file="./Footer/footer.jsp"%>
 </body>
 </html>
