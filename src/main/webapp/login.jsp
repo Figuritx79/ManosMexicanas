@@ -6,13 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./static/css/login.css">
-    <script src="./static/js/check.js" defer></script>
+    <script src="static/js/check.js" defer></script>
     <link rel="stylesheet" href="./static/css/toastify.min.css">
     <script src="./static/js/toastify.min.js" defer></script>
 </head>
@@ -38,7 +39,13 @@
                     <input type="password" id="password" name="pass" class="input-group">
                 </label>
             </div>
-            <button type="submit" id="btn" class="login-container button">Iniciar Sesión</button>
+            <div class="forgot-container">
+                <button type="button" class="forgot-password" onclick="forgotPassword()">¿Olvidaste tu contraseña?</button>
+            </div>
+            <div class="buttons">
+                <button type="button" onclick="location.href='registrarse.html'">Registrarse</button>
+                <button type="submit">Iniciar Sesión</button>
+            </div>
         </form>
     </section>
 </main>

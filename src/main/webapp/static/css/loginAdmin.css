@@ -129,6 +129,8 @@ input {
     margin-right: auto; /* Centrar horizontalmente */
 }
 
+
+
 @media (max-width: 768px) {
     .main-container {
         padding: 10px;
