@@ -29,23 +29,23 @@
     <form action="registro" method="post" id="registerForm">
       <h2>Regístrate</h2>
       <div class="form-group row">
-        <input type="text" name="nombre" id="nombre" placeholder="Nombres" minlength="5" max="20" required>
-        <input type="text" name="apellido" id="apellidos" placeholder="Apellidos" minlength="5" maxlength="25" required>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombres" >
+        <input type="text" name="apellido" id="apellidos" placeholder="Apellidos"  >
       </div>
       <div class="form-group">
-        <input type="email" name="correo" id="correo" placeholder="Correo" minlength="5" maxlength="40" required>
+        <input type="email" name="correo" id="correo" placeholder="Correo"  >
       </div>
       <div class="form-group">
-        <input type="text" name="tel" id="tel" placeholder="Teléfono" required>
+        <input type="text" name="tel" id="tel" placeholder="Teléfono" >
       </div>
       <div class="form-group">
-        <input type="password" name="pass" id="password" placeholder="Contraseña" minlength="8" maxlength="60" required>
+        <input type="password" name="pass" id="password" placeholder="Contraseña" >
       </div>
       <div class="form-group">
-        <input type="password" name="pass" id="confirmPassword" placeholder="Confirmar contraseña" minlength="8" maxlength="60" required>
+        <input type="password" name="pass2" id="confirmPassword" placeholder="Confirmar contraseña" >
       </div>
       <button type="submit">Registrarse</button>
-      <p>¿Ya tienes cuenta? <a href="#">Inicia sesión</a></p>
+      <p>¿Ya tienes cuenta? <a href="login.jsp">Inicia sesión</a></p>
     </form>
   </section>
 </main>
