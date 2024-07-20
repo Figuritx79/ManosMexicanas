@@ -18,6 +18,7 @@
     <script src="./static/js/toastify.min.js" defer></script>
     <script src="./static/js/loginValidate.js" defer></script>
 </head>
+
 <body>
 <main class="main-container">
     <section class="image-container">
