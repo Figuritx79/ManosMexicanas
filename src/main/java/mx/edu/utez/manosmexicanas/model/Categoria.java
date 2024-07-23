@@ -1,12 +1,25 @@
 package mx.edu.utez.manosmexicanas.model;
 
 public class Categoria {
+    private int id_categoria;
     private String nombre;
     private String descripcion;
 
-    public Categoria(String nombre, String descripcion) {
+    public Categoria(int id_categoria, String nombre, String descripcion) {
+        this.id_categoria = id_categoria;
         this.nombre = nombre;
         this.descripcion = descripcion;
+    }
+
+    public Categoria() {
+
+    }
+
+    public int getId() {
+        return id_categoria;
+    }
+    public void setId(int categoria_id) {
+        this.id_categoria = categoria_id;
     }
 
     public String getNombre() {
