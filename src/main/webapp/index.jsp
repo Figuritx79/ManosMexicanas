@@ -12,16 +12,15 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
     <title>Manos Mexicanas</title>
-    <script src="./Header/header.js" defer></script>
-
     <link rel="stylesheet" href="./static/css/daisy.min.css">
+    <link rel="stylesheet" href="./static/css/menu.css">
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
 <%@include file="./Header/header.jsp"%>
 
 <main >
-    <br>
+
     <section class="flex flex-col p-4 lg:flex lg:flex-row lg:items-center lg:justify-between bg-bg400">
         <figure class="flex flex-col items-center lg:items-start lg:w-1/2 ml-10">
             <img src="static/img/bienvenida.png" alt="Bienvenido" class="w-full lg:w-auto lg:h-auto">
@@ -33,7 +32,7 @@
                 mexicanos.
             </p>
             <div class="flex pt-4 gap-x-12 mt-4 items-center justify-center lg:grid grid-cols-2 lg:text-center">
-                <a href="#" class="border-0 bg-primary px-4 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline" id="btnCatalogo">Ver
+                <a href="#" class="border-0 bg-primary px-8 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline" id="btnCatalogo">Ver
 
                 <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline" id="">Conoce mas</a>
             </div>

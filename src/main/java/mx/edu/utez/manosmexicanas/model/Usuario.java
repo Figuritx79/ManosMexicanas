@@ -8,20 +8,19 @@ public class Usuario {
     private String apellido;
     private Role role;
     private String telefono;
-    private Domicilio direccion;
     private boolean status;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String correo, String password, Role role, String apellido, String telefono, Domicilio direccion, boolean status) {
+    public Usuario(String nombre, String correo, String password, Role role, String apellido, String telefono,boolean status) {
         this.nombre = nombre;
         this.correo = correo;
         this.password = password;
         this.role = role;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.direccion = direccion;
+
         this.status = status;
     }
 
@@ -65,13 +64,6 @@ public class Usuario {
         this.role = role;
     }
 
-    public Domicilio getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(Domicilio direccion) {
-        this.direccion = direccion;
-    }
 
     public String getTelefono() {
         return telefono;
@@ -94,6 +86,11 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+
+    public String toString() {
+        return  id + " " + nombre + apellido + " " + correo + " " + role.getId();
     }
 
 }

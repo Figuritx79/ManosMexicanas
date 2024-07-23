@@ -19,19 +19,21 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String correo = req.getParameter("correo");
         String nombre = req.getParameter("nombre");
         String apellido = req.getParameter("correo");
         String telefono = req.getParameter("tel");
         String password = req.getParameter("pass");
 
         Usuario user = new Usuario();
+        user.setCorreo(correo);
         user.setNombre(nombre);
         user.setApellido(apellido);
         user.setTelefono(telefono);
         user.setPassword(password);
         try(Connection conn = DbConnectionManager.getConnection()){
             UserDao userDao = new UserDao();
-            Boolean  result =  userDao.insert(user);
+            boolean  result =  userDao.insert(user);
             if (result){
                 res.sendRedirect("login.jsp");
             }
