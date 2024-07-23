@@ -145,14 +145,6 @@
                 </p>
             </div>
         </div>
-        <div class="flex lg:flex-row flex-col lg:gap-x-4 justify-center items-center mt-4">
-            <div class="border-secondary ">
-                a
-            </div>
-            <div class="bg-primary">i</div>
-            <div class="bg-secondary">a
-            </div>
-        </div>
     </section>
 
     <section class="mt-16">

@@ -1,12 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: adria
-  Date: 18/07/2024
-  Time: 06:48 p. m.
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +11,98 @@
     <script src="./static/js/tailwind.config.js"></script>
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
-    <title>Mano Mexicanas</title>
+    <title>Manos Mexicanas</title>
     <script src="./Header/header.js" defer></script>
+
     <link rel="stylesheet" href="./static/css/daisy.min.css">
-    <title>Title</title>
 </head>
-<body class="bg-bg400  md:bg-bg400  lg:bg-b100 xl:bg-bg100 ">
-    <%@include file="./Header/header.jsp" %>
+<body class="  bg-b100 bg-bg100 text-stone-950 ">
+
+<%@include file="./Header/header.jsp"%>
+
+<main>
+    <section class="flex justify-center items-center py-16">
+        <div class="w-full md:w-4/5 lg:w-3/4">
+            <div class="flex flex-col lg:flex-row bg-base-90  rounded-lg overflow-hidden">
+                <figure class="lg:w-1/2 w-full">
+                    <img src="https://1.bp.blogspot.com/-S8Mbzln8bSU/XtDpVYQlcqI/AAAAAAAADVc/9P533rNP7O0R7ME9tVLJxtkdzydS4frAACPcBGAYYCw/s640/lanarhoades_20200529_86.png" alt="Toy story" class="object-cover w-full h-full">
+                </figure>
+                <div class="p-8 lg:w-1/2 w-full">
+                    <h1 class="text-3xl font-bold text-gray-600 text-4xl">Toy story</h1>
+                    <p class="mt-2 text-gray-600">peluche de fibra de algodón</p>
+                    <p class="mt-4 text-2xl font-semibold text-gray-600">$300.00</p>
+                    <p class="mt-2 text-gray-600">Enfocado al público infantil</p>
+                    <div class="mt-4">
+                        <button class="bg-[#30A380] text-white px-4 py-2 rounded-md focus:outline-none">Button</button>
+                    </div>
+                    <p class="mt-2 text-gray-600">Para cosas adicionales del producto</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
+
+
+
+    <section class="mt-16 ">
+        <div>
+            <h2 class="lg:text-3xl text-xl p-6">Productos Relacionados</h2>
+        </div>
+        <div class="container mx-auto ">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 border-2 border-bg100 rounded-lg">
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl">
+                    <figure>
+                        <img src="https://1.bp.blogspot.com/-S8Mbzln8bSU/XtDpVYQlcqI/AAAAAAAADVc/9P533rNP7O0R7ME9tVLJxtkdzydS4frAACPcBGAYYCw/s640/lanarhoades_20200529_86.png" alt="Producto 1" class="w-full h-48 object-cover rounded-lg">
+                    </figure>
+                    <div class="card-body mt-4">
+                        <h2 class="card-title text-[#000000]">Producto 1</h2>
+                        <p class="text-[#333333]">$10.00</p>
+                        <button id="plus-btn4" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
+                    </div>
+                </div>
+
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl ">
+                    <figure>
+                        <img src="https://via.placeholder.com/150" alt="Producto 2" class="w-full h-48 object-cover rounded-lg">
+                    </figure>
+                    <div class="card-body mt-4">
+                        <h2 class="card-title text-[#000000]">Producto 2</h2>
+                        <p class="text-[#333333]">$20.00</p>
+                        <button id="plus-btn3" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
+                    </div>
+                </div>
+
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl">
+                    <figure>
+                        <img src="https://via.placeholder.com/150" alt="Producto 3" class="w-full h-48 object-cover rounded-lg">
+                    </figure>
+                    <div class="card-body mt-4">
+                        <h2 class="card-title text-[#000000]">Producto 3</h2>
+                        <p class="text-[#333333]">$30.00</p>
+                        <button id="plus-btn2" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
+                    </div>
+                </div>
+                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl">
+                    <figure>
+                        <img src="https://via.placeholder.com/150" alt="Producto 4" class="w-full h-48 object-cover rounded-lg">
+                    </figure>
+                    <div class="card-body mt-4">
+                        <h2 class="card-title text-[#000000]">Producto 4</h2>
+                        <p class="text-[#333333]">$40.00</p>
+                        <button id="plus-btn" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+
+
+</main>
+<%@include file="./Footer/footer.jsp"%>
 </body>
 </html>
