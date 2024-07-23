@@ -2,6 +2,7 @@ package mx.edu.utez.manosmexicanas.model;
 
 public class Producto {
 
+    private int id;
     private String nombre;
     private double precio;
     private Color color;
@@ -13,13 +14,22 @@ public class Producto {
 
     }
 
-    public Producto(String nombre, double precio, Color color, double tamano, Categoria categoria, String descripcion) {
+    public Producto(int id, String nombre, double precio, Color color, double tamano, Categoria categoria, String descripcion) {
+        this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.color = color;
         this.tamano = tamano;
         this.categoria = categoria;
         this.descripcion = descripcion;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -69,4 +79,6 @@ public class Producto {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+
 }
