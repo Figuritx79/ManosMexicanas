@@ -5,8 +5,32 @@ import mx.edu.utez.manosmexicanas.model.Usuario;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UserDao {
+
+    public ArrayList<Usuario> getAll() {
+        ArrayList<Usuario> lista = new ArrayList<>();
+        String query = "SELECT * from usuario";
+        try(Connection con = DbConnectionManager.getConnection(); PreparedStatement ps = con.prepareStatement(query);ResultSet rs = ps.executeQuery();) {
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId(rs.getInt("id"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellido(rs.getString("apellido"));
+                u.setCorreo(rs.getString("correo"));
+                u.setTelefono(rs.getString("telefono"));
+                u.setStatus(rs.getBoolean("status"));
+                lista.add(u);
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
     public  boolean insert(Usuario user){
         boolean flag = false;
         String query = "CALL registerUser(?, ?, ?,?,?)";
