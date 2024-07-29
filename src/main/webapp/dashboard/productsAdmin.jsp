@@ -66,6 +66,7 @@
             <th>Precio</th>
             <th>Color</th>
             <th>Tamaño</th>
+            <th>Stock</th>
             <th>Categoria</th>
             <th>Descripcion</th>
         </tr>
@@ -82,6 +83,7 @@
             <td><%=p.getPrecio()%></td>
             <td><%=p.getColor().getNombre()%></td>
             <td><%=p.getTamano()%></td>
+            <td><%=p.getStock()%></td>
             <td><%=p.getCategoria().getNombre()%></td>
             <td><%=p.getDescripcion()%></td>
         </tr>
@@ -120,12 +122,11 @@
                         <div class="form-row">
                             <div class="form-group col-md-2">
                                 <label for="Id">ID</label>
-
                                 <input type="number" class="form-control" id="id" name="id" value="" readonly>
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="stock">Stock</label>
-                                <input type="number" class="form-control" id="stock" value="">
+                                <input type="number" class="form-control" id="stock" name="stock">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="Precio">Precio</label>
@@ -136,21 +137,10 @@
                                 <input type="number" step="0.01" class="form-control" id="tamaño" value="" name="tamano">
                             </div>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-6">
                             <label for="color">Color</label>
                             <select class="form-control" id="color" name="color">
-                                <%
-                                    ProductDao daoColor = new ProductDao();
-                                    ArrayList<Color> colors = daoColor.getAllColor();
-                                    for(Color color : colors) {
-                                %>
-                                <option value="<%= color.getId() %>"><%= color.getNombre() %></option>
-                                <%
-                                    }
-
-                                    System.out.println(colors);
-                                %>
-
+                                <option selected disabled value="">Selecciona</option>
                             </select>
                         </div>
                     </div>
@@ -162,15 +152,7 @@
                         <div class="form-group">
                             <label for="categoria">Categoría</label>
                             <select class="form-control" id="categoria" name="categoria">
-                                <%
-                                    ProductDao daoCategoria = new ProductDao();
-                                    ArrayList<Categoria> categoria = daoCategoria.getAllCategoria();
-                                    for(Categoria category : categoria) {
-                                %>
-                                <option value="<%= category.getId() %>"><%= category.getNombre() %></option>
-                                <%
-                                    }
-                                %>
+                                <option selected disabled value="">Selecciona</option>
                             </select>
                         </div>
                     </div>
@@ -218,8 +200,9 @@
 
 <script src="../static/js/datatables.js"></script>
 <script src="../static/js/dataTables.bootstrap5.js"></script>
+<script src="../static/js/selectProducts.js"></script>
+<script src="../static/js/selectProducts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../static/js/products.js"></script>
 </body>
 </html>
