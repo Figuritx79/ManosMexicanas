@@ -16,8 +16,9 @@ public class Color {
     public int getId() {
         return id_color;
     }
+
     public void setId(int id_color) {
-        this.id_color = this.id_color;
+        this.id_color = id_color;
     }
 
     public String getNombre() {
