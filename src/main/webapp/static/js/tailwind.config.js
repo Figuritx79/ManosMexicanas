@@ -15,3 +15,16 @@ tailwind.config = {
         }
     }
 }
+
+//Modulo para tipografia poppins negrita
+module.exports = {
+    content: ["./src/**/*.{html,js}"],
+    theme: {
+        extend: {
+            fontFamily: {
+                poppins: ['Poppins', 'sans-serif'],
+            },
+        },
+    },
+    plugins: [],
+}
