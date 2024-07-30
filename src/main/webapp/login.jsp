@@ -43,7 +43,7 @@
                 <button type="button" class="forgot-password" onclick="forgotPassword()">¿Olvidaste tu contraseña?</button>
             </div>
             <div class="buttons">
-                <button type="button" onclick="location.href='registrarse.html'">Registrarse</button>
+                <button type="button" onclick="location.href='register.jsp'" class="btn">Registrarse</button>
                 <button type="submit">Iniciar Sesión</button>
             </div>
         </form>

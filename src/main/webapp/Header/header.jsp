@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<header class="flex bg-bg400 shadow-md lg:bg-bg100 lg:justify-center lg:items-center md:shadow-md lg:shadow-md">
+<header class="flex  shadow-md bg-bg100 lg:justify-center lg:items-center md:shadow-md lg:shadow-md">
 
     <div class=" flex justify-start basis-1/2  lg:basis-1/2">
         <img src="./static/img/Logo.svg" alt="LOgo" class="w-16">
@@ -46,20 +46,22 @@
             </svg>
         </a>
 <%--        --%>
-        <a href="#menu" class="lg:hidden" id="hamburger">
+        <label for="menu" class="lg:hidden nav__label" id="hamburger">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21 6H3" stroke="#30A380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M21 12H9" stroke="#30A380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M21 18H7" stroke="#30A380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-        </a>
 
-        <!-- MENU HAMBURGUESA -->
-        <div class="nav__link" id="menu">
-            <a href="" class="nav__link">classForName</a>
-            <a href="" class="nav__link">classForName</a>
-            <a href="" class="nav__link">classForName</a>
+        </label>
+        <input type="checkbox" name="check" id="menu" class="nav__input">
+        <div class="nav_menu lg:hidden">
+            <a href="" class="nav__item">Test</a>
+            <a href="" class="nav__item">Test</a>
+            <a href="" class="nav__item">Test</a>
         </div>
+
+
 
     </nav>
 

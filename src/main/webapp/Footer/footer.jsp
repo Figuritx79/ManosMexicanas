@@ -21,9 +21,6 @@
         <p>
             Términos y condiciones
         </p>
-        <span>|</span>
-        <p>
-            Legalidad
-        </p>
+
     </aside>
 </footer>

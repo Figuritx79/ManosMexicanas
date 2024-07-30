@@ -14,7 +14,8 @@ import java.io.IOException;
 
 
 @WebFilter(filterName = "AdminDashboard", urlPatterns = {
-        "/dashboard/*"
+        "/dashboard/*",
+        "/Auth/*"
 })
 public class FilterAdmin extends HttpFilter {
 

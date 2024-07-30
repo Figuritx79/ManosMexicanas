@@ -118,22 +118,7 @@
 .link{
     view-transition-name:link;
 }
-.nav__link{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    top: 80px;
-    right: 0;
-    background: var(--bg-400);
-    display: grid;
-    place-items: center;
-    text-decoration: none;
-    clip-path: circle(0% at top left);
-    transition: clip-path .4s;
-}
-.nav__link:target{
-    clip-path: circle(150% at top left);
-}
+
 .footer {
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
 }
@@ -144,14 +129,6 @@
 .card{
     color: #FFFFFF;
 }
-
-
-
-
-
-
-
-
 
 /* Estilos para el botón */
 #plus-btn {
@@ -235,9 +212,23 @@
 
 
 
+#btnCatalogo {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+
+}
+
+#btnConoce {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
+
+}
 
 
+#divAnimados {
+    background-color: #30A380;
+    color: white; /* Texto blanco */
 
-
+}
 
 

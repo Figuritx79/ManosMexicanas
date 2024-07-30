@@ -4,12 +4,33 @@ import mx.edu.utez.manosmexicanas.model.Role;
 import mx.edu.utez.manosmexicanas.model.Usuario;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class UserDao {
+
+    public ArrayList<Usuario> getAll() {
+        ArrayList<Usuario> lista = new ArrayList<>();
+        String query = "SELECT * from usuario";
+        try(Connection con = DbConnectionManager.getConnection(); PreparedStatement ps = con.prepareStatement(query);ResultSet rs = ps.executeQuery();) {
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId(rs.getInt("id"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellido(rs.getString("apellido"));
+                u.setCorreo(rs.getString("correo"));
+                u.setTelefono(rs.getString("telefono"));
+                u.setStatus(rs.getBoolean("status"));
+                lista.add(u);
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
     public  boolean insert(Usuario user){
         boolean flag = false;
         String query = "CALL registerUser(?, ?, ?,?,?)";
@@ -59,4 +80,29 @@ public class UserDao {
 
         return null;
     }
+
+    public Usuario login(String correo, String password){
+        Usuario user  = new Usuario();
+        String query = "CALL login(?, ?)";
+        Role role = new Role();
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps =  conn.prepareStatement(query); ){
+          ps.setString(1,correo);
+          ps.setString(2,password);
+          ResultSet rs = ps.executeQuery();
+          if(rs.next()){
+              user.setId(rs.getInt("id"));
+              user.setNombre(rs.getString("nombre"));
+              user.setApellido(rs.getString("apellido"));
+              user.setCorreo(rs.getString("correo"));
+              role.setId(rs.getInt("role"));
+              user.setRole(role);
+              return user;
+          }
+          rs.close();
+        }catch (SQLException e){
+            e.getErrorCode();
+        }
+        return null;
+    }
+
 }

@@ -70,10 +70,11 @@
           Confirmar contraseña:
             <input type="password" name="pass" id="confirmPassword" minlength="8" maxlength="60" class="input-group" required>
         </label>
+
       </div>
 
       <button type="submit">Registrarse</button>
-      <p>¿Ya tienes cuenta? <a href="#">Inicia sesión</a></p>
+      <p>¿Ya tienes cuenta? <a href="login.jsp">Inicia sesión</a></p>
     </form>
   </section>
 </main>
