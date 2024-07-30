@@ -21,29 +21,58 @@
   <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
 </head>
 <body>
+<img src="./static/img/LogoWithBorder.svg" alt="Logo">
 <main class="container">
   <section class="register-form">
     <div class="header">
-      <img src="./static/img/LogoWithBorder.svg" alt="Logo">
     </div>
     <form action="registro" method="post" id="registerForm">
       <h2>Regístrate</h2>
       <div class="form-group row">
-        <input type="text" name="nombre" id="nombre" placeholder="Nombres" >
-        <input type="text" name="apellido" id="apellidos" placeholder="Apellidos"  >
+        <div class="divSpecific">
+          <label for="nombre" class="styleFont">
+            Nombres:
+              <input type="text" name="nombre" id="nombre" minlength="5" max="20" class="input-group" required>
+          </label>
+        </div>
+
+        <div class="divSpecific">
+          <label for="apellidos" class="styleFont">
+            Apellidos:
+               <input type="text" name="apellido" id="apellidos" minlength="5" maxlength="25" class="input-group" required>
+          </label>
+        </div>
       </div>
-      <div class="form-group">
-        <input type="email" name="correo" id="correo" placeholder="Correo"  >
+
+      <div class="divSpecific">
+        <label for="correo" class="styleFont">
+          Correo:
+              <input type="email" name="correo" id="correo" minlength="5" maxlength="40" class="input-group" required>
+        </label>
       </div>
-      <div class="form-group">
-        <input type="text" name="tel" id="tel" placeholder="Teléfono" >
+
+      <div class="divSpecific">
+        <label for="tel" class="styleFont">
+          Teléfono:
+            <input type="text" name="tel" id="tel" class="input-group" required>
+        </label>
       </div>
-      <div class="form-group">
-        <input type="password" name="pass" id="password" placeholder="Contraseña" >
+
+      <div class="divSpecific">
+        <label for="password" class="styleFont">
+          Contraseña:
+            <input type="password" name="pass" id="password" minlength="8" maxlength="60" class="input-group" required>
+        </label>
       </div>
-      <div class="form-group">
-        <input type="password" name="pass2" id="confirmPassword" placeholder="Confirmar contraseña" >
+
+      <div class="divSpecific">
+        <label for="confirmPassword" class="styleFont">
+          Confirmar contraseña:
+            <input type="password" name="pass" id="confirmPassword" minlength="8" maxlength="60" class="input-group" required>
+        </label>
+
       </div>
+
       <button type="submit">Registrarse</button>
       <p>¿Ya tienes cuenta? <a href="login.jsp">Inicia sesión</a></p>
     </form>
