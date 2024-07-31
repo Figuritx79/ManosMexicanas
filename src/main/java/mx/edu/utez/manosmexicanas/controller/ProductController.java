@@ -35,14 +35,6 @@ public class ProductController extends HttpServlet {
         String colorIdStr = req.getParameter("color");
         String categoriaIdStr = req.getParameter("categoria");
 
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Precio: " + precioStr);
-        System.out.println("Tamaño: " + tamanoStr);
-        System.out.println("Stock: " + stockStr);
-        System.out.println("Descripción: " + descripcion);
-        System.out.println("Color ID: " + colorIdStr);
-        System.out.println("Categoría ID: " + categoriaIdStr);
-
 
 
         //Validar y convertir los parametros de entrada
@@ -106,7 +98,6 @@ public class ProductController extends HttpServlet {
                 InputStream fileContent = filePart.getInputStream();
                 Files.copy(fileContent, Paths.get(rutaImagen));
                 p.setImagen(rutaImagen);
-                System.out.println("Imagen: " + rutaImagen);
             } catch (Exception e) {
                 e.printStackTrace();
             }
