@@ -85,7 +85,7 @@ public class ProductDao {
 
     public boolean insertProduct(Producto p) {
         boolean flag = false;
-        String query = "insert into producto(nombre,precio,tamaño,descripcion,stock, color, categoria) values (?,?,?,?,?,?,?);";
+        String query = "insert into producto(nombre,precio,tamaño,descripcion,stock, color, categoria, imagen) values (?,?,?,?,?,?,?,?);";
         try (Connection con = DbConnectionManager.getConnection();
              PreparedStatement ps = con.prepareStatement(query);){
 
@@ -96,6 +96,7 @@ public class ProductDao {
             ps.setInt(5, p.getStock());
             ps.setInt(6, p.getColor().getId());
             ps.setInt(7, p.getCategoria().getId());
+            ps.setString(8, p.getImagen());
 
             if (ps.executeUpdate() > 0) {
                 flag = true;
