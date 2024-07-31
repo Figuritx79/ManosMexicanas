@@ -1,20 +1,28 @@
 package mx.edu.utez.manosmexicanas.controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import mx.edu.utez.manosmexicanas.dao.ProductDao;
 import mx.edu.utez.manosmexicanas.model.Categoria;
 import mx.edu.utez.manosmexicanas.model.Color;
 import mx.edu.utez.manosmexicanas.model.Producto;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.UUID;
 
+@MultipartConfig
 @WebServlet(name="ProductController", value="/dashboard/registroProducto")
 public class ProductController extends HttpServlet {
 
@@ -27,8 +35,17 @@ public class ProductController extends HttpServlet {
         String colorIdStr = req.getParameter("color");
         String categoriaIdStr = req.getParameter("categoria");
 
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Precio: " + precioStr);
+        System.out.println("Tamaño: " + tamanoStr);
+        System.out.println("Stock: " + stockStr);
+        System.out.println("Descripción: " + descripcion);
+        System.out.println("Color ID: " + colorIdStr);
+        System.out.println("Categoría ID: " + categoriaIdStr);
 
-        // Validar y convertir los parámetros de entrada
+
+
+        //Validar y convertir los parametros de entrada
         Double precio = null;
         Double tamano = null;
         Integer stock = null;
@@ -62,6 +79,7 @@ public class ProductController extends HttpServlet {
             return;
         }
 
+
         Producto p = new Producto();
         p.setNombre(nombre.trim());
         p.setPrecio(precio);
@@ -77,7 +95,26 @@ public class ProductController extends HttpServlet {
         categoria.setId(categoriaId);
         p.setCategoria(categoria);
 
-        try (Connection conn = DbConnectionManager.getConnection()) {
+        Part filePart = req.getPart("imagen");
+        if (filePart != null && filePart.getSize() > 0) {
+            String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "public" + File.separator + "img";
+            String rutaImagen = "";
+            try {
+                String fileName = getSubmittedFileName(filePart);
+                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
+                rutaImagen = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
+                InputStream fileContent = filePart.getInputStream();
+                Files.copy(fileContent, Paths.get(rutaImagen));
+                p.setImagen(rutaImagen);
+                System.out.println("Imagen: " + rutaImagen);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+            try (Connection conn = DbConnectionManager.getConnection()) {
             ProductDao productDao = new ProductDao();
             Boolean result = productDao.insertProduct(p);
 
@@ -92,5 +129,17 @@ public class ProductController extends HttpServlet {
             e.printStackTrace();
             res.sendRedirect("productsAdmin.jsp?error=sqlException");
         }
+    }
+
+    private String getSubmittedFileName(Part part) {
+        String header = part.getHeader("content-disposition");
+        String[] elements = header.split(";");
+        for (String element : elements) {
+            if (element.trim().startsWith("filename")) {
+                return element.substring(
+                        element.indexOf("=") + 1).trim().replace("\"", "");
+            }
+        }
+        return "";
     }
 }
