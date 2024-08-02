@@ -99,9 +99,10 @@
         <!--<a href="#">Home</a> &gt; <a href="#">Productos</a> &gt; Edit Product-->
     </div>
     <h2 class="mt-4">Agregar Producto</h2>
-    <form method="post" action="registroProducto">
+    <form method="post" action="registroProducto" enctype="multipart/form-data">
         <div class="row mt-4">
-            <div class="col-md-8">
+            <!-- Primera columna -->
+            <div class="col-md-6">
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Detalles del Producto</h5>
@@ -111,7 +112,7 @@
                         </div>
                         <div class="form-group">
                             <label for="Descripcion">Descripción</label>
-                            <textarea class="form-control" id="Descripcion" value="" name="descripcion" rows="3">Este es un producto fabricado a mano tejido con estambre de calidad</textarea>
+                            <textarea class="form-control" id="Descripcion" value="" name="descripcion" rows="3" placeholder="Ejemplo: Este es un producto fabricado a mano tejido con estambre de calidad"></textarea>
                         </div>
                     </div>
                 </div>
@@ -120,24 +121,24 @@
                     <div class="card-body">
                         <h5 class="card-title">Especificaciones</h5>
                         <div class="form-row">
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-4">
                                 <label for="Id">ID</label>
                                 <input type="number" class="form-control" id="id" name="id" value="" readonly>
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-4">
                                 <label for="stock">Stock</label>
                                 <input type="number" class="form-control" id="stock" name="stock">
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-4">
                                 <label for="Precio">Precio</label>
                                 <input type="number" step="0.01" class="form-control" id="Precio" name="precio" value="">
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-4">
                                 <label for="tamaño">Tamaño</label>
                                 <input type="number" step="0.01" class="form-control" id="tamaño" value="" name="tamano">
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group">
                             <label for="color">Color</label>
                             <select class="form-control" id="color" name="color">
                                 <option selected disabled value="">Selecciona</option>
@@ -145,7 +146,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- Segunda columna -->
+            <div class="col-md-6">
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Categoria</h5>
@@ -156,39 +160,15 @@
                             </select>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Estado del Producto</h5>
-                        <div class="form-group">
-                            <label for="productStatus">Estado</label>
-                            <select class="form-control" id="productStatus">
-                                <option>Seleccione el estado</option>
-                                <option>Activo</option>
-                                <option>Inactivo</option>
-                            </select>
-                        </div>
-                        <input type="submit" class="btn btn-success" value="Guardar Producto">
-                        <button class="btn btn-secondary">Descartar</button>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Imagen del producto</h5>
                         <div class="form-group">
-                            <input type="file" class="form-control-file" id="productImages">
+                            <input type="file" class="form-control-file" id="imagen" name="imagen">
                         </div>
                     </div>
-                </div>
-
-                <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="card-title">Archivo Producto</h5>
-                        <button class="btn btn-danger">Archivo Producto</button>
+                        <input type="submit" class="btn btn-success" value="Guardar Producto">
+                        <button type="button" class="btn btn-secondary">Descartar</button>
                     </div>
                 </div>
             </div>
