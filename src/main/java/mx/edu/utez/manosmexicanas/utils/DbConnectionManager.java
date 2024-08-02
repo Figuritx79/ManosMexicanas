@@ -16,6 +16,7 @@ public class DbConnectionManager {
 
     private DbConnectionManager() {
     }
+  
 
     static {
         try{
