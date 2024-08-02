@@ -13,19 +13,19 @@
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
     <title>Manos Mexicanas</title>
     <script src="./Header/header.js" defer></script>
+    <link rel="stylesheet" href="./static/css/menu.css">
 
     <link rel="stylesheet" href="./static/css/daisy.min.css">
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
-<%@include file="./Header/header.jsp"%>
-
+<%@include file="./Header/header.jsp" %>
 <main>
     <section class="flex justify-center items-center py-16">
         <div class="w-full md:w-4/5 lg:w-3/4">
             <div class="flex flex-col lg:flex-row bg-base-90  rounded-lg overflow-hidden">
                 <figure class="lg:w-1/2 w-full">
-                    <img src="https://1.bp.blogspot.com/-S8Mbzln8bSU/XtDpVYQlcqI/AAAAAAAADVc/9P533rNP7O0R7ME9tVLJxtkdzydS4frAACPcBGAYYCw/s640/lanarhoades_20200529_86.png" alt="Toy story" class="object-cover w-full h-full">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmPvx7M7bkjhkXXUh_uFzNM-L3zLVhB7mLzw&s" alt="Toy story" class="object-cover w-full h-full">
                 </figure>
                 <div class="p-8 lg:w-1/2 w-full">
                     <h1 class="text-3xl font-bold text-gray-600 text-4xl">Toy story</h1>

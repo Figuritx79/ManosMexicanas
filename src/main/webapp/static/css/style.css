@@ -1,14 +1,4 @@
-:root{
-    --bg-100:#F8F7F3;
-    --bg-200:#dbba91;
-    --bg-300:#e5c69a;
-    --bg-400:#F5EDDF;
-    --text-100:#000000;
-    --text-200:#5C5C5C;
-    --primary-100:#30a380;
-    --secondary-200: #b47341;
-    --extra:#61371A;
-}
+@import "./colors.css";
 *{
     box-sizing: border-box;
 }
@@ -43,31 +33,6 @@
     }
 
 }
-.bg-bone-bg{
-    background: var(--bg-100);
-}
-.bg-400{
-    background: var(--bg-400);
-}
-
-.text-primary{
-    color: var(--primary-100);
-}
-.text-secondary{
-    color: var(--secondary-200);
-}
-.text-100{
-    color: var(--text-100);
-}
-.text-200{
-    color: var(--text-200);
-}
-.text-extra{
-    color: var(--extra);
-}
-.text-bg-100{
-    color: var(--bg-100);
-}
 .bc{
     border: 1px solid var(--secondary-200);
     transition-duration: 1s;
@@ -75,7 +40,6 @@
     transition-timing-function: ease-out;
 }
 .bc:hover{
-    background: var(--secondary-200);
     border: none;
 
 }

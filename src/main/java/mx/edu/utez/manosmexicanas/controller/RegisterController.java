@@ -21,7 +21,7 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String correo = req.getParameter("correo");
         String nombre = req.getParameter("nombre");
-        String apellido = req.getParameter("correo");
+        String apellido = req.getParameter("apellido");
         String telefono = req.getParameter("tel");
         String password = req.getParameter("pass");
 
