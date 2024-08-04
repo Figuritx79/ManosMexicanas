@@ -81,4 +81,21 @@ public class UserDao {
         return null;
     }
 
+    public boolean getOne(String email){
+       boolean flag = false;
+       String query = "SELECT * FROM usuario WHERE correo = ?";
+       try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);) {
+           ps.setString(1,email);
+           ResultSet rs = ps.executeQuery();
+           if (rs.next()){
+               flag = true;
+           }
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
+
+
+        return false;
+    }
+
 }
