@@ -169,7 +169,7 @@
                     </div>
                     <div class="card-body">
                         <input type="submit" class="btn btn-success" value="Guardar Producto">
-                        <button type="button" class="btn btn-secondary">Descartar</button>
+                        <button type="reset" class="btn btn-secondary">Descartar</button>
                     </div>
                 </div>
             </div>

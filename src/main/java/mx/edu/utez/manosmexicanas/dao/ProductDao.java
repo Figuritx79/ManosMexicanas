@@ -12,6 +12,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductDao {
+    public int getNextId() {
+        String query = "select max(id) as max_id from producto";
+        try (Connection conn = DbConnectionManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("max_id") + 1;
+            } else {
+                return 1;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public ArrayList<Categoria> getCategoria(){
         String query = "SELECT * FROM categoria";
