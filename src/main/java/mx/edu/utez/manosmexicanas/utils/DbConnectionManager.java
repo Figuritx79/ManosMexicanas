@@ -10,12 +10,13 @@ import java.sql.SQLException;
 public class DbConnectionManager {
     private static final String  url = "jdbc:mysql://localhost:3306/ManosMexicanas";
     private static final String user = "root";
-    private static final String password = "";
+    private static final String password = "bebote356";
     private  static final HikariConfig config = new HikariConfig();
     private static final HikariDataSource source;
 
     private DbConnectionManager() {
     }
+  
 
     static {
         try{

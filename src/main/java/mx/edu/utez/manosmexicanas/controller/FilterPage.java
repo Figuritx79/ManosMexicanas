@@ -13,11 +13,11 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebFilter(filterName = "AdminDashboard", urlPatterns = {
+@WebFilter(filterName = "Filter", urlPatterns = {
         "/dashboard/*",
         "/Auth/*"
 })
-public class FilterAdmin extends HttpFilter {
+public class FilterPage extends HttpFilter {
 
     @Override
     public void init() throws ServletException {

@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.nio.file.Path" %>
+<%@ page import="java.nio.file.Paths" %>
+<%@ page import="java.nio.file.Files" %><%--
   Created by IntelliJ IDEA.
   User: Figuritx79
   Date: 6/13/24
@@ -10,7 +12,7 @@
 <header class="flex  shadow-md bg-bg100 lg:justify-center lg:items-center md:shadow-md lg:shadow-md">
 
     <div class=" flex justify-start basis-1/2  lg:basis-1/2">
-        <img src="./static/img/Logo.svg" alt="LOgo" class="w-16">
+        <img src="./static/img/Logo.svg" alt="Logo" class="w-16">
     </div>
 
      <div class="hidden md:basis-1/2 md:gap-x-6 lg:basis-1/2 lg:gap-x-6 md:flex lg:flex md:hidden">
@@ -56,10 +58,12 @@
         </label>
         <input type="checkbox" name="check" id="menu" class="nav__input">
         <div class="nav_menu lg:hidden">
-            <a href="" class="nav__item">Test</a>
-            <a href="" class="nav__item">Test</a>
-            <a href="" class="nav__item">Test</a>
+            <a href="" class="nav__item">Animado</a>
+            <a href="" class="nav__item">Comida</a>
+            <a href="" class="nav__item">Artistas</a>
+            <a href="" class="nav__item">Nosotros</a>
         </div>
+
 
 
 

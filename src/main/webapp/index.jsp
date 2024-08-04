@@ -10,10 +10,12 @@
     </script>
     <script src="./static/js/tailwind.config.js"></script>
     <link rel="stylesheet" href="./static/css/style.css">
-    <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./static/img/Jira.png" type="image/x-icon">
     <title>Manos Mexicanas</title>
     <link rel="stylesheet" href="./static/css/daisy.min.css">
     <link rel="stylesheet" href="./static/css/menu.css">
+    <script src="./Header/scrollHeader.js" defer></script>A
+
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
@@ -73,7 +75,8 @@
         </div>
     </section>
 
-    <section class="mt-16 ">
+    <section class="mt-16 gap-x-4  ">
+
         <div>
             <h2 class="lg:text-3xl text-xl p-6">Mas Vendidos</h2>
 
@@ -129,10 +132,10 @@
             </div>
         </div>
 
-        </div>
+
     </section>
 
-    <section>
+    <section class="mb-16">
         <div class="flex justify-center items-center flex-col">
             <h2 class="lg:text-3xl">¿Qué opinan nuestros clientes?</h2>
             <div class="mt-6">
@@ -147,9 +150,8 @@
         </div>
     </section>
 
-    <section class="mt-16">
+    <section class="mt-16 mb-8">
         <div class="flex flex-col lg:flex-row justify-center items-center mt-8 gap-4">
-            <!-- Comentario 1 -->
             <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
                 <div class="flex items-center">
                     <img src="https://myinstagirls.com/wp-content/gallery/abella-danger/51803969_1345038555637577_8879501457919695908_n.jpg" alt="Cliente 1" class="w-12 h-12 rounded-full">
@@ -164,7 +166,6 @@
                 <p class="mt-4 text-gray-600">"¡Excelente servicio y productos de alta calidad! Estoy muy satisfecho con mi compra."</p>
             </div>
 
-            <!-- Comentario 2 -->
             <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
                 <div class="flex items-center">
                     <img src="https://www.semana.com/resizer/bEc8uL0AYVEc8Wlqc7q4OrzIb44=/1280x720/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/D7E4JH23VRAMXIYQG2WP2EDIW4.jpg" alt="Cliente 2" class="w-12 h-12 rounded-full">
@@ -180,7 +181,6 @@
             </div>
 
 
-            <!-- Comentario 3 -->
             <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
                 <div class="flex items-center">
                     <img src="https://1.bp.blogspot.com/-S8Mbzln8bSU/XtDpVYQlcqI/AAAAAAAADVc/9P533rNP7O0R7ME9tVLJxtkdzydS4frAACPcBGAYYCw/s1600/lanarhoades_20200529_86.png" alt="Cliente 2" class="w-12 h-12 rounded-full">
@@ -195,12 +195,6 @@
                 <p class="mt-4 text-gray-600">"¡Me encantaron los productos! La entrega fue rápida y el empaque era muy cuidadoso."</p>
             </div>
 
-
-
-
-
-
-            <!-- Comentario 4x -->
             <div class="card w-80 bg-base-90 shadow-xl border rounded-lg p-4">
                 <div class="flex items-center">
                     <img src="http://media3.s-nbcnews.com/i/newscms/2015_02/835681/150106-mia-khalifa-830a_bcc977bc287eeeb9c3148b332b0e1a7b.jpg" alt="Cliente 3" class="w-12 h-12 rounded-full">
@@ -214,6 +208,12 @@
                 </div>
                 <p class="mt-4 text-gray-600">"Buen producto, pero el tiempo de entrega podría ser más rápido."</p>
             </div>
+        </div>
+
+        <div class="flex justify-center items-center mt-16">
+            <button type="button" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline">
+               Enviar tu resena
+            </button>
         </div>
     </section>
 
