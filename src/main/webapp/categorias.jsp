@@ -47,7 +47,7 @@
                 <li><a href="#" class="text-gray-700 hover:text-gray-900">Ropa</a></li>
             </ul>
         </aside>
-        <div class="lg:w-3/4 w-full  p-4 h-screen">
+        <div class="lg:w-3/4 w-full  p-4 h-screen drop-shadow-2xl">
 
         </div>
     </section>
