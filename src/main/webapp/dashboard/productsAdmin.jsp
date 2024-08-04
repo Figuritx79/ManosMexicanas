@@ -96,23 +96,21 @@
 
 <div class="container mt-5">
     <div class="breadcrumb">
-        <!--<a href="#">Home</a> &gt; <a href="#">Productos</a> &gt; Edit Product-->
     </div>
     <h2 class="mt-4">Agregar Producto</h2>
     <form method="post" action="registroProducto" enctype="multipart/form-data">
         <div class="row mt-4">
-            <!-- Primera columna -->
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Detalles del Producto</h5>
                         <div class="form-group">
                             <label for="Nombre">Nombre</label>
-                            <input type="text" class="form-control" id="Nombre" name="nombre" value="">
+                            <input type="text" class="form-control" id="Nombre" name="nombre" required>
                         </div>
                         <div class="form-group">
                             <label for="Descripcion">Descripción</label>
-                            <textarea class="form-control" id="Descripcion" value="" name="descripcion" rows="3" placeholder="Ejemplo: Este es un producto fabricado a mano tejido con estambre de calidad"></textarea>
+                            <textarea class="form-control" id="Descripcion" name="descripcion" rows="3" placeholder="Ejemplo: Este es un producto fabricado a mano tejido con estambre de calidad" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -123,24 +121,28 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="Id">ID</label>
-                                <input type="number" class="form-control" id="id" name="id" value="" readonly>
+                                <%
+                                    ProductDao p = new ProductDao();
+                                    int id = p.getNextId();
+                                %>
+                                <input type="number" class="form-control" id="id" name="id" value="<%=id%>" readonly >
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="stock">Stock</label>
-                                <input type="number" class="form-control" id="stock" name="stock">
+                                <input type="number" class="form-control" id="stock" name="stock" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="Precio">Precio</label>
-                                <input type="number" step="0.01" class="form-control" id="Precio" name="precio" value="">
+                                <input type="number" step="0.01" class="form-control" id="Precio" name="precio" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="tamaño">Tamaño</label>
-                                <input type="number" step="0.01" class="form-control" id="tamaño" value="" name="tamano">
+                                <input type="number" step="0.01" class="form-control" id="tamaño" name="tamano" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="color">Color</label>
-                            <select class="form-control" id="color" name="color">
+                            <select class="form-control" id="color" name="color" required>
                                 <option selected disabled value="">Selecciona</option>
                             </select>
                         </div>
@@ -148,14 +150,13 @@
                 </div>
             </div>
 
-            <!-- Segunda columna -->
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Categoria</h5>
                         <div class="form-group">
                             <label for="categoria">Categoría</label>
-                            <select class="form-control" id="categoria" name="categoria">
+                            <select class="form-control" id="categoria" name="categoria" required>
                                 <option selected disabled value="">Selecciona</option>
                             </select>
                         </div>
@@ -163,7 +164,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Imagen del producto</h5>
                         <div class="form-group">
-                            <input type="file" class="form-control-file" id="imagen" name="imagen">
+                            <input type="file" class="form-control-file" id="imagen" name="imagen" required>
                         </div>
                     </div>
                     <div class="card-body">
