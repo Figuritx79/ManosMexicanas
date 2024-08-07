@@ -12,6 +12,9 @@
   <title>Manos Mexicanas</title>
   <link rel="stylesheet" href="./static/css/daisy.min.css">
   <link rel="stylesheet" href="./static/css/menu.css">
+  <script src="./static/js/toastify.min.js"></script>
+  <link rel="stylesheet" href="./static/css/toastify.min.css">
+  <script src="./static/js/validateDataP.js" defer></script>
 </head>
 <body class="bg-b100 bg-bg100 text-stone-950">
 
@@ -27,13 +30,13 @@
       </div>
       <!-- form -->
       <div class="m-6">
-        <form method="post" action="updateContra" class="mb-4">
+        <form method="post" action="restore" class="mb-4" id="form-recu">
           <div class="mb-6">
-            <label for="contrasena" class="block mb-2 text-sm text-gray-100 dark:text-gray-400">Contraseña nueva</label>
-            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña nueva" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required>
+            <label for="password" class="block mb-2 text-sm text-gray-100 dark:text-gray-400">Contraseña nueva</label>
+            <input type="password" name="pass" id="password" placeholder="Contraseña nueva" class="validate w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required>
           </div>
           <div class="mb-6">
-            <input type="hidden" name="codigo" value="<%=request.getParameter("codigo")%>">
+            <input type="hidden" name="user" value="<%= request.getParameter("user") %>">
             <button type="submit" class="w-full px-3 py-4 text-white bg-primary100 rounded-md hover:bg-teal-600 focus:outline-none duration-100 ease-in-out">Cambiar contraseña</button>
           </div>
         </form>

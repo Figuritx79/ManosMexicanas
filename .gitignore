@@ -12,7 +12,7 @@ target/
 *.iml
 *.ipr
 .idea/*
-### Eclipse ###
+### Eclipse ###A
 .apt_generated
 .classpath
 .factorypath
@@ -40,3 +40,5 @@ build/
 .idea/
 /src/main/resources/*
 /src/main/java/mx/edu/utez/manosmexicanas/utils/DbConnectionManager.java
+.classpath
+.project

@@ -9,6 +9,27 @@ public class Usuario {
     private Role role;
     private String telefono;
     private boolean status;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Usuario(int id, String nombre, String correo, String password, Role role, String apellido, String telefono, boolean status, String token) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.password = password;
+        this.role = role;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.status = status;
+        this.token = token;
+    }
 
     public Usuario() {
     }
