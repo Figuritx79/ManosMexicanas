@@ -30,7 +30,7 @@
             <span class="icon-package"></span>
             <span class="sr-only">Manos Mexicanas</span>
         </a>
-        <a href="home.html" class="nav-item" title="Dashboard">
+        <a href="dashboard.jsp" class="nav-item" title="Dashboard">
             <img src="../static/img/home.svg" alt="">
             <span class="icon-home"></span>
             <span class="sr-only">Home</span>

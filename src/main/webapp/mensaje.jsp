@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     var sesion = request.getSession();
-    var mensaje = sesion.getAttribute("mensaje");
+    var  mensaje = sesion.getAttribute("mensaje");
 %>
 <html>
 <head>

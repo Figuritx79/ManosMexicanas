@@ -1,6 +1,17 @@
+<%@ page import="mx.edu.utez.manosmexicanas.dao.ProductDao" %>
+<%@ page import="mx.edu.utez.manosmexicanas.model.Producto" %>
+<%@ page import="jakarta.mail.Session" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
 
+<%
+    String idString = request.getParameter("id");
+    int id = Integer.parseInt(idString);
+    System.out.println(id);
+    ProductDao productDao = new ProductDao();
+    Producto producto = productDao.getOneById(id);
+%>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +22,7 @@
     <script src="./static/js/tailwind.config.js"></script>
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
-    <title>Manos Mexicanas</title>
+    <title><%= producto.getNombre()%></title>
     <script src="./Header/header.js" defer></script>
     <link rel="stylesheet" href="./static/css/menu.css">
 
@@ -21,6 +32,7 @@
 
 <%@include file="./Header/header.jsp" %>
 <main>
+
     <section class="flex justify-center items-center py-16">
         <div class="w-full md:w-4/5 lg:w-3/4">
             <div class="flex flex-col lg:flex-row bg-base-90  rounded-lg overflow-hidden">
@@ -28,12 +40,11 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmPvx7M7bkjhkXXUh_uFzNM-L3zLVhB7mLzw&s" alt="Toy story" class="object-cover w-full h-full">
                 </figure>
                 <div class="p-8 lg:w-1/2 w-full">
-                    <h1 class="text-3xl font-bold text-gray-600 text-4xl">Toy story</h1>
-                    <p class="mt-2 text-gray-600">peluche de fibra de algodón</p>
-                    <p class="mt-4 text-2xl font-semibold text-gray-600">$300.00</p>
-                    <p class="mt-2 text-gray-600">Enfocado al público infantil</p>
+                    <h1 class="text-3xl font-bold text-gray-600 text-4xl"><%=producto.getNombre() %></h1>
+                    <p class="mt-4 text-2xl font-semibold text-gray-600">$<%=producto.getPrecio()%></p>
+                    <p class="mt-2 text-gray-600"><%=producto.getDescripcion()%></p>
                     <div class="mt-4">
-                        <button class="bg-[#30A380] text-white px-4 py-2 rounded-md focus:outline-none">Button</button>
+                        <button class="bg-[#30A380] text-white px-4 py-2 rounded-md focus:outline-none">Agregar al carrito</button>
                     </div>
                     <p class="mt-2 text-gray-600">Para cosas adicionales del producto</p>
                 </div>

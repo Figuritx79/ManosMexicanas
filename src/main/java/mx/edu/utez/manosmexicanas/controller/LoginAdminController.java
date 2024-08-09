@@ -21,19 +21,17 @@ public class LoginAdminController extends HttpServlet {
         UserDao userDao = new UserDao();
         Usuario usuario = new Usuario();
         try(Connection conn = DbConnectionManager.getConnection()){
-             var result = userDao.loginAdmin(correo,password);
+            var result = userDao.loginAdmin(correo,password);
             if (result != null){
                 usuario = result;
                 HttpSession session = req.getSession(true);
                 session.setAttribute("User",usuario.toString());
-                res.setStatus(200);
                 session.setAttribute("mensaje","Bienvenido de vuelta Erick");
                 res.sendRedirect("./dashboard/dashboard.jsp");
-
+                session.setMaxInactiveInterval(60 * 60);
             }
             if (result == null){
                res.setStatus(401);
-                res.sendRedirect("loginAdmin.jsp");
             }
         }catch (SQLException e){
             e.getMessage();

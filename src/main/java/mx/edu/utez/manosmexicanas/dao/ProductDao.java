@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class ProductDao {
     public int getNextId() {
-        String query = "select max(id) as max_id from producto";
+        String query = "select max(id) as max_id from producto;";
         try (Connection conn = DbConnectionManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
@@ -28,7 +28,7 @@ public class ProductDao {
     }
 
     public ArrayList<Categoria> getCategoria(){
-        String query = "SELECT * FROM categoria";
+        String query = "SELECT * FROM categoria;";
         ArrayList<Categoria>  categorias = new ArrayList<>();
         try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery()) {
@@ -66,7 +66,7 @@ public class ProductDao {
 
     public ArrayList<Producto> getAll() {
         ArrayList<Producto> lista = new ArrayList<>();
-        String query = "SELECT p.id, p.nombre, p.precio, p.tamaño, p.stock,p.descripcion, c.nombre as color, ca.nombre as categoria from categoria ca join producto p on p.categoria=ca.id JOIN color c ON p.color = c.id";
+        String query = "SELECT p.id, p.nombre, p.precio, p.tamaño, p.stock,p.descripcion, c.nombre as color, ca.nombre as categoria from categoria ca join producto p on p.categoria=ca.id JOIN color c ON p.color = c.id;";
         try(Connection con = DbConnectionManager.getConnection(); PreparedStatement ps = con.prepareStatement(query); ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
                 Producto p = new Producto();
@@ -134,5 +134,47 @@ public class ProductDao {
             throw new RuntimeException(e);
         }
         return total;
+    }
+
+    public  ArrayList<Producto> randProducts(){
+        var query = "SELECT * FROM randomProduct";
+        ArrayList<Producto> productos = new ArrayList<>();
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Producto producto = new Producto();
+                Categoria categoria = new Categoria();
+                producto.setId(rs.getInt("id"));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setDescripcion(rs.getString("descripcion"));
+                categoria.setNombre(rs.getString("categoria"));
+                producto.setImagen(rs.getString("imagen"));
+                producto.setCategoria(categoria);
+                 productos.add(producto);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return productos;
+    }
+    public Producto getOneById(int id){
+        var query = "CALL getOneProduct(?);";
+        Producto producto = new Producto();
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+               producto.setId(rs.getInt("id"));
+               producto.setNombre(rs.getString("nombre"));
+               producto.setPrecio(rs.getDouble("precio"));
+               producto.setDescripcion(rs.getString("descripcion"));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return producto;
     }
 }

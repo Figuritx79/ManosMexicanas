@@ -1,4 +1,20 @@
+
+<%@ page import="mx.edu.utez.manosmexicanas.dao.ProductDao" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="mx.edu.utez.manosmexicanas.model.Producto" %>
+<%@ page import="mx.edu.utez.manosmexicanas.model.Usuario" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%
+    ProductDao productDao = new ProductDao();
+
+    ArrayList<Producto> productos  = productDao.randProducts();
+
+    Usuario user = (Usuario) request.getAttribute("user") ;
+
+
+%>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -12,7 +28,6 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Jira.png" type="image/x-icon">
     <title>Manos Mexicanas</title>
-    <link rel="stylesheet" href="./static/css/daisy.min.css">
     <link rel="stylesheet" href="./static/css/menu.css">
     <script src="./Header/scrollHeader.js" defer></script>
 
@@ -36,7 +51,7 @@
             <div class="flex pt-4 gap-x-12 mt-4 items-center justify-center lg:grid grid-cols-2 lg:text-center">
                 <a href="#" class="border-0 bg-primary px-8 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline" id="btnCatalogo">Ver
 
-                <a href="" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline" id="">Conoce mas</a>
+                    <a href="goo.jsp" class="bc px-2 py-3.5 rounded-md text-neutral-950 hover:bg-secondary link no-underline" id="">Conoce mas</a>
             </div>
         </div>
     </section>
@@ -46,30 +61,42 @@
         <div class="flex flex-col justify-center items-center">
             <h2 class=" text-xl lg:text-3xl">Nuestros Productos</h2>
             <div class="mt-4 text-base lg:text-lg p-2">
-                <p>Explora nuestras diferentes categorias de peluches de crochet y encuentra tu favorito</p>
+                <p>Explora nuestras categorias mas populares de peluches de crochet y encuentra tu favorito</p>
             </div>
         </div>
-        <div class="grid grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-none place-content-center mt-10 text-center place-items-center">
+        <div class=" container grid grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-none place-content-center mt-10 text-center place-items-center">
 
-            <div class="lg:w-64 lg:h-64 md:w-44 md:h-44 w-36 h-36 lg:mt-2 shadow-md background categoria rounded-md  flex justify-center items-center">
-                <div id="divAnimados" class="text-base font-semibold text-center leading-loose px-2 bg-primary bg-opacity-50 rounded-md text-bg400 ">
-                    Animados
-                </div>
+
+            <div class="categoria relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40  mt-4">
+                <img src="./static/img/categoria3.jpeg" alt="Categoria animados" class="absolute inset-0 h-full w-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                <h3 class="z-10 mt-3 text-lg lg:text-3xl font-bold text-white">Categoria:</h3>
+                <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">Animados</div>
             </div>
 
-            <div class="lg:w-64 lg:h-64 md:w-44 md:h-44 w-36 h-36 lg:mt-2 shadow-md background2 categoria rounded-md flex justify-center items-center ">
-                <div class="font-semibold bg-primary bg-opacity-50 rounded-md text-bg400 px-2 leading-loose">Comida
-                </div>
+            <div class="categoria relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40  mt-4">
+                <img src="./static/img/categoria2.jpeg" alt="categoria animados" class="absolute inset-0 h-full w-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                <h3 class="z-10 mt-3 text-xl lg:text-3xl font-bold text-white">Categoria:</h3>
+                <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">Comida</div>
             </div>
 
-            <div class=" flex justify-center items-center lg:w-64 lg:h-64 md:w-44 md:h-44 w-36 h-36 lg:mt-2  mt-6 shadow-md background3 categoria rounded-md  ">
-                <div class="font-semibold bg-primary bg-opacity-50 rounded-md px-2 leading-loose">Mexicano</div>
+            <div class="categoria relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 mt-4">
+                <img src="./static/img/categoria1.jpeg" alt="categoria animados" class="absolute inset-0 h-full w-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                <h3 class="z-10 mt-3 text-xl lg:text-3xl font-bold text-white">Categoria:</h3>
+                <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">Ropa</div>
             </div>
 
-            <div class="lg:w-64 lg:h-64 md:w-44 md:h-44 w-36 h-36 lg:mt-2 shadow-md background4 categoria mt-6 rounded-md flex justify-center items-center  ">
-                <div class="font-semibold bg-primary bg-opacity-50 rounded-md text-bg400 px-2 leading-loose">Artistas
-                </div>
+
+            <div class="categoria relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40  mt-4">
+                <img src="./static/img/categoria1.jpeg" alt="categoria animados" class="absolute inset-0 h-full w-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                <h3 class="z-10 mt-3 lg:text-3xl  text-xl font-bold text-white">Categoria:</h3>
+                <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">Artistas</div>
             </div>
+
+
 
 
         </div>
@@ -84,52 +111,50 @@
                 <p class="lg:text-lg text-base p-5">Nuestros peluches de crochet mas populares</p>
             </div>
         </div>
-        <div class="container mx-auto ">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 border-2 border-bg100 rounded-lg">
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
-                    <figure>
-                        <img src="https://via.placeholder.com/150" alt="Producto 1" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 1</h2>
-                        <p class="text-[#333333]">$10.00</p>
-                        <button id="plus-btn4" class="btn text-white btn-hover relative mt-4">+</button>
-                    </div>
-                </div>
+        <div class="grid lg:grid-cols-3 grid-cols-2 grid-rows-2 gap-x-6 place-content-center place-items-center ">
+            <%
+                for (Producto u : productos) {
+            %>
+            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                <a href="<%= u.getImagen() %>">
+                    <img class="p-8 rounded-t-lg" src="<%= u.getImagen() %>" alt="product image" />
+                </a>
+                <div class="px-5 pb-5">
+                    <a href="#">
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900"><%= u.getNombre() %></h5>
+                    </a>
+                    <div class="flex items-center mt-2.5 mb-5">
+                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
 
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
-                    <figure>
-                        <img src="https://via.placeholder.com/150" alt="Producto 2" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 2</h2>
-                        <p class="text-[#333333]">$20.00</p>
-                        <button id="plus-btn3" class="btn text-white btn-hover relative mt-4">+</button>
-                    </div>
-                </div>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
 
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
-                    <figure>
-                        <img src="https://via.placeholder.com/150" alt="Producto 3" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 3</h2>
-                        <p class="text-[#333333]">$30.00</p>
-                        <button id="plus-btn2" class="btn text-white btn-hover relative mt-4">+</button>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                        </div>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-bold text-gray-900 dark:text-white">$<%= u.getPrecio() %></span>
+                        <a href="redirect?id=<%= u.getId()%>" class="text-white bg-primary100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Agregar al carrito</a>
                     </div>
                 </div>
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4">
-                    <figure>
-                        <img src="https://via.placeholder.com/150" alt="Producto 4" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 4</h2>
-                        <p class="text-[#333333]">$40.00</p>
-                        <button id="plus-btn" class="btn text-white btn-hover relative mt-4">+</button>
-                    </div>
-                </div>
-
             </div>
+            <%
+                }
+            %>
+        </div>
         </div>
 
 
@@ -210,11 +235,7 @@
             </div>
         </div>
 
-        <div class="flex justify-center items-center mt-16">
-            <button type="button" class="bc px-2 py-3.5 rounded-md text-neutral-950 bg-400 link no-underline">
-               Enviar tu resena
-            </button>
-        </div>
+
     </section>
 
 

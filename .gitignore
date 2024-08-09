@@ -42,3 +42,4 @@ build/
 /src/main/java/mx/edu/utez/manosmexicanas/utils/DbConnectionManager.java
 .classpath
 .project
+.settings

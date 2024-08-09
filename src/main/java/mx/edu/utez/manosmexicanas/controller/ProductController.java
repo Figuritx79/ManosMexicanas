@@ -46,19 +46,19 @@ public class ProductController extends HttpServlet {
 
         try {
             if (precioStr != null && !precioStr.trim().isEmpty()) {
-                precio = Double.valueOf(precioStr.trim());
+                precio = Double.parseDouble(precioStr.trim());
             }
             if (tamanoStr != null && !tamanoStr.trim().isEmpty()) {
-                tamano = Double.valueOf(tamanoStr.trim());
+                tamano = Double.parseDouble(tamanoStr.trim());
             }
             if (stockStr != null && !stockStr.trim().isEmpty()) {
-                stock = Integer.valueOf(stockStr.trim());
+                stock = Integer.parseInt(stockStr.trim());
             }
             if (colorIdStr != null && !colorIdStr.trim().isEmpty()) {
-                colorId = Integer.valueOf(colorIdStr.trim());
+                colorId = Integer.parseInt(colorIdStr.trim());
             }
             if (categoriaIdStr != null && !categoriaIdStr.trim().isEmpty()) {
-                categoriaId = Integer.valueOf(categoriaIdStr.trim());
+                categoriaId = Integer.parseInt(categoriaIdStr.trim());
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -107,7 +107,7 @@ public class ProductController extends HttpServlet {
 
             try (Connection conn = DbConnectionManager.getConnection()) {
             ProductDao productDao = new ProductDao();
-            Boolean result = productDao.insertProduct(p);
+            boolean result = productDao.insertProduct(p);
 
             if (result) {
                 System.out.println("Producto guardado correctamente");

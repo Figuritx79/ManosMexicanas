@@ -173,4 +173,26 @@ public class UserDao {
         return flag;
     }
 
+    public Usuario searchUser(String mail, String pass){
+        var query = "CALL getUser(?,?);";
+        Usuario usuario = new Usuario();
+        usuario.setId(0);
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);) {
+            ps.setString(1,mail);
+            ps.setString(2,pass);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                usuario.setId(rs.getInt("id"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setTelefono(rs.getString("telefono"));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuario;
+    }
+
 }

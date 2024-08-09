@@ -24,6 +24,7 @@ public class UpdatePasswordController  extends HttpServlet {
 
         if (result){
             var session = req.getSession(false);
+            session.setMaxInactiveInterval(10 * 60);
             var mensaje = "Se actualizo con exito tus crendiales, por favor iniciar sesion";
             session.setAttribute("exito", mensaje);
             res.setStatus(200);
@@ -31,7 +32,8 @@ public class UpdatePasswordController  extends HttpServlet {
         }
 
         if (!result){
-            var session = req.getSession(false);
+            var session = req.getSession();
+            session.setMaxInactiveInterval(10* 60);
             var mensaje = "No se puedo restablecer sus credenciales, por favor intentelo de nuevo";
             session.setAttribute("fracaso",mensaje);
             res.sendRedirect("mensaje.jsp");

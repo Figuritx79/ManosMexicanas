@@ -34,7 +34,7 @@ public class ObtenerEmailController extends HttpServlet {
             try {
                 GmailSender sender = new GmailSender();
                 sender.sendMail(email,asunto,mensaje);
-                var sesesion = req.getSession(false);
+                var sesesion = req.getSession();
                 sesesion.setAttribute("mensaje","Revisar tu correo en el apartado de spam para validar tu recuperacion");
                 res.sendRedirect("mensaje.jsp");
             } catch (Exception e) {
@@ -54,7 +54,8 @@ public class ObtenerEmailController extends HttpServlet {
             res.setStatus(404);
         }
         if(exist > 0) {
-            var session = req.getSession(false);
+            var session = req.getSession();
+            session.setMaxInactiveInterval(30* 60);
             session.setAttribute("user",exist);
             res.sendRedirect("restaurarContrasena.jsp?user="+exist);
         }
