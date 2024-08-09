@@ -40,7 +40,7 @@
                 </label>
             </div>
             <div class="forgot-container">
-                <button type="button" class="forgot-password" onclick="forgotPassword()">¿Olvidaste tu contraseña?</button>
+                <a href="recuperaContrasena.jsp" class="forgot-password">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="buttons">
                 <button type="button" onclick="location.href='register.jsp'" class="btn">Registrarse</button>

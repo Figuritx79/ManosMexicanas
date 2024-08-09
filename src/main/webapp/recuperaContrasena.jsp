@@ -14,6 +14,9 @@
     <title>Manos Mexicanas</title>
     <link rel="stylesheet" href="./static/css/daisy.min.css">
     <link rel="stylesheet" href="./static/css/menu.css">
+    <link rel="stylesheet" href="./static/css/toastify.min.css">
+    <script src="./static/js/toastify.min.js"></script>
+    <script src="./static/js/validateData.js" defer></script>
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
@@ -30,10 +33,10 @@
             </div>
             <!-- sign-in -->
             <div class="m-6">
-                <form class="mb-4" method="POST" action="searchMail">
+                <form class="mb-4" method="POST" action="searchMail" id="form-recu">
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm text-gray-100 dark:text-gray-400">Correo Electrónico</label>
-                        <input type="email" name="email" id="email" placeholder="Tu correo electrónico" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                        <input type="email" name="email" id="email" placeholder="Tu correo electrónico" class="validate w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
                     </div>
                     <div class="mb-6">
                         <button type="submit" class="w-full px-3 py-4 text-white bg-primary100 rounded-md hover:bg-teal-600 focus:outline-none duration-100 ease-in-out">Enviar enlace de reinicio</button>

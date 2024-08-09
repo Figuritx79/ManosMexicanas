@@ -214,9 +214,24 @@ public class ProductDao {
             if (ps.executeUpdate() > 0) {
                 flag = true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return flag;
+
+    }
+    public int countProducts(){
+        var query = "SELECT * FROM countProducts;";
+        int total = 0;
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);
+        ResultSet rs = ps.executeQuery(); ) {
+            if (rs.next()){
+                 total = rs.getInt("Total");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return total;
     }
 }

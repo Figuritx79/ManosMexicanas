@@ -14,7 +14,7 @@
     <title>Manos Mexicanas</title>
     <link rel="stylesheet" href="./static/css/daisy.min.css">
     <link rel="stylesheet" href="./static/css/menu.css">
-    <script src="./Header/scrollHeader.js" defer></script>A
+    <script src="./Header/scrollHeader.js" defer></script>
 
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">

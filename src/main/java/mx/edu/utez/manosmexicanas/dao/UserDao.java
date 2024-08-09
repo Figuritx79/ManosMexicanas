@@ -6,8 +6,11 @@ import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.PropertyPermission;
 
 public class UserDao {
+<<<<<<< HEAD
 
     public boolean habUsuario(Usuario u) {
         boolean flag = false;
@@ -45,6 +48,8 @@ public class UserDao {
         return flag;
     }
 
+=======
+>>>>>>> 82e74a394e6a990371f80ec9362086668db57dcb
     public ArrayList<Usuario> getAll() {
         ArrayList<Usuario> lista = new ArrayList<>();
         String query = "SELECT * from usuario";
@@ -141,21 +146,71 @@ public class UserDao {
         return null;
     }
 
-    public boolean getOne(String email){
-       boolean flag = false;
-       String query = "SELECT * FROM usuario WHERE correo = ?";
-       try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);) {
+    public Usuario getOne(String email) {
+        String query = "CALL getMail(?);";
+        Usuario user= new Usuario();
+
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);){
            ps.setString(1,email);
            ResultSet rs = ps.executeQuery();
-           if (rs.next()){
+           if(rs.next()) {
+               user.setId(rs.getInt("id"));
+               user.setNombre(rs.getString("nombre"));
+               user.setApellido(rs.getString("apellido"));
+               user.setCorreo(rs.getString("correo"));
+               user.setStatus(rs.getBoolean("status"));
+           }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+
+    }
+    public boolean insertToken(int id, String token){
+        boolean flag = false;
+        String query = "CALL setTokenUser(?,?);";
+        try(Connection conn =  DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);){
+           ps.setString(1,token);
+           ps.setInt(2,id);
+           if (ps.executeUpdate() > 0){
                flag = true;
            }
-       } catch (SQLException e) {
-           throw new RuntimeException(e);
-       }
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return flag;
+    }
 
-        return false;
+    public int  searchToken(String token){
+        var query = "CALL searchToken(?)";
+        var id = 0;
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);) {
+            ps.setString(1,token);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                id = rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return id;
+    }
+
+    public boolean updatePassword(int idUser, String password){
+        var flag = false ;
+        var query = "CALL updatePassword(?,?);";
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);) {
+            ps.setString(1,password);
+            ps.setInt(2,idUser);
+            if(ps.executeUpdate() >  0){
+              flag = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return flag;
     }
 
 }
