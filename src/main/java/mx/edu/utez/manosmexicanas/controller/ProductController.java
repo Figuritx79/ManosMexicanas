@@ -3,10 +3,7 @@ package mx.edu.utez.manosmexicanas.controller;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
+import jakarta.servlet.http.*;
 import mx.edu.utez.manosmexicanas.dao.ProductDao;
 import mx.edu.utez.manosmexicanas.model.Categoria;
 import mx.edu.utez.manosmexicanas.model.Color;
@@ -25,6 +22,16 @@ import java.util.UUID;
 @MultipartConfig
 @WebServlet(name="ProductController", value="/dashboard/registroProducto")
 public class ProductController extends HttpServlet {
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        ProductDao dao = new ProductDao();
+        Producto p = dao.getOne(id);
+
+        HttpSession sesion = req.getSession();
+        sesion.setAttribute("producto", p);
+        resp.sendRedirect("modificarProducto.jsp");
+    }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String nombre = req.getParameter("nombre");

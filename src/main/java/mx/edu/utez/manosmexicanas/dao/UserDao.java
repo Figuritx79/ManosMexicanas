@@ -10,6 +10,46 @@ import java.util.Optional;
 import java.util.PropertyPermission;
 
 public class UserDao {
+<<<<<<< HEAD
+
+    public boolean habUsuario(Usuario u) {
+        boolean flag = false;
+        String query = "update usuario set status=1 where id = ?";
+        try {
+            Connection con = DbConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setInt(1, u.getId());
+
+            if(ps.executeUpdate()>0){
+                flag = true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public boolean desUsuario(Usuario u) {
+        boolean flag = false;
+        String query = "update usuario set status=0 where id = ?";
+        try {
+            Connection con = DbConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setInt(1, u.getId());
+
+            if(ps.executeUpdate()>0){
+                flag = true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+=======
+>>>>>>> 82e74a394e6a990371f80ec9362086668db57dcb
     public ArrayList<Usuario> getAll() {
         ArrayList<Usuario> lista = new ArrayList<>();
         String query = "SELECT * from usuario";

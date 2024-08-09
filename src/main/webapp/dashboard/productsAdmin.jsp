@@ -69,6 +69,7 @@
             <th>Stock</th>
             <th>Categoria</th>
             <th>Descripcion</th>
+            <th>Gestion</th>
         </tr>
         </thead>
         <tbody>
@@ -86,6 +87,10 @@
             <td><%=p.getStock()%></td>
             <td><%=p.getCategoria().getNombre()%></td>
             <td><%=p.getDescripcion()%></td>
+            <td><a href="registroProducto?id=<%=p.getId()%>" class="btn-modificar">Modificar</a>
+
+                <a href="deleteProduct?id=<%=p.getId()%>" class="btn-eliminar">Eliminar</a>
+            </td>
         </tr>
         <% } %>
         </tbody>

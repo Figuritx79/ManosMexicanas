@@ -3,6 +3,7 @@ package mx.edu.utez.manosmexicanas.dao;
 import mx.edu.utez.manosmexicanas.model.Categoria;
 import mx.edu.utez.manosmexicanas.model.Color;
 import mx.edu.utez.manosmexicanas.model.Producto;
+import mx.edu.utez.manosmexicanas.model.Usuario;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
 import java.sql.Connection;
@@ -12,6 +13,104 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductDao {
+
+
+    public boolean deleteProduct(int id) {
+        boolean flag = false;
+        String query = "delete from producto where id = ?";
+        try {
+            Connection con = DbConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1,id);
+            if(ps.executeUpdate()>0){
+                flag = true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public Producto getOne(int id){
+        Producto p = new Producto();
+        String query = "SELECT p.id, p.nombre, p.precio, p.tamaño, p.stock,p.descripcion, c.nombre as color, ca.nombre as categoria from categoria ca join producto p on p.categoria=ca.id JOIN color c ON p.color = c.id where p.id=?";
+        try {
+            Connection con = DbConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1,id);
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setNombre(rs.getString("nombre"));
+                p.setPrecio(rs.getDouble("precio"));
+                p.setTamano(rs.getDouble("tamaño"));
+                p.setStock(rs.getInt("stock"));
+                p.setDescripcion(rs.getString("descripcion"));
+
+                Color color = new Color();
+                color.setId(rs.getInt("id"));
+                color.setNombre(rs.getString("color"));
+                p.setColor(color);
+
+                Categoria categoria = new Categoria();
+                categoria.setId(rs.getInt("id"));
+                categoria.setNombre(rs.getString("categoria"));
+                p.setCategoria(categoria);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return p;
+    }
+
+    public boolean updateProduct(Producto p) {
+        boolean flag = false;
+        String query = "UPDATE producto SET nombre = ?, precio = ?, tamaño = ?, descripcion = ?, stock = ?, color = ?, categoria = ?, imagen = ? WHERE id = ?;";
+        try (Connection con = DbConnectionManager.getConnection();
+             PreparedStatement ps = con.prepareStatement(query);) {
+
+            ps.setString(1, p.getNombre());
+            ps.setDouble(2, p.getPrecio());
+            ps.setDouble(3, p.getTamano());
+            ps.setString(4, p.getDescripcion());
+            ps.setInt(5, p.getStock());
+            ps.setInt(6, p.getColor().getId());
+            ps.setInt(7, p.getCategoria().getId());
+            ps.setString(8, p.getImagen());
+            ps.setInt(9, p.getId());
+
+            if (ps.executeUpdate() > 0) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public ArrayList<Producto> getProducto(){
+        String query = "select nombre, descripcion, imagen from producto";
+        ArrayList<Producto> list = new ArrayList<>();
+        try(Connection conn = DbConnectionManager.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Producto p = new Producto();
+                p.setNombre(rs.getString("nombre"));
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setImagen(rs.getString("imagen"));
+
+                list.add(p);
+            }
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        return list;
+    }
+
     public int getNextId() {
         String query = "select max(id) as max_id from producto;";
         try (Connection conn = DbConnectionManager.getConnection();
