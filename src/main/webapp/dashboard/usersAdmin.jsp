@@ -82,15 +82,26 @@
             ArrayList<Usuario> lista = dao.getAll();
             for(Usuario u : lista){//Por cada usuario de la lista
         %>
-        <tr>
-
-            <td><%=u.getId()%></td>
-            <td><%=u.getNombre()%></td>
-            <td><%=u.getApellido()%></td>
-            <td><%=u.getTelefono()%></td>
-            <td><%=u.getCorreo()%></td>
-            <td><%=u.getStatus() ? "Habilitado":"Deshabilitado"%></td>
         </tr>
+        <c:forEach var="u" items="${usuario}">
+            <tr>
+                <td><%= u.getId() %></td>
+                <td><%= u.getNombre() %></td>
+                <td><%= u.getApellido() %></td>
+                <td><%= u.getTelefono() %></td>
+                <td><%= u.getCorreo() %></td>
+                <td>
+                    <form action="cambiarEstadoUsuario" method="post">
+                        <input type="hidden" name="userId" value="<%= u.getId() %>">
+                        <% if (u.getStatus()) { %>
+                        <button type="submit" name="action" value="deshabilitar" class="btn-modificar">Deshabilitar</button>
+                        <% } else { %>
+                        <button type="submit" name="action" value="habilitar" class="btn-eliminar">Habilitar</button>
+                        <% } %>
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
         <% } %>
         </tbody>
     </table>

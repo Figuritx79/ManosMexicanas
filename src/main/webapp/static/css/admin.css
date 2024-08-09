@@ -26,6 +26,25 @@ h2 {
 }
 
 
+
+.btn-modificar {
+    background-color: #30a380;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
 .nav-pills .nav-link.active {
     background-color: #30a380;
 }
