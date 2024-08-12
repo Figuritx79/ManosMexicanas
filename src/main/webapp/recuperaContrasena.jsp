@@ -20,7 +20,7 @@
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
-<%@include file="./Header/header.jsp"%>
+<%@include file="components/header.jsp"%>
 
 <main class="bg-gray-200">
 
@@ -48,6 +48,6 @@
 
 
 </main>
-<%@include file="./Footer/footer.jsp"%>
+<%@include file="components/footer.jsp"%>
 </body>
 </html>

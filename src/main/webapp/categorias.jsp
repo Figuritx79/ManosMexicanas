@@ -18,7 +18,7 @@
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
-<%@include file="./Header/header.jsp"%>
+<%@include file="components/header.jsp"%>
 
 <main class="flex">
     <section class="flex flex-col lg:flex-row w-full">
@@ -52,6 +52,6 @@
         </div>
     </section>
 </main>
-<%@include file="./Footer/footer.jsp"%>
+<%@include file="components/footer.jsp"%>
 </body>
 </html>

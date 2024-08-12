@@ -9,3 +9,6 @@
     --secondary-200: #b47341;
     --extra:#61371A;
 }
+*{
+    box-sizing: border-box;
+}

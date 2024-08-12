@@ -10,8 +10,6 @@
 
     ArrayList<Producto> productos  = productDao.randProducts();
 
-    Usuario user = (Usuario) request.getAttribute("user") ;
-
 
 %>
 
@@ -29,13 +27,14 @@
     <link rel="shortcut icon" href="./static/img/Jira.png" type="image/x-icon">
     <title>Manos Mexicanas</title>
     <link rel="stylesheet" href="./static/css/menu.css">
-    <script src="./Header/scrollHeader.js" defer></script>
-
+    <script src="./static/js/scrollHeader.js" defer></script>
+    <link rel="stylesheet" href="./static/css/headerComponents.css">
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
-<%@include file="./Header/header.jsp"%>
-
+<%@include file="./components/header.jsp"%>
+<%@include file="components/search.jsp"%>
+<%@include file="./components/bag.jsp"%>
 <main >
 
     <section class="flex flex-col p-4 lg:flex lg:flex-row lg:items-center lg:justify-between bg-bg400">
@@ -51,7 +50,7 @@
             <div class="flex pt-4 gap-x-12 mt-4 items-center justify-center lg:grid grid-cols-2 lg:text-center">
                 <a href="#" class="border-0 bg-primary px-8 py-3.5 rounded-md text-bg100 font-semibold lg:px-6 link no-underline" id="btnCatalogo">Ver
 
-                    <a href="goo.jsp" class="bc px-2 py-3.5 rounded-md text-neutral-950 hover:bg-secondary link no-underline" id="">Conoce mas</a>
+                    <a href="about.jsp" class="bc px-2 py-3.5 rounded-md text-neutral-950 hover:bg-secondary link no-underline" id="">Conoce mas</a>
             </div>
         </div>
     </section>
@@ -242,6 +241,6 @@
 
 
 </main>
-<%@include file="./Footer/footer.jsp"%>
+<%@include file="./components/footer.jsp"%>
 </body>
 </html>

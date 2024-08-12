@@ -23,14 +23,12 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
     <title><%= producto.getNombre()%></title>
-    <script src="./Header/header.js" defer></script>
     <link rel="stylesheet" href="./static/css/menu.css">
-
-    <link rel="stylesheet" href="./static/css/daisy.min.css">
+    <script src="./static/js/scrollHeader.js" defer></script>
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
-<%@include file="./Header/header.jsp" %>
+<%@include file="./components/header.jsp" %>
 <main>
 
     <section class="flex justify-center items-center py-16">
@@ -114,6 +112,6 @@
 
 
 </main>
-<%@include file="./Footer/footer.jsp"%>
+<%@include file="components/footer.jsp"%>
 </body>
 </html>

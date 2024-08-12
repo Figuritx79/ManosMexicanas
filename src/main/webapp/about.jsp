@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
     <title>About</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./static/css/menu.css">
+    <script src="./static/js/scrollHeader.js" defer></script>
 </head>
 <body class="bg-bg400  md:bg-bg400  lg:bg-b100 xl:bg-bg100 ">
-<%@include file="./Header/header.jsp"%>
+<%@include file="./components/header.jsp"%>
 <main>
     <br>
     <section class="flex flex-col p-4 bg-bg100 lg:flex lg:flex-row lg:items-center lg:justify-between lg:bg-none">
