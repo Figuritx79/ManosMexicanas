@@ -1,9 +1,6 @@
 package mx.edu.utez.manosmexicanas.dao;
 
-import mx.edu.utez.manosmexicanas.model.Categoria;
-import mx.edu.utez.manosmexicanas.model.Color;
-import mx.edu.utez.manosmexicanas.model.Producto;
-import mx.edu.utez.manosmexicanas.model.Usuario;
+import mx.edu.utez.manosmexicanas.model.*;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
 import java.sql.Connection;
@@ -241,34 +238,47 @@ public class ProductDao {
         try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
+                Image image = new Image();
                 Producto producto = new Producto();
-                Categoria categoria = new Categoria();
+//                Categoria categoria = new Categoria();
+//                INSERTAR LOS DATOS EN EL OBJETO
                 producto.setId(rs.getInt("id"));
                 producto.setNombre(rs.getString("nombre"));
                 producto.setPrecio(rs.getDouble("precio"));
                 producto.setDescripcion(rs.getString("descripcion"));
-                categoria.setNombre(rs.getString("categoria"));
-                producto.setImagen(rs.getString("imagen"));
-                producto.setCategoria(categoria);
-                 productos.add(producto);
+//                INSERTS EN PRODUCTO
+//                categoria.setNombre(rs.getString("categoria"));
+//                producto.setCategoria(categoria);
+                image.setUrl(rs.getString("url"));
+                producto.setImage(image);
+                productos.add(producto);
+
             }
             rs.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return productos;
     }
     public Producto getOneById(int id){
         var query = "CALL getOneProduct(?);";
         Producto producto = new Producto();
+        Image image = new Image();
+        Color color = new Color();
         try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setInt(1,id);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-               producto.setId(rs.getInt("id"));
+                image.setUrl(rs.getString("url"));
+                color.setId(rs.getInt("idColor"));
+                color.setNombre(rs.getString("color"));
+                producto.setImage(image);
+                producto.setColor(color);
+               producto.setId(rs.getInt("idProducto"));
                producto.setNombre(rs.getString("nombre"));
                producto.setPrecio(rs.getDouble("precio"));
                producto.setDescripcion(rs.getString("descripcion"));
+               producto.setTamano(rs.getInt("tamano"));
             }
 
         } catch (SQLException e) {

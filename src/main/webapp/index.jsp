@@ -115,8 +115,8 @@
                 for (Producto u : productos) {
             %>
             <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                <a href="<%= u.getImagen() %>">
-                    <img class="p-8 rounded-t-lg" src="<%= u.getImagen() %>" alt="product image" />
+                <a href="<%= u.getImage().getUrl() %>">
+                    <img class="p-8 rounded-t-lg h-44" src="<%= u.getImage().getUrl() %>" alt="product image" />
                 </a>
                 <div class="px-5 pb-5">
                     <a href="#">

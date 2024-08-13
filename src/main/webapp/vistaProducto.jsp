@@ -25,17 +25,22 @@
     <title><%= producto.getNombre()%></title>
     <link rel="stylesheet" href="./static/css/menu.css">
     <script src="./static/js/scrollHeader.js" defer></script>
+    <link rel="stylesheet" href="./static/css/headerComponents.css">
+    <script src="./static/js/productImages.js"></script>
+
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
 <%@include file="./components/header.jsp" %>
+<%@include file="components/search.jsp"%>
+<%@include file="components/bag.jsp"%>
 <main>
 
     <section class="flex justify-center items-center py-16">
         <div class="w-full md:w-4/5 lg:w-3/4">
             <div class="flex flex-col lg:flex-row bg-base-90  rounded-lg overflow-hidden">
                 <figure class="lg:w-1/2 w-full">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmPvx7M7bkjhkXXUh_uFzNM-L3zLVhB7mLzw&s" alt="Toy story" class="object-cover w-full h-full">
+                    <img src="<%=producto.getImage().getUrl() %>" alt="<%= producto.getNombre()%>" class="object-cover w-full" id="imgChange">
                 </figure>
                 <div class="p-8 lg:w-1/2 w-full">
                     <h1 class="text-3xl font-bold text-gray-600 text-4xl"><%=producto.getNombre() %></h1>
@@ -44,7 +49,10 @@
                     <div class="mt-4">
                         <button class="bg-[#30A380] text-white px-4 py-2 rounded-md focus:outline-none">Agregar al carrito</button>
                     </div>
-                    <p class="mt-2 text-gray-600">Para cosas adicionales del producto</p>
+                    <p class="mt-2 text-gray-600">Para cosas adicionales del producto:</p>
+                    <li class="">
+                        <ol>Tamono: <%= producto.getTamano()%> </ol>
+                    </li>
                 </div>
             </div>
         </div>

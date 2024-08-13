@@ -2,14 +2,15 @@ package mx.edu.utez.manosmexicanas.model;
 
 public class Image {
     private int id;
+
     private int idProducto;
-    private int idColor ;
+    private Color color;
     private String url;
 
-    public Image(int id, int idProducto, int idColor, String url) {
+    public Image(int id, int idProducto, Color color, String url) {
         this.id = id;
         this.idProducto = idProducto;
-        this.idColor = idColor;
+        this.color = color;
         this.url = url;
     }
 
@@ -32,19 +33,18 @@ public class Image {
         this.idProducto = idProducto;
     }
 
-    public int getIdColor() {
-        return idColor;
-    }
-
-    public void setIdColor(int idColor) {
-        this.idColor = idColor;
-    }
-
     public String getUrl() {
         return url;
     }
 
     public void setUrl(String url) {
         this.url = url;
+    }
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

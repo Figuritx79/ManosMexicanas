@@ -11,12 +11,15 @@ public class Producto {
     private String descripcion;
     private int stock;
     private String imagen;
+    private Image image;
 
     public Producto() {
 
     }
 
-    public Producto(int id, String nombre, double precio, Color color, double tamano, Categoria categoria, String descripcion, int stock, String imagen) {
+
+
+    public Producto(int id, String nombre, double precio, Color color, double tamano, Categoria categoria, String descripcion, int stock, String imagen, Image image) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -26,6 +29,7 @@ public class Producto {
         this.descripcion = descripcion;
         this.stock = stock;
         this.imagen = imagen;
+        this.image = image;
     }
 
     public int getId() {
@@ -98,5 +102,12 @@ public class Producto {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }
