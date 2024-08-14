@@ -40,7 +40,7 @@
         <div class="w-full md:w-4/5 lg:w-3/4">
             <div class="flex flex-col lg:flex-row bg-base-90  rounded-lg overflow-hidden">
                 <figure class="lg:w-1/2 w-full">
-                    <img src="<%=producto.getImage().getUrl() %>" alt="<%= producto.getNombre()%>" class="object-cover w-full" id="imgChange">
+                    <img src="<%=producto.getImage().getUrl() %>" alt="<%= producto.getNombre()%>" class="object-cover w-full rounded-md" id="imgChange">
                 </figure>
                 <div class="p-8 lg:w-1/2 w-full">
                     <h1 class="text-3xl font-bold text-gray-600 text-4xl"><%=producto.getNombre() %></h1>
@@ -53,8 +53,14 @@
                     <li class="">
                         <ol>Tamono: <%= producto.getTamano()%> </ol>
                     </li>
+                    <div class="flex flex-row gap-x-8">
+                        <img src="" class="w-20 rounded-md" id="color1">
+                        <img src="" class="w-20 rounded-md" id="color2">
+                        <img src="" class="w-20 rounded-md" id="color3">
+                        <img src="" class="w-20 rounded-md" id="color4">
+                    </div>
                 </div>
-            </div>
+
         </div>
     </section>
 
