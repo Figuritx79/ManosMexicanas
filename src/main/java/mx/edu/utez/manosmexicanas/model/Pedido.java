@@ -1,20 +1,24 @@
 package mx.edu.utez.manosmexicanas.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Pedido {
     private Usuario usuario;
     private int cantidad;
     private double total;
+    private LocalDateTime fecha;
     private Domicilio domicilio;
 
-    public Pedido(String usuario, int cantidad, double total, String domicilio) {
-
+    public Pedido() {
     }
 
-    public Pedido(Usuario usuario, int cantidad, Domicilio domicilio, double total) {
+    public Pedido(Usuario usuario, int cantidad, double total, LocalDateTime fecha, Domicilio domicilio) {
         this.usuario = usuario;
         this.cantidad = cantidad;
-        this.domicilio = domicilio;
         this.total = total;
+        this.fecha = fecha;
+        this.domicilio = domicilio;
     }
 
     public Usuario getUsuario() {
@@ -47,5 +51,13 @@ public class Pedido {
 
     public void setDomicilio(Domicilio domicilio) {
         this.domicilio = domicilio;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 }

@@ -35,7 +35,7 @@
             <span class="icon-home"></span>
             <span class="sr-only">Home</span>
         </a>
-        <a href="#" class="nav-item" title="Orders">
+        <a href="ordersAdmin.jsp" class="nav-item" title="Orders">
             <img src="../static/img/shopping-cart.svg" alt="">
             <span class="icon-shopping-cart"></span>
             <span class="sr-only">Ordenes</span>
@@ -145,12 +145,6 @@
                                 <input type="number" step="0.01" class="form-control" id="tamaño" name="tamano" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="color">Color</label>
-                            <select class="form-control" id="color" name="color" required>
-                                <option selected disabled value="">Selecciona</option>
-                            </select>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -167,13 +161,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Imagen del producto</h5>
-                        <div class="form-group">
-                            <input type="file" class="form-control-file" id="imagen" name="imagen" required>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <input type="submit" class="btn btn-success" value="Guardar Producto">
+                        <input type="submit" class="btn btn-success" value="Guardar Producto" href="image.jsp">
                         <button type="reset" class="btn btn-secondary">Descartar</button>
                     </div>
                 </div>
@@ -186,8 +174,7 @@
 
 <script src="../static/js/datatables.js"></script>
 <script src="../static/js/dataTables.bootstrap5.js"></script>
-<script src="../static/js/selectProducts.js"></script>
-<script src="../static/js/selectProducts.js"></script>
+<script src="../static/js/selectCategoria.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
