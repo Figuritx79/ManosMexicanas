@@ -24,12 +24,12 @@
             <span class="icon-package"></span>
             <span class="sr-only">Manos Mexicanas</span>
         </a>
-        <a href="home.html" class="nav-item" title="Dashboard">
+        <a href="dashboard.jsp" class="nav-item" title="Dashboard">
             <img src="../static/img/home.svg" alt="">
             <span class="icon-home"></span>
             <span class="sr-only">Home</span>
         </a>
-        <a href="#" class="nav-item" title="Orders">
+        <a href="ordersAdmin.jsp" class="nav-item" title="Orders">
             <img src="../static/img/shopping-cart.svg" alt="">
             <span class="icon-shopping-cart"></span>
             <span class="sr-only">Ordenes</span>

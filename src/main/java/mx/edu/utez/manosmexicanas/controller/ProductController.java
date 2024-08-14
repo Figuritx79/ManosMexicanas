@@ -39,7 +39,7 @@ public class ProductController extends HttpServlet {
         String tamanoStr = req.getParameter("tamano");
         String stockStr = req.getParameter("stock");
         String descripcion = req.getParameter("descripcion");
-        String colorIdStr = req.getParameter("color");
+        //String colorIdStr = req.getParameter("color");
         String categoriaIdStr = req.getParameter("categoria");
 
 
@@ -61,9 +61,7 @@ public class ProductController extends HttpServlet {
             if (stockStr != null && !stockStr.trim().isEmpty()) {
                 stock = Integer.parseInt(stockStr.trim());
             }
-            if (colorIdStr != null && !colorIdStr.trim().isEmpty()) {
-                colorId = Integer.parseInt(colorIdStr.trim());
-            }
+
             if (categoriaIdStr != null && !categoriaIdStr.trim().isEmpty()) {
                 categoriaId = Integer.parseInt(categoriaIdStr.trim());
             }
@@ -94,21 +92,6 @@ public class ProductController extends HttpServlet {
         categoria.setId(categoriaId);
         p.setCategoria(categoria);
 
-        Part filePart = req.getPart("imagen");
-        if (filePart != null && filePart.getSize() > 0) {
-            String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "public" + File.separator + "img";
-            String rutaImagen = "";
-            try {
-                String fileName = getSubmittedFileName(filePart);
-                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
-                rutaImagen = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
-                InputStream fileContent = filePart.getInputStream();
-                Files.copy(fileContent, Paths.get(rutaImagen));
-                p.setImagen(rutaImagen);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
 
 
 

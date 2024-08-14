@@ -100,8 +100,8 @@
 <script src="../static/js/jquery-3.7.0.js"></script>
 <script src="../static/js/datatables.js"></script>
 <script src="../static/js/dataTables.bootstrap5.js"></script>
-<script src="../static/js/selectProducts.js"></script>
-<script src="../static/js/selectProducts.js"></script>
+<script src="../static/js/selectColor.js"></script>
+<script src="../static/js/selectColor.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
