@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" href="./static/img/Logo.svg" type="image/x-icon">
     <title>Manos Mexicanas</title>
-    <script src="./Header/header.js" defer></script>
+    <link rel="stylesheet" href="./static/css/menu.css">
+    <script src="./static/js/scrollHeader.js" defer></script>
+    <link rel="stylesheet" href="./static/css/headerComponents.css">
 
-    <link rel="stylesheet" href="./static/css/daisy.min.css">
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
-<%@include file="components/header.jsp"%>
+<%@include file="./components/header.jsp"%>
+<%@include file="./components/search.jsp"%>
+<%@include file="./components/bag.jsp"%>
 
 <main class="flex">
     <section class="flex flex-col lg:flex-row w-full">

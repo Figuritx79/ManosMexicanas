@@ -18,9 +18,12 @@
     <title>About</title>
     <link rel="stylesheet" href="./static/css/menu.css">
     <script src="./static/js/scrollHeader.js" defer></script>
+    <link rel="stylesheet" href="./static/css/headerComponents.css">
 </head>
 <body class="bg-bg400  md:bg-bg400  lg:bg-b100 xl:bg-bg100 ">
 <%@include file="./components/header.jsp"%>
+<%@include file="./components/search.jsp"%>
+<%@include file="./components/bag.jsp"%>
 <main>
     <br>
     <section class="flex flex-col p-4 bg-bg100 lg:flex lg:flex-row lg:items-center lg:justify-between lg:bg-none">

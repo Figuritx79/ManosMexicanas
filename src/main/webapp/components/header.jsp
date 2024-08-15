@@ -176,7 +176,7 @@ pageEncoding="UTF-8" %>
       <a href="" class="nav__item">Animado</a>
       <a href="" class="nav__item">Comida</a>
       <a href="" class="nav__item">Artistas</a>
-      <a href="" class="nav__item">Nosotros</a>
+      <a href="./about.jsp" class="nav__item">Nosotros</a>
     </div>
   </nav>
 </header>
