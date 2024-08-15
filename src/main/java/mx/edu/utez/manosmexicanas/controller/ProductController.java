@@ -34,19 +34,19 @@ public class ProductController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String idtring = req.getParameter("id");
+        int id = Integer.parseInt(idtring);
         String nombre = req.getParameter("nombre");
         String precioStr = req.getParameter("precio");
         String tamanoStr = req.getParameter("tamano");
         String stockStr = req.getParameter("stock");
         String descripcion = req.getParameter("descripcion");
-        //String colorIdStr = req.getParameter("color");
         String categoriaIdStr = req.getParameter("categoria");
-
 
 
         //Validar y convertir los parametros de entrada
         Double precio = null;
-        Double tamano = null;
+        int tamano = 0;
         Integer stock = null;
         Integer colorId = null;
         Integer categoriaId = null;
@@ -56,7 +56,7 @@ public class ProductController extends HttpServlet {
                 precio = Double.parseDouble(precioStr.trim());
             }
             if (tamanoStr != null && !tamanoStr.trim().isEmpty()) {
-                tamano = Double.parseDouble(tamanoStr.trim());
+                tamano = Integer.parseInt(tamanoStr.trim());
             }
             if (stockStr != null && !stockStr.trim().isEmpty()) {
                 stock = Integer.parseInt(stockStr.trim());
@@ -70,57 +70,17 @@ public class ProductController extends HttpServlet {
             res.sendRedirect("productsAdmin.jsp?error=invalidNumberFormat");
             return;
         }
+        ProductDao productDao = new ProductDao();
+        int enviarId = productDao.insertImage(id, nombre, precio,tamano,categoriaId,descripcion,stock);
+        if (enviarId > 0){
+            res.sendRedirect("image.jsp?id="+enviarId);
 
-        if (nombre == null || nombre.trim().isEmpty() || precio == null || tamano == null || descripcion == null || descripcion.trim().isEmpty() || stock == null || colorId == null || categoriaId == null) {
-            res.sendRedirect("productsAdmin.jsp?error=missingParameters");
-            return;
         }
-
-
-        Producto p = new Producto();
-        p.setNombre(nombre.trim());
-        p.setPrecio(precio);
-        p.setTamano(tamano);
-        p.setDescripcion(descripcion.trim());
-        p.setStock(stock);
-
-        Color color = new Color();
-        color.setId(colorId);
-        p.setColor(color);
-
-        Categoria categoria = new Categoria();
-        categoria.setId(categoriaId);
-        p.setCategoria(categoria);
-
-
-
-
-            try (Connection conn = DbConnectionManager.getConnection()) {
-            ProductDao productDao = new ProductDao();
-            boolean result = productDao.insertProduct(p);
-
-            if (result) {
-                System.out.println("Producto guardado correctamente");
-                res.sendRedirect("productsAdmin.jsp");
-            } else {
-                System.out.println("No se pudo registrar el producto");
-                res.sendRedirect("productsAdmin.jsp?error=insertFailed");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            res.sendRedirect("productsAdmin.jsp?error=sqlException");
+        if (enviarId == 0){
+            res.sendRedirect("productsAdmin.jsp?mensaje=No");
         }
-    }
-
-    private String getSubmittedFileName(Part part) {
-        String header = part.getHeader("content-disposition");
-        String[] elements = header.split(";");
-        for (String element : elements) {
-            if (element.trim().startsWith("filename")) {
-                return element.substring(
-                        element.indexOf("=") + 1).trim().replace("\"", "");
-            }
-        }
-        return "";
     }
 }
+
+
+

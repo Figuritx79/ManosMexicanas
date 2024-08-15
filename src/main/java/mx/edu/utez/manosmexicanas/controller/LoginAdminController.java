@@ -25,8 +25,7 @@ public class LoginAdminController extends HttpServlet {
             if (result != null){
                 usuario = result;
                 HttpSession session = req.getSession(true);
-                session.setAttribute("User",usuario.toString());
-                session.setAttribute("mensaje","Bienvenido de vuelta Erick");
+                session.setAttribute("User",usuario);
                 res.sendRedirect("./dashboard/dashboard.jsp");
                 session.setMaxInactiveInterval(60 * 60);
             }

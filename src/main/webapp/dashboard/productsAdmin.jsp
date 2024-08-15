@@ -50,6 +50,11 @@
             <span class="icon-users"></span>
             <span class="sr-only">Clientes</span>
         </a>
+        <a href="close" class="nav-item" title="Settings">
+            <img src="../static/img/settings.svg" alt="Settings">
+            <span class="icons-users"></span>
+            <span class="sr-only"></span>
+        </a>
     </nav>
 </aside>
 
@@ -67,7 +72,6 @@
             <th>Color</th>
             <th>Tamaño</th>
             <th>Stock</th>
-            <th>Categoria</th>
             <th>Descripcion</th>
             <th>Gestion</th>
         </tr>
@@ -85,7 +89,6 @@
             <td><%=p.getColor().getNombre()%></td>
             <td><%=p.getTamano()%></td>
             <td><%=p.getStock()%></td>
-            <td><%=p.getCategoria().getNombre()%></td>
             <td><%=p.getDescripcion()%></td>
             <td><a href="registroProducto?id=<%=p.getId()%>" class="btn-modificar">Modificar</a>
 
@@ -126,11 +129,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="Id">ID</label>
-                                <%
-                                    ProductDao p = new ProductDao();
-                                    int id = p.getNextId();
-                                %>
-                                <input type="number" class="form-control" id="id" name="id" value="<%=id%>" readonly >
+                                <input type="number" class="form-control" id="id" name="id">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="stock">Stock</label>

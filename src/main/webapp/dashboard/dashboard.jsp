@@ -8,12 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Dashboard</title>
 
     <script src="../static/js/toastify.min.js">
     </script>
     <link rel="stylesheet" href="../static/css/toastify.min.css">
     <link rel="stylesheet" href="../static/css/admin.css">
+
 
 </head>
 <body>
@@ -43,6 +44,11 @@
             <img src="../static/img/users.svg" alt="">
             <span class="icon-users"></span>
             <span class="sr-only">Clientes</span>
+        </a>
+        <a href="close" class="nav-item" title="Settings">
+            <img src="../static/img/settings.svg" alt="Settings">
+            <span class="icons-users"></span>
+            <span class="sr-only"></span>
         </a>
     </nav>
 </aside>

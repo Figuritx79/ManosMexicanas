@@ -35,7 +35,7 @@
             <div class="divSpecific">
                 <label for="mail" class="styleFont">
                     Correo:
-                    <input type="email" id="mail" name="correo" class="input-group" oninput="checkEmail()">
+                    <input type="email" id="mail" name="correo" class="input-group" oninput="checkEmail()" autofocus>
                     <span class="check-icon" id="check-icon"></span>
                 </label>
             </div>

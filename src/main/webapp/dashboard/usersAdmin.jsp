@@ -42,6 +42,11 @@
             <span class="icon-users"></span>
             <span class="sr-only">Clientes</span>
         </a>
+        <a href="close" class="nav-item" title="Settings">
+            <img src="../static/img/settings.svg" alt="Settings">
+            <span class="icons-users"></span>
+            <span class="sr-only"></span>
+        </a>
     </nav>
 </aside>
 

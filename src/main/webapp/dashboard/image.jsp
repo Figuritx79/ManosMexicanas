@@ -43,6 +43,11 @@
             <span class="icon-users"></span>
             <span class="sr-only">Clientes</span>
         </a>
+        <a href="close" class="nav-item" title="Settings">
+            <img src="../static/img/settings.svg" alt="Settings">
+            <span class="icons-users"></span>
+            <span class="sr-only"></span>
+        </a>
     </nav>
 </aside>
 
@@ -50,11 +55,14 @@
     <div class="breadcrumb">
     </div>
     <h2 class="mt-4">Agregar Producto</h2>
-    <form method="post" action="registroProducto" enctype="multipart/form-data">
+    <form method="post" action="imageUp" enctype="multipart/form-data">
         <div class="row mt-4">
             <div class="col-md-8">
 
-
+<%
+    String idString = request.getParameter("id");
+    int id = Integer.parseInt(idString);
+%>
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Especificaciones</h5>
@@ -73,14 +81,19 @@
                     <div class="card-body">
                         <h5 class="card-title">Imagen del producto</h5>
                         <div class="form-group">
-                            <input type="file" class="form-control-file" id="imagen" name="imagen" required multiple accept="jpg png">
+                            <input type="file" class="form-control-file" id="imagen" name="imagen" required accept="image/*">
+                            <input type="hidden" name="id" value="<%=id%>">
                         </div>
                     </div>
                     <div class="card-body">
                         <input type="submit" class="btn btn-success" value="Guardar Producto">
                         <button type="reset" class="btn btn-secondary">Descartar</button>
+                        <a  class="btn btn-warning m-4" href="productsAdmin.jsp">Regresar al dashboard</a>
                     </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                <a href="#" class="btn btn-primary">Regrasar</a>
             </div>
         </div>
     </form>

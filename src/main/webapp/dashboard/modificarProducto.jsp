@@ -14,7 +14,7 @@
 </head>
 <body>
 <%
-    HttpSession sesion = request.getSession();
+    HttpSession sesion = (HttpSession) request.getSession();
     Producto p = (Producto) sesion.getAttribute("producto");
 %>
 <div class="container mt-5">
