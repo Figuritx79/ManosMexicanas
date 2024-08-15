@@ -51,7 +51,7 @@
                     </div>
                     <p class="mt-2 text-gray-600">Para cosas adicionales del producto:</p>
                     <li class="">
-                        <ol>Tamono: <%= producto.getTamano()%> </ol>
+                        <ol>tamaño: <%= producto.getTamano()%> </ol>
                     </li>
                     <div class="flex flex-row gap-x-8">
                         <img src="" class="w-20 rounded-md" id="color1">
@@ -74,49 +74,8 @@
         </div>
         <div class="container mx-auto ">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 border-2 border-bg100 rounded-lg">
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl">
-                    <figure>
-                        <img src="https://1.bp.blogspot.com/-S8Mbzln8bSU/XtDpVYQlcqI/AAAAAAAADVc/9P533rNP7O0R7ME9tVLJxtkdzydS4frAACPcBGAYYCw/s640/lanarhoades_20200529_86.png" alt="Producto 1" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 1</h2>
-                        <p class="text-[#333333]">$10.00</p>
-                        <button id="plus-btn4" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
-                    </div>
-                </div>
-
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl ">
-                    <figure>
-                        <img src="https://via.placeholder.com/150" alt="Producto 2" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 2</h2>
-                        <p class="text-[#333333]">$20.00</p>
-                        <button id="plus-btn3" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
-                    </div>
-                </div>
-
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl">
-                    <figure>
-                        <img src="https://via.placeholder.com/150" alt="Producto 3" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 3</h2>
-                        <p class="text-[#333333]">$30.00</p>
-                        <button id="plus-btn2" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
-                    </div>
-                </div>
-                <div class="shadow-2xl card bg-[#FFFFFF] rounded-lg p-4 shadow-2xl">
-                    <figure>
-                        <img src="https://via.placeholder.com/150" alt="Producto 4" class="w-full h-48 object-cover rounded-lg">
-                    </figure>
-                    <div class="card-body mt-4">
-                        <h2 class="card-title text-[#000000]">Producto 4</h2>
-                        <p class="text-[#333333]">$40.00</p>
-                        <button id="plus-btn" class="btn text-white btn-hover relative mt-4 bg-[#30A380]">+</button>
-                    </div>
-                </div>
-
+                <%@include file="./components/cards.jsp"%>
+            
             </div>
         </div>
 

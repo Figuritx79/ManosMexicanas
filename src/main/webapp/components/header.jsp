@@ -15,9 +15,9 @@ pageEncoding="UTF-8" %>
     class="hidden md:basis-1/2 md:gap-x-6 lg:basis-1/2 lg:gap-x-6 md:flex lg:flex md:hidden"
   >
     <div class="text-extra">
-      <a href="">Inicio</a>
-      <a href="">Productos</a>
-      <a href="">Categorias</a>
+      <a href="./index.jsp">Inicio</a>
+      <a href="./productos.jsp">Productos</a>
+      <a href="./index.jsp">Categorias</a>
     </div>
   </div>
 
