@@ -212,20 +212,6 @@ public class ProductDao {
 
     }
 
-    public int countProducts() {
-        var query = "SELECT * FROM countProducts;";
-        int total = 0;
-        try (Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);
-             ResultSet rs = ps.executeQuery();) {
-            if (rs.next()) {
-                total = rs.getInt("Total");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return total;
-    }
-
     public ArrayList<Producto> randProducts() {
         var query = "SELECT * FROM randomProduct";
         ArrayList<Producto> productos = new ArrayList<>();
@@ -318,5 +304,19 @@ public class ProductDao {
         }
         return flag;
 
+    }
+
+    public int totalProducts(){
+        var query = "SELECT * FROM countProducts;";
+        var total = 0;
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                total = rs.getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
     }
 }

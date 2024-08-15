@@ -38,7 +38,7 @@ public class FilterPage extends HttpFilter {
         if (session != null  && session.getAttribute("User") != null ) {
             chain.doFilter(request, response);
         }else {
-            response.setStatus(404);
+            response.sendRedirect("index.jsp");
         }
     }
 }
