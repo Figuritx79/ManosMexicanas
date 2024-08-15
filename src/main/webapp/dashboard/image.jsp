@@ -15,7 +15,10 @@
 </head>
 <body>
 
-
+<%
+    String idString = request.getParameter("id");
+    int id = Integer.parseInt(idString);
+%>
 <aside class="sidebar">
     <nav class="nav-top">
         <a href="#" class="logo">
@@ -58,11 +61,6 @@
     <form method="post" action="imageUp" enctype="multipart/form-data">
         <div class="row mt-4">
             <div class="col-md-8">
-
-<%
-    String idString = request.getParameter("id");
-    int id = Integer.parseInt(idString);
-%>
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Especificaciones</h5>
@@ -81,7 +79,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Imagen del producto</h5>
                         <div class="form-group">
-                            <input type="file" class="form-control-file" id="imagen" name="imagen" required accept="image/*">
+                            <input type="file" class="form-control-file" name="product" id="image" accept="image/*">
                             <input type="hidden" name="id" value="<%=id%>">
                         </div>
                     </div>

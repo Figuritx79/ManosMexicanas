@@ -22,7 +22,7 @@ import java.util.Random;
 public class ImageUploadController extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        Part part = req.getPart("imagen");
+        Part part = req.getPart("product");
 
         String colorString = req.getParameter("color");
 
@@ -35,15 +35,20 @@ public class ImageUploadController extends HttpServlet {
         byte[] uploadImage = convertPartToByteArray(part);
 
         ProductDao productoDao = new ProductDao();
+
         Map config = ObjectUtils.asMap(
                 "cloud_name", "dt9d7lbhg",
                 "api_key", "382564855514374",
                 "api_secret", "raFly8GKU3Cgd1S_atozaxcrFvc",
                 "public_id","product"+ramdomId,
                 "resource_type","image");
+
         Cloudinary cloudinary = new Cloudinary();
+
         Map result = cloudinary.uploader().upload(uploadImage, config);
+
         String url = result.get("url").toString();
+
         boolean resultDao =  productoDao.image(id, color,url);
         if (resultDao){
             res.sendRedirect("image.jsp?id="+id);

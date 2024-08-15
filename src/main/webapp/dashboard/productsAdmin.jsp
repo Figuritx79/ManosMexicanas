@@ -72,7 +72,6 @@
             <th>Color</th>
             <th>Tamaño</th>
             <th>Stock</th>
-            <th>Descripcion</th>
             <th>Gestion</th>
         </tr>
         </thead>
@@ -89,8 +88,7 @@
             <td><%=p.getColor().getNombre()%></td>
             <td><%=p.getTamano()%></td>
             <td><%=p.getStock()%></td>
-            <td><%=p.getDescripcion()%></td>
-            <td><a href="registroProducto?id=<%=p.getId()%>" class="btn-modificar">Modificar</a>
+            <td><a href="productUp?id=<%=p.getId()%>" class="btn-modificar">Modificar</a>
 
                 <a href="deleteProduct?id=<%=p.getId()%>" class="btn-eliminar">Eliminar</a>
             </td>
@@ -101,12 +99,15 @@
 
 
 </div>
-
+<%
+ProductDao productDao = new ProductDao();
+int lastId = productDao.getNextId();
+%>
 <div class="container mt-5">
     <div class="breadcrumb">
     </div>
     <h2 class="mt-4">Agregar Producto</h2>
-    <form method="post" action="registroProducto" enctype="multipart/form-data">
+    <form method="post" action="productUp" >
         <div class="row mt-4">
             <div class="col-md-8">
                 <div class="card mb-4">
@@ -118,7 +119,7 @@
                         </div>
                         <div class="form-group">
                             <label for="Descripcion">Descripción</label>
-                            <textarea class="form-control" id="Descripcion" name="descripcion" rows="3" placeholder="Ejemplo: Este es un producto fabricado a mano tejido con estambre de calidad" required></textarea>
+                            <textarea class="form-control" id="Descripcion" name="des" rows="3" placeholder="Ejemplo: Este es un producto fabricado a mano tejido con estambre de calidad" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -129,7 +130,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="Id">ID</label>
-                                <input type="number" class="form-control" id="id" name="id">
+                                <input type="number" class="form-control" id="id" name="id" required placeholder="<%=lastId%>">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="stock">Stock</label>
@@ -141,7 +142,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="tamaño">Tamaño</label>
-                                <input type="number" step="0.01" class="form-control" id="tamaño" name="tamano" required>
+                                <input type="number" step="0.01" class="form-control" id="tamaño" name="tama" required>
                             </div>
                         </div>
                     </div>
@@ -154,13 +155,13 @@
                         <h5 class="card-title">Categoria</h5>
                         <div class="form-group">
                             <label for="categoria">Categoría</label>
-                            <select class="form-control" id="categoria" name="categoria" required>
+                            <select class="form-control" id="categoria" name="cate" required>
                                 <option selected disabled value="">Selecciona</option>
                             </select>
                         </div>
                     </div>
                     <div class="card-body">
-                        <input type="submit" class="btn btn-success" value="Guardar Producto" href="image.jsp">
+                        <button type="submit" class="btn btn-success">Guardar Producto</button>
                         <button type="reset" class="btn btn-secondary">Descartar</button>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.UUID;
 
 @MultipartConfig
-@WebServlet(name="ProductController", value="/dashboard/registroProducto")
+@WebServlet(name="ProductController", value="/dashboard/productUp")
 public class ProductController extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,44 +34,27 @@ public class ProductController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        String idtring = req.getParameter("id");
-        int id = Integer.parseInt(idtring);
+        req.setCharacterEncoding("UTF-8");
+        String idString = req.getParameter("id") ;
+        int id = Integer.parseInt(idString);
+
         String nombre = req.getParameter("nombre");
-        String precioStr = req.getParameter("precio");
-        String tamanoStr = req.getParameter("tamano");
-        String stockStr = req.getParameter("stock");
-        String descripcion = req.getParameter("descripcion");
-        String categoriaIdStr = req.getParameter("categoria");
+        String descripcion = req.getParameter("des");
 
+        String stockString  = req.getParameter("stock");
+        int stock = Integer.parseInt(stockString);
 
-        //Validar y convertir los parametros de entrada
-        Double precio = null;
-        int tamano = 0;
-        Integer stock = null;
-        Integer colorId = null;
-        Integer categoriaId = null;
+        String precioString = req.getParameter("precio");
+        double precio = Double.parseDouble(precioString);
 
-        try {
-            if (precioStr != null && !precioStr.trim().isEmpty()) {
-                precio = Double.parseDouble(precioStr.trim());
-            }
-            if (tamanoStr != null && !tamanoStr.trim().isEmpty()) {
-                tamano = Integer.parseInt(tamanoStr.trim());
-            }
-            if (stockStr != null && !stockStr.trim().isEmpty()) {
-                stock = Integer.parseInt(stockStr.trim());
-            }
+        String tamanoString = req.getParameter("tama");
+        int tamano = Integer.parseInt(tamanoString);
 
-            if (categoriaIdStr != null && !categoriaIdStr.trim().isEmpty()) {
-                categoriaId = Integer.parseInt(categoriaIdStr.trim());
-            }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            res.sendRedirect("productsAdmin.jsp?error=invalidNumberFormat");
-            return;
-        }
+        String categoriaString = req.getParameter("cate");
+        int categoria = Integer.parseInt(categoriaString);
+
         ProductDao productDao = new ProductDao();
-        int enviarId = productDao.insertImage(id, nombre, precio,tamano,categoriaId,descripcion,stock);
+        int enviarId = productDao.insertImage(id, nombre, precio,tamano,categoria,descripcion,stock);
         if (enviarId > 0){
             res.sendRedirect("image.jsp?id="+enviarId);
 
