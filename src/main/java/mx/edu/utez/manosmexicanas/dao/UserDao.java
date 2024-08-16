@@ -84,7 +84,7 @@ public class UserDao {
             }
 
         }catch (SQLException e) {
-            throw new RuntimeException(e);
+           e.printStackTrace();
         }
         return flag;
     }
