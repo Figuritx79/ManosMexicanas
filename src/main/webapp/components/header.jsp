@@ -19,8 +19,8 @@ pageEncoding="UTF-8" %>
   >
     <div class="text-extra">
       <a href="./index.jsp">Inicio</a>
-      <a href="./productos.jsp">Productos</a>
-      <a href="./index.jsp">Categorias</a>
+      <a href="./categorias.jsp">Productos</a>
+      <a href="./about.jsp">Nosotros</a>
     </div>
   </div>
 

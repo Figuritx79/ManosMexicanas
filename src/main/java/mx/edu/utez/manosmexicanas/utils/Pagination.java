@@ -9,7 +9,7 @@ public class Pagination {
 
     public static  int pages(){
         ProductDao productDao = new ProductDao();
-        return productDao.countProducts();
+        return productDao.totalProducts();
     }
 
     public static int offsetPage(int page){

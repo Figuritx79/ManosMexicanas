@@ -23,10 +23,6 @@ public class UpdatePasswordController  extends HttpServlet {
         var result = userDao.updatePassword(user,pass);
 
         if (result){
-            var session = req.getSession(false);
-            session.setMaxInactiveInterval(10 * 60);
-            var mensaje = "Se actualizo con exito tus crendiales, por favor iniciar sesion";
-            session.setAttribute("exito", mensaje);
             res.setStatus(200);
             res.sendRedirect("index.jsp");
         }
