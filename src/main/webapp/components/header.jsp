@@ -1,7 +1,10 @@
-<%@ page import="java.nio.file.Path" %> <%@ page import="java.nio.file.Paths" %>
-<%@ page import="java.nio.file.Files" %><%-- Created by IntelliJ IDEA. User:
+<%-- Created by IntelliJ IDEA. User:
 Figuritx79 Date: 6/13/24 Time: 6:17 PM To change this template use File |
-Settings | File Templates. --%> <%@ page contentType="text/html; charset=UTF-8"
+Settings | File Templates. --%>
+<%@ page import="java.nio.file.Path" %>
+<%@ page import="java.nio.file.Paths" %>
+<%@ page import="java.nio.file.Files" %>
+<%@ page contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
 
 <header

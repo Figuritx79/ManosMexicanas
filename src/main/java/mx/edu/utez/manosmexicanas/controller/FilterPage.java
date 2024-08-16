@@ -15,7 +15,7 @@ import java.io.IOException;
 
 @WebFilter(filterName = "Filter", urlPatterns = {
         "/dashboard/*",
-        "/Auth/*"
+        "/Profile/*"
 })
 public class FilterPage extends HttpFilter {
 
