@@ -23,12 +23,9 @@
 <%@include file="./components/header.jsp"%>
 <%@include file="./components/search.jsp"%>
 <%@include file="./components/bag.jsp"%>
-<%
-    ProductDao productDao = new ProductDao();
-    int total = productDao.totalProducts();
-%>
-
 <main class="flex">
+<%@include file="./components/asideCategories.jsp"%>
+
 
 </main>
 <%@include file="components/footer.jsp"%>
