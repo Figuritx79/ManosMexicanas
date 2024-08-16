@@ -10,33 +10,27 @@
     ProductDao productDao = new ProductDao();
     int total = productDao.totalProducts();
 %>
-<section class="flex flex-col lg:flex-row w-full">
-    <aside class="lg:w-1/4 w-full bg-bg100 p-4 h-screen shadow-lg">
-        <p class="text-gray-600">
-        <%if(total > 0){%>
-           <%=total%> Productos
-        <%}%>
-        <% if(total == 0){ %>
-           0 Productos
-        <% } %>
-
-        </p>
-        <div class="mt-4 flex-row">
+<aside class="lg:w-64 w-24  bg-background border-r border-muted">
+    <div class="space-y-6">
+        <div>
             <h3>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  data-id="34"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
-
-                Filtrar
+                <%= total > 0 ? total + " Productos" : "0 Productos" %>
             </h3>
         </div>
-        <h2 class="text-2xl font-bold mb-4">Categorías</h2>
-        <ul class="space-y-2">
-            <li><a href="#" class="text-gray-700 hover:text-gray-900">Animado</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-gray-900">Comida</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-gray-900">Artistas</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-gray-900">Ropa</a></li>
-        </ul>
-    </aside>
-    <div class="lg:w-3/4 w-full  p-4 h-screen drop-shadow-2xl">
-
+        <div>
+            <p class="text-primary-100">Filtros</p>
+        </div>
+        <div>
+            <h3 class="text-primary-100 font-semibold">Animados</h3>
+        </div>
+        <div>
+            <h3 class="text-primary-100 font-semibold">Comida</h3>
+        </div>
+        <div>
+            <h3 class="text-primary-100 font-semibold">Artistas</h3>
+        </div>
+        <div>
+            <h3 class="text-primary-100 font-semibold">Ropa</h3>
+        </div>
     </div>
-</section>
+</aside>

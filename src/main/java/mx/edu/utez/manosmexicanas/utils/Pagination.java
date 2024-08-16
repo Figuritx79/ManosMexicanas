@@ -5,11 +5,11 @@ import mx.edu.utez.manosmexicanas.dao.UserDao;
 
 public class Pagination {
 
-    private static int page;
 
     public static  int pages(){
         ProductDao productDao = new ProductDao();
-        return productDao.totalProducts();
+        int pages = (int) Math.ceil((double) productDao.totalProducts() / 6);
+        return pages;
     }
 
     public static int offsetPage(int page){
@@ -17,12 +17,5 @@ public class Pagination {
         return offset;
     }
 
-    public static int getPage() {
-        return page;
-    }
-
-    public static void setPage(int page) {
-        Pagination.page = page;
-    }
 
 }

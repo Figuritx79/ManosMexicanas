@@ -319,4 +319,35 @@ public class ProductDao {
         }
         return total;
     }
+
+    public ArrayList<Producto>paginationProduct(int pageOffset){
+        var query = "CALL offsetPagination(?)";
+        ArrayList<Producto> productos = new ArrayList<>();
+        try (Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setInt(1,pageOffset);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                Producto producto = new Producto();
+                Image image = new Image();
+
+//                Categoria categoria = new Categoria();
+//                INSERTAR LOS DATOS EN EL OBJETO
+                producto.setNombre(resultSet.getString("nombre"));
+                producto.setId(resultSet.getInt("id"));
+                producto.setPrecio(resultSet.getDouble("precio"));
+                producto.setDescripcion(resultSet.getString("descripcion"));
+//                INSERTS EN PRODUCTO
+//                categoria.setNombre(rs.getString("categoria"));
+//                producto.setCategoria(categoria);
+                image.setUrl(resultSet.getString("url"));
+                producto.setImage(image);
+                productos.add(producto);
+
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productos;
+    }
 }
