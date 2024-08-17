@@ -21,7 +21,7 @@
     <div class="breadcrumb">
     </div>
     <h2 class="mt-4">Modificar Producto</h2>
-    <form method="post" action="updateProducto" enctype="multipart/form-data">
+    <form method="post" action="updateProducto">
         <div class="row mt-4">
             <div class="col-md-8">
                 <div class="card mb-4">
@@ -60,12 +60,6 @@
                                 <input type="number" step="0.01" class="form-control" id="tamaño" name="tamano" value="<%=p.getTamano()%>" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="color">Color</label>
-                            <select class="form-control" id="color" name="color" required>
-                                <option selected disabled value=""><%=p.getColor().getNombre()%></option>
-                            </select>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -79,12 +73,6 @@
                             <select class="form-control" id="categoria" name="categoria"  required>
                                 <option selected disabled value=""><%=p.getCategoria().getNombre()%></option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Imagen del producto</h5>
-                        <div class="form-group">
-                            <input type="file" class="form-control-file" id="imagen" name="imagen" required>
                         </div>
                     </div>
                     <div class="card-body">

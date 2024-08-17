@@ -12,28 +12,25 @@ import java.util.ArrayList;
 public class ProductDao {
 
 
-    public boolean deleteProduct(int id) {
-        boolean flag = false;
-        String query = "delete from producto where id = ?";
-        try {
-            Connection con = DbConnectionManager.getConnection();
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, id);
-            if (ps.executeUpdate() > 0) {
+    public boolean deleteProduct(int id){
+        var query = "CALL deleteProduct(?);";
+        var flag = false;
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query)){
+            ps.setInt(1,id);
+            if (ps.executeUpdate() > 0){
                 flag = true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+           e.printStackTrace();
         }
         return flag;
     }
 
     public Producto getOne(int id) {
         Producto p = new Producto();
-        String query = "SELECT p.id, p.nombre, p.precio, p.tamaño, p.stock,p.descripcion, c.nombre as color, ca.nombre as categoria from categoria ca join producto p on p.categoria=ca.id JOIN color c ON p.color = c.id where p.id=?";
-        try {
-            Connection con = DbConnectionManager.getConnection();
-            PreparedStatement ps = con.prepareStatement(query);
+        var query = "CALL getOne(?);";
+        try (Connection conn = DbConnectionManager.getConnection();
+        PreparedStatement ps = conn.prepareStatement(query)){
             ps.setInt(1, id);
 
             ResultSet rs = ps.executeQuery();
@@ -41,18 +38,12 @@ public class ProductDao {
                 p.setId(rs.getInt("id"));
                 p.setNombre(rs.getString("nombre"));
                 p.setPrecio(rs.getDouble("precio"));
-                p.setTamano(rs.getDouble("tamaño"));
+                p.setTamano(rs.getDouble("tamano"));
                 p.setStock(rs.getInt("stock"));
                 p.setDescripcion(rs.getString("descripcion"));
-
-                Color color = new Color();
-                color.setId(rs.getInt("id"));
-                color.setNombre(rs.getString("color"));
-                p.setColor(color);
-
                 Categoria categoria = new Categoria();
-                categoria.setId(rs.getInt("id"));
-                categoria.setNombre(rs.getString("categoria"));
+                categoria.setId(rs.getInt("categoria"));
+                categoria.setNombre(rs.getString("nombreCa"));
                 p.setCategoria(categoria);
             }
         } catch (SQLException e) {
@@ -63,7 +54,7 @@ public class ProductDao {
 
     public boolean updateProduct(Producto p) {
         boolean flag = false;
-        String query = "UPDATE producto SET nombre = ?, precio = ?, tamaño = ?, descripcion = ?, stock = ?, color = ?, categoria = ?, imagen = ? WHERE id = ?;";
+        String query = "UPDATE producto SET nombre = ?, precio = ?, tamano = ?, descripcion = ?, stock = ?, color = ?, categoria = ? WHERE id = ?;";
         try (Connection con = DbConnectionManager.getConnection();
              PreparedStatement ps = con.prepareStatement(query);) {
 
@@ -74,7 +65,6 @@ public class ProductDao {
             ps.setInt(5, p.getStock());
             ps.setInt(6, p.getColor().getId());
             ps.setInt(7, p.getCategoria().getId());
-            ps.setString(8, p.getImagen());
             ps.setInt(9, p.getId());
 
             if (ps.executeUpdate() > 0) {

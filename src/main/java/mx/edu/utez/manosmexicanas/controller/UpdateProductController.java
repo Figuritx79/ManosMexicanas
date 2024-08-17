@@ -19,7 +19,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.UUID;
 
-@MultipartConfig
+
 @WebServlet(name="UpdateProductController", value="/dashboard/updateProducto")
 public class UpdateProductController extends HttpServlet{
 
@@ -85,24 +85,6 @@ public class UpdateProductController extends HttpServlet{
             categoria.setId(categoriaId);
             p.setCategoria(categoria);
 
-            Part filePart = req.getPart("imagen");
-            if (filePart != null && filePart.getSize() > 0) {
-                String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "public" + File.separator + "img";
-                String rutaImagen = "";
-                try {
-                    String fileName = getSubmittedFileName(filePart);
-                    String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
-                    rutaImagen = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
-                    InputStream fileContent = filePart.getInputStream();
-                    Files.copy(fileContent, Paths.get(rutaImagen));
-                    p.setImagen(rutaImagen);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-
-
             try (Connection conn = DbConnectionManager.getConnection()) {
                 ProductDao productDao = new ProductDao();
                 p.setId(Integer.parseInt(req.getParameter("id")));
@@ -121,17 +103,7 @@ public class UpdateProductController extends HttpServlet{
             }
         }
 
-        private String getSubmittedFileName(Part part) {
-            String header = part.getHeader("content-disposition");
-            String[] elements = header.split(";");
-            for (String element : elements) {
-                if (element.trim().startsWith("filename")) {
-                    return element.substring(
-                            element.indexOf("=") + 1).trim().replace("\"", "");
-                }
-            }
-            return "";
-        }
+
     }
 
 

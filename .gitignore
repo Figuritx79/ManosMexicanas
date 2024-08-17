@@ -44,3 +44,4 @@ build/
 .project
 .settings
 .idea/*
+/src/main/java/mx/edu/utez/manosmexicanas/utils/DbConnectionManager.java

@@ -17,11 +17,14 @@ public class DeleteProductController extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         ProductDao dao = new ProductDao();
         HttpSession sesion = req.getSession();
-        if(dao.deleteProduct(id)){
+        boolean result = dao.deleteProduct(id);
+        if(result){
+            resp.sendRedirect("productsAdmin.jsp?status=ok");
             sesion.setAttribute("mensaje", "Usuario eliminado fisicamente con exito");
         }else{
             sesion.setAttribute("mensaje", "Fallo la eliminacion fisica");
+            resp.sendRedirect("productsAdmin.jsp?status=bad");
         }
-        resp.sendRedirect("productsAdmin.jsp");
+
     }
 }
