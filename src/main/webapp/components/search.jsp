@@ -42,9 +42,13 @@
     <div class="nav__divEnlaces">
         <h3 class="nav__divEnlaces__h3">Enlaces rapidos</h3>
         <ol class="nav__divEnlaces__ol">
-            <li class="nav__divEnalces__li">->   Nosotros</li>
-            <li class="nav__divEnalces__li">->   Categorias</li>
-            <li class="nav__divEnalces__li">->   Redes Sociales</li>
+            <li class="nav__divEnalces__li">-> <a href="about.jsp">Nosotros</a> </li>
+            <li class="nav__divEnalces__li">-> <a href="<%=request.getContextPath()%>/categorias.jsp?page=1">
+                Categorias
+            </a></li>
+            <li class="nav__divEnalces__li">-> <a href="">
+                Redes Sociales
+            </a></li>
         </ol>
     </div>
 </div>

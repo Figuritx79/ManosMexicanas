@@ -26,8 +26,10 @@
     <link rel="stylesheet" href="./static/css/menu.css">
     <script src="./static/js/scrollHeader.js" defer></script>
     <link rel="stylesheet" href="./static/css/headerComponents.css">
-    <script src="./static/js/productImages.js"></script>
-
+    <script src="<%=request.getContextPath()%>/static/js/productImages.js"></script>
+    <script src="<%=request.getContextPath()%>/static/js/toastify.min.js"></script>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/toastify.min.css">
+    <script src="<%=request.getContextPath()%>/static/js/anadirCarrito.js" defer></script>
 </head>
 <body class="  bg-b100 bg-bg100 text-stone-950 ">
 
@@ -47,17 +49,14 @@
                     <p class="mt-4 text-2xl font-semibold text-gray-600">$<%=producto.getPrecio()%></p>
                     <p class="mt-2 text-gray-600"><%=producto.getDescripcion()%></p>
                     <div class="mt-4">
-                        <button class="bg-[#30A380] text-white px-4 py-2 rounded-md focus:outline-none">Agregar al carrito</button>
+                        <button class="bg-[#30A380] text-white px-4 py-2 rounded-md focus:outline-none hover:animate-bounce " id="carrito">Agregar al carrito</button>
                     </div>
                     <p class="mt-2 text-gray-600">Para cosas adicionales del producto:</p>
-                    <li class="">
-                        <ol>tamaño: <%= producto.getTamano()%> </ol>
-                    </li>
-                    <div class="flex flex-row gap-x-8">
-                        <img src="" class="w-20 rounded-md" id="color1">
-                        <img src="" class="w-20 rounded-md" id="color2">
-                        <img src="" class="w-20 rounded-md" id="color3">
-                        <img src="" class="w-20 rounded-md" id="color4">
+                    <ol class="list-none">
+                        <li>Tamaño: <%= producto.getTamano()%> </li>
+                    </ol>
+                    <div class="flex flex-row gap-x-8" id="divImg">
+
                     </div>
                 </div>
 
@@ -75,7 +74,6 @@
         <div class="container mx-auto ">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 border-2 border-bg100 rounded-lg">
                 <%@include file="./components/cards.jsp"%>
-            
             </div>
         </div>
 

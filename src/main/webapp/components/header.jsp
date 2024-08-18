@@ -11,16 +11,16 @@ pageEncoding="UTF-8" %>
   class="flex shadow-md bg-bg100 lg:justify-center lg:items-center md:shadow-md lg:shadow-mdi relative"
 >
   <div class="flex justify-start basis-1/2 lg:basis-1/2">
-    <img src="static/img/Logo.svg" alt="Logo" class="w-16" />
+    <img src="<%=request.getContextPath()%>/static/img/Jira.png" alt="Logo" class="w-16" />
   </div>
 
   <div
     class="hidden md:basis-1/2 md:gap-x-6 lg:basis-1/2 lg:gap-x-6 md:flex lg:flex md:hidden"
   >
     <div class="text-extra">
-      <a href="./index.jsp">Inicio</a>
-      <a href="./categorias.jsp?page=1">Productos</a>
-      <a href="./about.jsp">Nosotros</a>
+      <a href="<%=request.getContextPath()%>/index.jsp">Inicio</a>
+      <a href="<%=request.getContextPath()%>/categorias.jsp?page=1">Productos</a>
+      <a href="<%=request.getContextPath()%>/about.jsp">Nosotros</a>
     </div>
   </div>
 
@@ -179,7 +179,7 @@ pageEncoding="UTF-8" %>
       <a href="" class="nav__item">Animado</a>
       <a href="" class="nav__item">Comida</a>
       <a href="" class="nav__item">Artistas</a>
-      <a href="./about.jsp" class="nav__item">Nosotros</a>
+      <a href="<%=request.getContextPath()%>/about.jsp" class="nav__item">Nosotros</a>
     </div>
   </nav>
 </header>

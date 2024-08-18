@@ -5,6 +5,13 @@ public class Carrito {
     private Producto producto;
     private Usuario usuario;
     private  int cantidad;
+    private Color color;
+
+
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
 
     public Carrito() {
     }
@@ -38,6 +45,9 @@ public class Carrito {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+    public Color getColor() {
+        return color;
     }
 
 }

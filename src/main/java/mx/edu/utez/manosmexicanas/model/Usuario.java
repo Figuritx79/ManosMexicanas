@@ -11,12 +11,8 @@ public class Usuario {
     private boolean status;
     private String token;
 
-    public String getToken() {
-        return token;
-    }
 
-    public void setToken(String token) {
-        this.token = token;
+    public Usuario() {
     }
 
     public Usuario(int id, String nombre, String correo, String password, Role role, String apellido, String telefono, boolean status, String token) {
@@ -31,7 +27,13 @@ public class Usuario {
         this.token = token;
     }
 
-    public Usuario() {
+
+    public  Usuario(boolean status) {
+        this.id = 0;
+        this.nombre = "";
+        this.correo = "";
+        this.password = "";
+        this.apellido = "";
     }
 
     public Usuario(String nombre, String correo, String password, Role role, String apellido, String telefono,boolean status) {
@@ -112,6 +114,13 @@ public class Usuario {
 
     public String toString() {
         return  id + " " + nombre + apellido + " " + correo + " " + role.getId();
+    }
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
 }

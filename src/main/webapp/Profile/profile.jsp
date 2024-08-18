@@ -12,14 +12,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../static/js/tailwind.min.js"></script>
-    <script src="../static/js/tailwind.config.js"></script>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="shortcut icon" href="../static/img/Jira.png" type="image/x-icon">
+    <script src="<%=request.getContextPath()%>/static/js/tailwind.min.js"></script>
+    <script src="<%=request.getContextPath()%>/static/js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style.css">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/img/Jira.png" type="image/x-icon">
     <title>Manos Mexicanas</title>
-    <link rel="stylesheet" href="../static/css/menu.css">
-    <script src="../static/js/scrollHeader.js" defer></script>
-    <link rel="stylesheet" href="../static/css/headerComponents.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/menu.css">
+    <script src="<%=request.getContextPath()%>/static/js/scrollHeader.js" defer></script>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/headerComponents.css">
 
     <style>
         body {

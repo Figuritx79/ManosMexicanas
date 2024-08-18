@@ -131,13 +131,13 @@
 
 <div class="flex justify-center items-center  mb-6 mt-4">
     <!-- Previous Button -->
-    <a href="categorias.jsp?page=<%=pagination%>"
+    <a href="<%=request.getContextPath()%>/categorias.jsp?page=<%=pagination%>"
        class="flex items-center justify-center px-4 h-10 text-base font-medium  text-bg100 bg-primary100 border  border-gray-300 rounded-lg hover:bg-primary200 hover:text-gray-700  ">
         Previous
     </a>
 
     <!-- Next Button -->
-    <a href="categorias.jsp?page=<%=paginationTwo%>" class="flex items-center justify-center px-4 h-10 ms-3 text-base font-medium text-bg100 bg-primary100 border border-gray-300 rounded-lg hover:bg-primary200 hover:text-gray-700 ">
+    <a href="<%=request.getContextPath()%>/categorias.jsp?page=<%=paginationTwo%>" class="flex items-center justify-center px-4 h-10 ms-3 text-base font-medium text-bg100 bg-primary100 border border-gray-300 rounded-lg hover:bg-primary200 hover:text-gray-700 ">
         Next
     </a>
 </div>

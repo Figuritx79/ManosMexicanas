@@ -20,6 +20,7 @@ public class ImageDao {
             while (rs.next()){
                 Url url = new Url();
                 url.setUrl(rs.getString("url"));
+                url.setIdColor(rs.getInt("color"));
                 url.setNombreColor(rs.getString("nombre"));
                 urls.add(url);
             }

@@ -23,8 +23,9 @@ public class LoginController extends HttpServlet {
         if(user.getId() == 0){
             resp.setStatus(401);
         }
-        HttpSession session= req.getSession();
+        HttpSession session= req.getSession(true);
         session.setMaxInactiveInterval(30 * 60);
+        session.setAttribute("id",user.getId());
         session.setAttribute("User",user);
         resp.sendRedirect("index.jsp");
     }
