@@ -1,4 +1,6 @@
-<%--
+<%@ page import="mx.edu.utez.manosmexicanas.dao.DireccionDao" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="mx.edu.utez.manosmexicanas.model.Domicilio" %><%--
   Created by IntelliJ IDEA.
   User: moonp
   Date: 8/15/2024
@@ -21,131 +23,150 @@
     <script src="<%=request.getContextPath()%>/static/js/scrollHeader.js" defer></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/headerComponents.css">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-        }
-
-        .header-container {
-            background-color: #232f3e;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-
-        .logo {
-            height: 40px;
-        }
-
-        .header-right a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        .h1 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        img {
-            height: 150px;
-            width: 150px;
-        }
-
-        .account-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Mantiene las 3 columnas en pantallas grandes */
-            gap: 20px;
-        }
-
-        .option {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 250px; /* Limita el ancho máximo */
-            margin: 0 auto; /* Centra el contenedor */
-        }
-
-        .option img {
-            height: 50px;
-            margin-bottom: 15px;
-        }
-
-        .option h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .option p {
-            color: #555;
-        }
-
-        footer {
-            background-color: #232f3e;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        /* Responsiveness for Tablets (stack columns into 2) */
-        @media (max-width: 1024px) {
-            .account-options {
-                grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-            }
-        }
-
-        /* Responsiveness for Mobile Devices (stack into 1 column) */
-        @media (max-width: 640px) {
-            .account-options {
-                grid-template-columns: 1fr; /* 1 columna en móviles */
-            }
-
-            .option {
-                max-width: 100%; /* Deja que ocupe todo el ancho disponible */
-            }
-        }
-
-    </style>
 </head>
 <body class="bg-b100 bg-bg100 text-stone-950">
 
 <%@include file="../components/header.jsp"%>
 <%@include file="../components/search.jsp"%>
 <%@include file="../components/bag.jsp"%>
+<%
+    String idString = request.getParameter("id");
+    int id = Integer.parseInt(idString);
+    UserDao daoUser = new UserDao();
+    Usuario cliente = daoUser.getOneById(id);
+    DireccionDao daoDireccion = new DireccionDao();
 
+    ArrayList<Domicilio> domicilios = daoDireccion.getOneById(id);
+    CarritoDao daoCarrito = new CarritoDao();
+%>
 <main>
-    <h1 class="h1">Mi cuenta</h1>
-    <div class="account-options">
-        <div class="option prime">
-            <img src="icon-prime.png" alt="Prime">
-            <h2>Prime</h2>
-            <p>Administrar tu membresía, consultar los beneficios y la configuración de pago</p>
-        </div>
+    <div class="bg-background text-foreground min-h-screen flex flex-col">
+        <header class="bg-primary text-primary-foreground py-4 px-6 ">
+            <h1 class="text-2xl font-bold">Mi cuenta</h1>
+        </header>
+        <main class="flex-1 py-8 px-6 text-bg100">
+            <section class="bg-primary100 rounded-lg shadow-md p-6 mb-6 hover:border-secondary"">
+                <h2 class="text-lg font-semibold mb-4">Información personal</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-muted-foreground">
+                            Nombre
+                        </label>
+                        <p id="name" class="text-base font-medium">
+                           <%=cliente.getNombre()%> <%=cliente.getApellido()%>
+                        </p>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-muted-foreground">
+                            Correo electrónico
+                        </label>
+                        <p id="email" class="text-base font-medium">
+                            <%=cliente.getCorreo()%>
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <div class="option pagos">
-            <img src="icon-pagos.png" alt="Mis pagos">
-            <h2>Mis pagos</h2>
-            <p>Administrar o agregar métodos de pago y ver tus transacciones</p>
-        </div>
+            <section class="bg-bg100 text-text100 rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Mis Pedidos</h2>
+                <div class="grid grid-cols-1 gap-4">
 
-        <div class="option soporte">
-            <img src="icon-soporte-digital.png" alt="Soporte para dispositivos y servicios digitales">
-            <h2>Soporte para dispositivos y servicios digitales</h2>
-            <p>Soluciona problemas de dispositivos, administra o cancela suscripciones digitales</p>
-        </div>
+                </div>
+            </section>
+            <section class="bg-primary100 text-bg100 rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Direcciones</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <%
+                        if (domicilios.isEmpty()){
+                    %>
+
+                    <a
+                            class="flex items-center justify-between bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-4 py-3 transition-colors"
+                            href="#"
+                    >
+                        <div>
+                            <p class="text-sm text-muted-foreground">No tienes direcciones. Ingresa una.</p>
+                        </div>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-5 h-5 text-muted-foreground"
+                        >
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </a>
+                    <%}%>
+
+                    <%
+                        if(!domicilios.isEmpty()){
+                            for(Domicilio d : domicilios){
+                    %>
+
+                            <a
+                                class="flex items-center justify-between bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-4 py-3 transition-colors"
+                                href="#"
+                            >
+                            <div>
+                                <p class="text-base font-medium">Dirección</p>
+                                <p class="text-sm text-muted-foreground">
+                                        <%=d.getNumeroExterior()%> , <%=d.getCalle()%>
+                                        <%=d.getCiudad()%> , <%=d.getEstado()%>
+                                </p>
+                            </div>
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-5 h-5 text-muted-foreground"
+                             >
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                            </a>
+                    <%  }}  %>
+                </div>
+            </section>
+            <section class="bg-bg100 text-text100 rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Carrito</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <a
+                            class="flex items-center justify-between bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-4 py-3 transition-colors"
+                            href="<%=request.getContextPath()%>/Profile/carrito.jsp?id=<%=id%>"
+                    >
+                        <div>
+                            <p class="text-base font-medium">Carrito</p>
+                            <p class="text-sm text-muted-foreground">Revisa los productos en tu carrito</p>
+                        </div>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-5 h-5 text-muted-foreground"
+                        >
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </main>
     </div>
 </main>
 <%@include file="../components/footer.jsp"%>

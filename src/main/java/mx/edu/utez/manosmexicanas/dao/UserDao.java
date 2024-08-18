@@ -233,4 +233,21 @@ public class UserDao {
         return usuario;
     }
 
+    public Usuario getOneById(int id){
+        var query = "CALL getUseById(?)";
+        Usuario user = new Usuario();
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);){
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                user.setNombre(rs.getString("nombre"));
+                user.setApellido(rs.getString("apellido"));
+                user.setCorreo(rs.getString("correo"));
+            }
+        } catch (SQLException e) {
+           e.printStackTrace();
+        }
+        return user;
+    }
+
 }

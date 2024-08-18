@@ -31,7 +31,7 @@
             </li>
             <li class="font-semibold text-sm">
                 <img src="${pageContext.request.contextPath}/static/img/cog.svg" alt="cuenta" class="inline w-3 h-3 ">
-                <a href="<%=request.getContextPath()%>/Profile/profile.jsp">Cuenta</a>
+                <a href="profile">Cuenta</a>
             </li>
             <li class="font-semibold text-sm">
                 <img src="${pageContext.request.contextPath}/static/img/user.svg" alt="usuario" class="inline w-3 h-3 ">

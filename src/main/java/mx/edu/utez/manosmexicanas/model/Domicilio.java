@@ -2,6 +2,7 @@ package mx.edu.utez.manosmexicanas.model;
 
 public class Domicilio {
 
+    private int id;
     private Usuario usuario;
     private String calle;
     private  String estado;
@@ -77,5 +78,13 @@ public class Domicilio {
 
     public void setCp(String cp) {
         this.cp = cp;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
