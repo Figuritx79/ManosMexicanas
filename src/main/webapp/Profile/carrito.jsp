@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/menu.css">
     <script src="<%=request.getContextPath()%>/static/js/scrollHeader.js" defer></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/headerComponents.css">
+    <script src="<%=request.getContextPath()%>/static/js/selectDireccion.js"></script>
 </head>
 <body>
 <%
@@ -117,13 +118,23 @@
                     </div>
 
                     <div class="items-center p-6 flex gap-2 justify-center">
-                        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2  disabled:opacity-50 border  hover:border-extra hover:text-accent-foreground h-10 px-4 py-2 ">
+                        <form action="pedido" method="post">
+                            <input type="hidden" name="id" value="<%=id%>">
+                            <input type="hidden" name="totalCompra" value="<%=totalCompra%>">
+                            <label for="direccion" class=" mb-2 text-sm font-medium text-text100">Selecciona tu Direccion</label>
+
+                            <select required name="direccion" id="direccion" class="bg-primary100 border border-bg100 text-text100 text-sm rounded-lg focus:ring-primary200 focus:border-primary200 block w-full p-2.5 d" >
+                                <option value="Selecciona" selected disabled class="text-text100" >Selecciona</option>
+                            </select>
+                            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50
+          text-bg100 hover:bg-secondary h-10 px-4 py-2 bg-extra">
+                                Proceder a la compra
+                            </button>
+                        </form>
+                        <button  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2  disabled:opacity-50 border  hover:border-extra hover:text-accent-foreground h-10 px-4 py-2 ">
                             Continuar comprando
                         </button>
-                        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50
-          text-bg100 hover:bg-secondary h-10 px-4 py-2 bg-extra">
-                            Proceder a la compra
-                        </button>
+
                     </div>
                 </div>
             </div>

@@ -14,10 +14,15 @@ public class RedirectProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         if (session == null){
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect(req.getContextPath()+"/index.jsp");
         }
         assert session != null;
-        int idCliente = (int) session.getAttribute("id");
+        Integer idClienteObj = (Integer) session.getAttribute("id");
+        if (idClienteObj == null) {
+            resp.sendRedirect(req.getContextPath() + "/index.jsp");
+            return;  // Asegúrate de no continuar si el id es nulo
+        }
+        int idCliente = idClienteObj;
         var requestContext = req.getContextPath();
         resp.sendRedirect(requestContext+"/Profile/profile.jsp?id="+idCliente);
 
