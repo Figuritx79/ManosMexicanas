@@ -72,7 +72,7 @@
     <div class="flex">
         <p class="title">Página No Encontrada</p>
         <p class="subtitle">No se encontró la página solicitada</p>
-        <a href="index.jsp" class="link-button" title="Return Home">
+        <a href="<%=request.getContextPath()%>/index.jsp" class="link-button" title="Return Home">
             Volver a la tienda
         </a>
     </div>

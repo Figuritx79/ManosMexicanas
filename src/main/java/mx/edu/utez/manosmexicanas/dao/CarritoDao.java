@@ -1,11 +1,15 @@
 package mx.edu.utez.manosmexicanas.dao;
 
+import mx.edu.utez.manosmexicanas.model.Color;
+import mx.edu.utez.manosmexicanas.model.Image;
+import mx.edu.utez.manosmexicanas.model.Producto;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CarritoDao {
 
@@ -40,5 +44,31 @@ public class CarritoDao {
            e.printStackTrace();
         }
         return flag;
+    }
+
+    public ArrayList<Producto> showCarrito(int idUser){
+        var query = "CALL getCarrito(?)";
+        ArrayList<Producto>productos = new ArrayList<>();
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);){
+            ps.setInt(1,idUser);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Producto producto = new Producto();
+                Image image = new Image();
+                Color color = new Color();
+//                INSERTS
+                color.setId(rs.getInt("idColor"));
+                producto.setNombre(rs.getString("producto"));
+                producto.setId(rs.getInt("idProducto"));
+                producto.setPrecio(rs.getDouble("precio"));
+                image.setUrl(rs.getString("url"));
+                image.setColor(color);
+                producto.setImage(image);
+                productos.add(producto);
+            }
+        } catch (SQLException e) {
+           e.printStackTrace();
+        }
+        return productos;
     }
 }

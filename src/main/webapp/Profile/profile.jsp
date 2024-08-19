@@ -18,7 +18,7 @@
     <script src="<%=request.getContextPath()%>/static/js/tailwind.config.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/style.css">
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/img/Jira.png" type="image/x-icon">
-    <title>Manos Mexicanas</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/menu.css">
     <script src="<%=request.getContextPath()%>/static/js/scrollHeader.js" defer></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/static/css/headerComponents.css">
