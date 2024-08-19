@@ -1,11 +1,11 @@
 package mx.edu.utez.manosmexicanas.dao;
 
+import mx.edu.utez.manosmexicanas.model.Pedido;
 import mx.edu.utez.manosmexicanas.utils.DbConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class PedidoDao {
     public boolean insertPedido(int idUser,double total, int domicilio){
@@ -40,5 +40,26 @@ public class PedidoDao {
         }
         return idPedido;
 
+    }
+    public ArrayList<Pedido> listPedido(int idUser){
+        ArrayList<Pedido> pedidos = new ArrayList<>();
+        var query = "CALL getPedidos(?) ";
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query)){
+            ps.setInt(1,idUser);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Pedido pedido = new Pedido();
+                Timestamp timestamp = rs.getTimestamp("fecha");
+                LocalDateTime fecha = timestamp.toLocalDateTime();
+                pedido.setFecha(fecha);
+                pedido.setTotal(rs.getDouble("total"));
+                pedido.setId(rs.getInt("id"));
+                pedidos.add(pedido);
+            }
+            rs.close();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pedidos;
     }
 }

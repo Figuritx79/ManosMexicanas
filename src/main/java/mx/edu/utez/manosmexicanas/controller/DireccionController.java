@@ -33,7 +33,21 @@ public class DireccionController extends HttpServlet {
         resp.getWriter().write(json);
     }
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String calle = req.getParameter("calle");
+        String estado = req.getParameter("estado");
+        String ciudad = req.getParameter("ciudad");
+        String exterior = req.getParameter("exterior");
+        String interior = req.getParameter("interior");
+        String cp = req.getParameter("cp");
 
+        String idUser = req.getParameter("id");
+        int id = Integer.parseInt(idUser);
+
+        DireccionDao direccionDao = new DireccionDao();
+        boolean resultDireccion = direccionDao.insertDireccion(id, cp,calle,estado,ciudad,exterior,interior);
+        if (resultDireccion){
+            res.sendRedirect(req.getContextPath()+"/Profile/profile.jsp?id="+id);
+        }
     }
 }

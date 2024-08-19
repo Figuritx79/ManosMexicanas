@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Pedido {
+    private int id;
     private Usuario usuario;
     private int cantidad;
     private double total;
@@ -59,5 +60,13 @@ public class Pedido {
 
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -1,6 +1,8 @@
 <%@ page import="mx.edu.utez.manosmexicanas.dao.DireccionDao" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="mx.edu.utez.manosmexicanas.model.Domicilio" %><%--
+<%@ page import="mx.edu.utez.manosmexicanas.model.Domicilio" %>
+<%@ page import="mx.edu.utez.manosmexicanas.dao.PedidoDao" %>
+<%@ page import="mx.edu.utez.manosmexicanas.model.Pedido" %><%--
   Created by IntelliJ IDEA.
   User: moonp
   Date: 8/15/2024
@@ -38,6 +40,8 @@
 
     ArrayList<Domicilio> domicilios = daoDireccion.getOneById(id);
     CarritoDao daoCarrito = new CarritoDao();
+    PedidoDao pedidosDao = new PedidoDao();
+    ArrayList<Pedido> pedidosD = pedidosDao.listPedido(id);
 %>
 <main>
     <div class="bg-background text-foreground min-h-screen flex flex-col">
@@ -70,7 +74,37 @@
             <section class="bg-bg100 text-text100 rounded-lg shadow-md p-6 mb-6">
                 <h2 class="text-lg font-semibold mb-4">Mis Pedidos</h2>
                 <div class="grid grid-cols-1 gap-4">
-
+                    <%
+                        if (!pedidosD.isEmpty()){
+                            for (Pedido pe : pedidosD){
+                    %>
+                             <a
+                                     class="flex items-center justify-between bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-4 py-3 transition-colors"
+                                     href="#"
+                             >
+                                 <div>
+                                     <p class="text-base font-medium">Pedido <%=pe.getId()%></p>
+                                     <p class="text-sm text-muted-foreground">
+                                         Fecha de la compra :<%=pe.getFecha()%>,
+                                         Total de la compra :<%=pe.getTotal()%>
+                                     </p>
+                                 </div>
+                                 <svg
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         width="24"
+                                         height="24"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2"
+                                         stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         class="w-5 h-5 text-muted-foreground"
+                                 >
+                                     <path d="m9 18 6-6-6-6"></path>
+                                 </svg>
+                             </a>
+                    <%}}%>
                 </div>
             </section>
             <section class="bg-primary100 text-bg100 rounded-lg shadow-md p-6 mb-6">
@@ -136,6 +170,29 @@
                             </svg>
                             </a>
                     <%  }}  %>
+                    <a
+                            class="flex items-center justify-between bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-4 py-3 transition-colors"
+                            href="<%=request.getContextPath()%>/Profile/crearDireccion.jsp?id=<%=id%>"
+                    >
+                        <div>
+                            <p class="text-base font-medium">Agrega una direccion</p>
+                            <p class="text-sm text-muted-foreground">Si tienes mas de una direccion las puedes ingresar</p>
+                        </div>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-5 h-5 text-muted-foreground"
+                        >
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </a>
                 </div>
             </section>
             <section class="bg-bg100 text-text100 rounded-lg shadow-md p-6 mb-6">
@@ -148,6 +205,34 @@
                         <div>
                             <p class="text-base font-medium">Carrito</p>
                             <p class="text-sm text-muted-foreground">Revisa los productos en tu carrito</p>
+                        </div>
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="w-5 h-5 text-muted-foreground"
+                        >
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+            <section class="bg-primary100 text-text100 rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4">Cerrar Sesion</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <a
+                            class="flex items-center justify-between bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-4 py-3 transition-colors"
+                            href="cerrar"
+                    >
+                        <div>
+                            <p class="text-base font-medium">Cerrar Sesion</p>
+                            <p class="text-sm text-muted-foreground">Salir de mi cuenta</p>
                         </div>
                         <svg
                                 xmlns="http://www.w3.org/2000/svg"

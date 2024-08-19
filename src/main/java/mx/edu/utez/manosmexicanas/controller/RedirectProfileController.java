@@ -20,7 +20,7 @@ public class RedirectProfileController extends HttpServlet {
         Integer idClienteObj = (Integer) session.getAttribute("id");
         if (idClienteObj == null) {
             resp.sendRedirect(req.getContextPath() + "/index.jsp");
-            return;  // Asegúrate de no continuar si el id es nulo
+            return;
         }
         int idCliente = idClienteObj;
         var requestContext = req.getContextPath();

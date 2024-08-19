@@ -33,4 +33,24 @@ public class DireccionDao {
         }
         return domicilios;
     }
+    public boolean insertDireccion(int id, String cp, String calle, String estado,
+                                   String ciudad, String exterior, String interior){
+        var query ="CALL insertDireccion(?,?,?,?,?,?,?)";
+        var flag = false;
+        try(Connection conn = DbConnectionManager.getConnection(); PreparedStatement ps = conn.prepareStatement(query);) {
+            ps.setInt(1,id);
+            ps.setString(2,cp);
+            ps.setString(3,calle);
+            ps.setString(4,ciudad);
+            ps.setString(5,estado);
+            ps.setString(6,exterior);
+            ps.setString(7,interior);
+            if (ps.executeUpdate() > 0){
+                flag = true;
+            }
+        } catch (SQLException e) {
+           e.printStackTrace();
+        }
+        return flag;
+    }
 }
